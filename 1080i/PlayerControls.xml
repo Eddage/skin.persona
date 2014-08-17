@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="400">
+
+	<defaultcontrol always="true">403</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<visible>Player.HasMedia + Window.IsActive(PlayerControls) + !VideoPlayer.IsFullscreen + !Window.IsActive(Visualisation)</visible>
+
+	<controls>
+
+		<control type="group">
+			<top>1000</top>
+			
+			<control type="group">
+				<left>25</left>
+				<bottom>30</bottom>
+				<height>70</height>
+
+				<control type="grouplist" id="1">
+					<centerleft>50%</centerleft>
+					<width>760</width>
+					<height>70</height>
+					<itemgap>5</itemgap>
+					<orientation>horizontal</orientation>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<onup>-</onup>
+					<ondown>-</ondown>
+
+					<control type="togglebutton" id="400">
+						<include>OSDButton</include>
+						<usealttexture>Playlist.IsRandom</usealttexture>
+						<onclick>playercontrol(random)</onclick>
+						<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+						<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+					</control>
+
+					<control type="button" id="401">
+						<include>OSDButton</include>
+						<onclick>playercontrol(previous)</onclick>
+					</control>
+
+					<control type="button" id="402">
+						<include>OSDButton</include>
+						<onclick>playercontrol(rewind)</onclick>
+					</control>
+
+					<control type="togglebutton" id="403">
+						<include>OSDButton</include>
+						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+						<onclick>PlayerControl(Play)</onclick>
+						<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+						<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+					</control>
+
+					<control type="button" id="404">
+						<include>OSDButton</include>
+						<onclick>playercontrol(stop)</onclick>
+					</control>
+
+					<control type="button" id="405">
+						<include>OSDButton</include>
+						<onclick>playercontrol(forward)</onclick>
+					</control>
+
+					<control type="button" id="406">
+						<include>OSDButton</include>
+						<onclick>playercontrol(next)</onclick>
+					</control>
+
+					<control type="button" id="407">
+						<include>OSDButton</include>
+						<onclick>playercontrol(repeat)</onclick>
+					</control>
+
+					<control type="button" id="2">
+						<include>OSDButton</include>
+						<onclick>fullscreen</onclick>
+					</control>
+
+				</control>
+	  
+				<control type="grouplist"> <!--button bg-->
+					<centerleft>50%</centerleft>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
+					<width>760</width>
+					<defaultcontrol always="true">602</defaultcontrol>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/shuffle.png</texture>
+						<visible>!Playlist.IsRandom</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/shuffle.png</texture>
+						<visible>Playlist.IsRandom</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/previous.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/rewind.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/pause.png</texture>
+						<visible>!Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/play.png</texture>
+						<visible>Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/stop.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/ff.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/next.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/repeat.png</texture>
+						<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/repeat.png</texture>
+						<visible>Playlist.IsRepeat</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/repeatone.png</texture>
+						<visible>Playlist.IsRepeatOne</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/fullscreen.png</texture>
+					</control>
+					
+				</control>
+			
+				<control type="image">
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					<visible>IsEmpty(MusicPlayer.Cover) + Player.HasAudio</visible>
+				</control>
+			
+				<control type="image"> <!--music fallback-->
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<texture>symbols/music.png</texture>
+					<visible>IsEmpty(MusicPlayer.Cover) + Player.HasAudio</visible>
+				</control>
+			
+				<control type="image"> <!--thumb-->
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>scale</aspectratio>
+					<texture>$VAR[PlayerControlThumb]</texture>
+				</control>
+				
+				<control type="grouplist"> <!--video labels-->
+					<left>130</left>
+					<centertop>50%</centertop>
+					<width>1750</width>
+					<height>54</height>
+					<orientation>vertical</orientation>
+					<itemgap>2</itemgap>
+					<visible>Player.HasVideo</visible>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070]</label>
+						<scroll>true</scroll>
+						<font>ButtonBoldUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>!Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070] • $LOCALIZE[112]</label>
+						<scroll>true</scroll>
+						<font>ButtonBoldUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$INFO[VideoPlayer.Time]/$INFO[VideoPlayer.Duration,, • ]$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title]</label>
+						<scroll>false</scroll>
+						<font>Button</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+					</control>
+					
+				</control>
+				
+				<control type="grouplist"> <!--labels-->
+					<left>130</left>
+					<centertop>50%</centertop>
+					<width>1750</width>
+					<height>54</height>
+					<orientation>vertical</orientation>
+					<itemgap>2</itemgap>
+					<visible>Player.HasAudio</visible>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070]</label>
+						<scroll>true</scroll>
+						<font>ButtonBoldUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>!Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070] • $LOCALIZE[112]</label>
+						<scroll>true</scroll>
+						<font>ButtonBoldUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>375</width>
+						<height>25</height>
+						<label>$INFO[MusicPlayer.Time]/$INFO[MusicPlayer.Duration,, • ]$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
+						<scroll>false</scroll>
+						<font>Button</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+					</control>
+					
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

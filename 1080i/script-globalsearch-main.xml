@@ -1,0 +1,2360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<allowoverlay>no</allowoverlay>
+	
+	<controls>
+	
+		<control type="group" id="100">
+		
+			<include>GlobalBackground</include>
+		
+			<control type="group"> <!--fanarts-->
+			
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(111)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(121).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(121)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(131).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(131)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(141).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(141)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(151).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(151)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(161).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(161)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(171).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(171)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>1080</height>
+					<texture background="true" fallback="backgrounds/bg.png">$INFO[Container(181).ListItem.Property(Fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<animation effect="fade" time="200">Visible</animation>
+					<animation effect="fade" time="200">Hidden</animation>
+					<visible>Control.HasFocus(181)</visible>
+				</control>
+		
+				<control type="image"> <!--overlay-->
+					<texture colordiffuse="HomeBG">backgrounds/diffuse.png</texture>
+				</control>
+				
+			</control>
+			
+			<include>GlobalClock</include>
+			
+			<control type="group"> <!--breadcrumb-->
+						
+				<control type="grouplist"> <!--rating-->
+					<left>75</left>
+					<top>50</top>
+					<width min="90" max="1600">auto</width>
+					<height>78</height>
+					<itemgap>15</itemgap>
+					<orientation>horizontal</orientation>
+					<align>left</align>
+				
+					<control type="label">
+						<label>Search Results</label>
+						<width>auto</width>
+						<include>BreadcrumbLabelLeft</include>
+					</control>
+				
+					<control type="label">
+						<label>"$INFO[Window.Property(GlobalSearch.SearchString)]"</label>
+						<width max="1300">auto</width>
+						<height>87</height>
+						<font>BreadcrumbSmall</font>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<include>BreadcrumbLabelLeft</include>
+						<scroll>false</scroll>
+					</control>
+					
+				</control>
+				
+			</control>
+			
+			<control type="label" id="190"> <!--searching label-->
+				<centerleft>50%</centerleft>
+				<top>-1180</top>
+				<width>650</width>
+				<label>-</label>
+				<font>LoginTitle</font>
+				<textcolor>PrimaryT</textcolor>
+				<align>center</align>
+			</control>
+			
+			<control type="label" id="191"> <!--search cat label-->
+				<centerleft>50%</centerleft>
+				<top>-1180</top>
+				<width>650</width>
+				<label>-</label>
+				<font>ButtonUpper</font>
+				<textcolor>PrimaryT</textcolor>
+				<align>left</align>
+			</control>			
+			
+			<control type="label"> <!--searching label-->
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1500</width>
+				<label>$INFO[Control.GetLabel(191),Searching ,...]</label>
+				<font>LoginTitle</font>
+				<textcolor>PrimaryT</textcolor>
+				<align>center</align>
+			</control>
+			
+			<control type="group">
+				<posx>1596</posx>
+				<posy>15</posy>
+				<visible>!IsEmpty(Control.GetLabel(190))</visible>
+				<include>HiddenByMenu</include>
+				<include>FadeandZoom</include>
+				<animation effect="slide" start="0,-94" end="0,0" time="300">Visible</animation>
+	
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="1500" />
+					<effect type="slide" start="0,0" end="350,0" time="800" />
+				</animation>
+			
+				<control type="group">
+			
+					<posx>10</posx>
+					<posy>0</posy>
+				
+					<control type="image">
+						<posx>0</posx>
+						<posy>12</posy>
+						<width>50</width>
+						<height>50</height>
+						<texture>dialogs/busy.png</texture>
+						<animation effect="rotate" start="0" end="-360" center="25,37" time="1200" loop="true" condition="true">conditional</animation>
+					</control>
+				
+					<control type="label">
+						<description>Header</description>
+						<posx>55</posx>
+						<posy>2</posy>
+						<width>260</width>
+						<font>NotificationHeader</font>
+						<textcolor>grey</textcolor>
+						<align>left</align>
+						<label>Please wait...</label>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+					</control>
+				
+				</control>
+			
+			</control>
+			
+			<control type="label" id="199"> <!--no results label-->
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<label>$LOCALIZE[284]</label>
+				<font>InfoHeader</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>grey</textcolor>
+				<include>HiddenByMenu</include>
+				<include>FadeandZoom</include>
+			</control>
+			
+			<control type="grouplist" id="101"> <!--search results-->
+				<left>0</left>
+				<top>10</top>
+				<width>2500</width>
+				<height>4000</height>
+				<orientation>vertical</orientation>
+				<itemgap>-155</itemgap>
+				<include>HiddenByMenu</include>
+				<include>FadeandZoom</include>
+				<animation effect="slide" start="0,0" end="0,-2000" time="0" condition="!IsEmpty(Control.GetLabel(190))">Conditional</animation>
+				
+				<control type="group" id="119"> <!--movies-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(1)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="110"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[342]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="111"> <!--movie results-->
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>111</onright>
+						<onleft>111</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>55</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+							</control>
+
+							<control type="label"> <!--label-->
+								<left>15</left>
+								<top>425</top>
+								<width>280</width>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>PrimaryT</textcolor>
+								<scroll>false</scroll>
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+								<visible>Control.HasFocus(111)</visible>
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+								<visible>!Control.HasFocus(111)</visible>
+							</control>
+
+							<control type="textbox"> <!--label-->
+								<left>15</left>
+								<top>434</top>
+								<width>280</width>
+								<height>70</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<autoscroll delay="2000" time="1750" repeat="3000"/>
+							</control>
+							
+							<control type="group"> <!--movie/tv show base info-->
+								<top>-65</top>
+									
+								<control type="image"> <!--star-->
+									<left>13</left>
+									<top>578</top>
+									<width>25</width>
+									<height>25</height>
+									<texture>symbols/infostar.png</texture>
+									<aspectratio>keep</aspectratio>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label fallback="NR">$INFO[ListItem.Property(Rating)]</label>
+									<visible>!StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>31079</label>
+									<visible>StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--movies base info-->
+									<left>72</left>
+									<top>565</top>
+									<width>500</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(Year), • ,]$INFO[ListItem.Property(Duration), • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+									<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="129"> <!--tv shows-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(2)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="120"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[20343]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="121"> <!--tv show results-->
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>121</onright>
+						<onleft>121</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>55</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+							</control>
+
+							<control type="label"> <!--label-->
+								<left>15</left>
+								<top>425</top>
+								<width>280</width>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>PrimaryT</textcolor>
+								<scroll>false</scroll>
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+								<visible>Control.HasFocus(121)</visible>
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+								<visible>!Control.HasFocus(121)</visible>
+							</control>
+
+							<control type="textbox"> <!--label-->
+								<left>15</left>
+								<top>434</top>
+								<width>280</width>
+								<height>70</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<autoscroll delay="2000" time="1750" repeat="3000"/>
+							</control>
+							
+							<control type="group"> <!--movie/tv show base info-->
+								<top>-65</top>
+									
+								<control type="image"> <!--star-->
+									<left>13</left>
+									<top>578</top>
+									<width>25</width>
+									<height>25</height>
+									<texture>symbols/infostar.png</texture>
+									<aspectratio>keep</aspectratio>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label fallback="NR">$INFO[ListItem.Property(Rating)]</label>
+									<visible>!StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>31079</label>
+									<visible>StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--movies base info-->
+									<left>72</left>
+									<top>565</top>
+									<width>500</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(Year), • ,]$INFO[ListItem.Property(Studio), • ,]</label>
+									<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="139"> <!--seasons-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(3)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="130"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[33054]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="fixedlist" id="131">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>131</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>55</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+							</control>
+
+							<control type="label"> <!--label-->
+								<left>15</left>
+								<top>425</top>
+								<width>280</width>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>PrimaryT</textcolor>
+								<scroll>false</scroll>
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout width="325" height="700">
+
+							<control type="image"> <!--thumb bg-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--fallback image (actors)-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+								<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+							</control>
+
+							<control type="image"> <!--thumb-->
+								<left>0</left>
+								<top>0</top>
+								<width>310</width>
+								<height>430</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$VAR[PosterThumb]</texture>
+							</control>
+							
+							<control type="group">
+								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+								<visible>Control.HasFocus(131)</visible>
+							</control>
+					
+							<control type="image"> <!--label bg-->
+								<left>0</left>
+								<top>430</top>
+								<width>310</width>
+								<height>120</height>
+								<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+								<visible>!Control.HasFocus(131)</visible>
+							</control>
+
+							<control type="textbox"> <!--label-->
+								<left>15</left>
+								<top>434</top>
+								<width>280</width>
+								<height>70</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>list</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<autoscroll delay="2000" time="1750" repeat="3000"/>
+							</control>
+							
+							<control type="group"> <!--movie/tv show base info-->
+								<top>-65</top>
+									
+								<control type="image"> <!--star-->
+									<left>13</left>
+									<top>578</top>
+									<width>25</width>
+									<height>25</height>
+									<texture>symbols/infostar.png</texture>
+									<aspectratio>keep</aspectratio>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label fallback="NR">$INFO[ListItem.Property(Rating)]</label>
+									<visible>!StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--base info-->
+									<left>40</left>
+									<top>565</top>
+									<width>235</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>31079</label>
+									<visible>StringCompare(ListItem.Property(Rating),10.0)</visible>
+								</control>
+								
+								<control type="label"> <!--movies base info-->
+									<left>72</left>
+									<top>565</top>
+									<width>500</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(TvShowTitle)]</label>
+									<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="149"> <!--episodes-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1300</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(4)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="140"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[20360]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="141">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>141</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout width="445" height="700">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>keep</aspectratio>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>55</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+								</control>
+
+								<control type="label"> <!--label-->
+									<left>15</left>
+									<top>263</top>
+									<width>400</width>
+									<label>$INFO[ListItem.Property(TvShowTitle)] - $INFO[ListItem.Property(Season),,x]$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>PrimaryT</textcolor>
+									<scroll>false</scroll>
+								</control>
+								
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout width="445" height="700">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>keep</aspectratio>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>Control.HasFocus(141)</visible>
+								</control>
+						
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+									<visible>!Control.HasFocus(141)</visible>
+								</control>
+
+								<control type="textbox"> <!--label-->
+									<left>15</left>
+									<top>272</top>
+									<width>400</width>
+									<height>70</height>
+									<label>$INFO[ListItem.Property(TvShowTitle)] - $INFO[ListItem.Property(Season),,x]$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<autoscroll delay="2000" time="1750" repeat="3000"/>
+								</control>
+								
+								<control type="group">
+										
+									<control type="image"> <!--star-->
+										<left>13</left>
+										<top>351</top>
+										<width>25</width>
+										<height>25</height>
+										<texture>symbols/infostar.png</texture>
+										<aspectratio>keep</aspectratio>
+									</control>
+									
+									<control type="label"> <!--base info-->
+										<left>40</left>
+										<top>338</top>
+										<width>235</width>
+										<height>50</height>
+										<font>ButtonBoldSmall</font>
+										<textcolor>white</textcolor>
+										<selectedcolor>white</selectedcolor>
+										<label fallback="NR">$INFO[ListItem.Property(Rating)]</label>
+										<visible>!StringCompare(ListItem.Property(Rating),10.0)</visible>
+									</control>
+									
+									<control type="label"> <!--base info-->
+										<left>40</left>
+										<top>338</top>
+										<width>235</width>
+										<height>50</height>
+										<font>ButtonBoldSmall</font>
+										<textcolor>white</textcolor>
+										<selectedcolor>white</selectedcolor>
+										<label>31079</label>
+										<visible>StringCompare(ListItem.Property(Rating),10.0)</visible>
+									</control>
+									
+									<control type="label"> <!--base info-->
+										<left>72</left>
+										<top>338</top>
+										<width>500</width>
+										<height>50</height>
+										<font>ButtonBoldSmall</font>
+										<textcolor>white</textcolor>
+										<selectedcolor>white</selectedcolor>
+										<label>$INFO[ListItem.Property(Premiered), • ,]$INFO[ListItem.Property(Duration), • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+										<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+									</control>
+									
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="159"> <!--music videos-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(5)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="150"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[20389]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="151">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>151</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout width="445" height="700">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>keep</aspectratio>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>55</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+								</control>
+
+								<control type="label"> <!--label-->
+									<left>15</left>
+									<top>263</top>
+									<width>400</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>PrimaryT</textcolor>
+									<scroll>false</scroll>
+								</control>
+								
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout width="445" height="700">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>keep</aspectratio>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>268</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+
+								<control type="image"> <!--watched/resumable background-->
+									<left>0</left>
+									<top>0</top>
+									<width>50</width>
+									<height>50</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+								</control>
+							
+								<control type="image"> <!--watched icon-->
+									<left>-8</left>
+									<top>-8</top>
+									<width>65</width>
+									<height>65</height>
+									<texture>$VAR[Overlay]</texture>
+									<visible>!ListItem.IsResumable</visible>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>Control.HasFocus(151)</visible>
+								</control>
+						
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>268</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+									<visible>!Control.HasFocus(151)</visible>
+								</control>
+
+								<control type="textbox"> <!--label-->
+									<left>15</left>
+									<top>272</top>
+									<width>400</width>
+									<height>70</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<autoscroll delay="2000" time="1750" repeat="3000"/>
+								</control>
+								
+								<control type="group">
+									
+									<control type="label"> <!--base info-->
+										<left>15</left>
+										<top>338</top>
+										<width>500</width>
+										<height>50</height>
+										<font>ButtonBoldSmall</font>
+										<textcolor>white</textcolor>
+										<selectedcolor>white</selectedcolor>
+										<label>$INFO[ListItem.Property(Artist)] ($INFO[ListItem.Property(Album)])$INFO[ListItem.Property(Duration), • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+										<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+									</control>
+									
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="169"> <!--artists-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(6)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="160"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[133]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="161">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>161</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>55</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								</control>
+
+								<control type="label"> <!--label-->
+									<left>15</left>
+									<top>425</top>
+									<width>400</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>PrimaryT</textcolor>
+									<scroll>false</scroll>
+								</control>
+								
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>Control.HasFocus(161)</visible>
+								</control>
+						
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+									<visible>!Control.HasFocus(161)</visible>
+								</control>
+
+								<control type="textbox"> <!--label-->
+									<left>15</left>
+									<top>434</top>
+									<width>400</width>
+									<height>70</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<autoscroll delay="2000" time="1750" repeat="3000"/>
+								</control>
+								
+									
+								<control type="label"> <!--base info-->
+									<left>15</left>
+									<top>500</top>
+									<width>400</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="179"> <!--albums-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(7)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="170"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[132]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="171">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>171</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>55</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								</control>
+
+								<control type="label"> <!--label-->
+									<left>15</left>
+									<top>425</top>
+									<width>400</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>PrimaryT</textcolor>
+									<scroll>false</scroll>
+								</control>
+								
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>Control.HasFocus(171)</visible>
+								</control>
+						
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+									<visible>!Control.HasFocus(171)</visible>
+								</control>
+
+								<control type="textbox"> <!--label-->
+									<left>15</left>
+									<top>434</top>
+									<width>400</width>
+									<height>70</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<autoscroll delay="2000" time="1750" repeat="3000"/>
+								</control>
+								
+									
+								<control type="label"> <!--base info-->
+									<left>15</left>
+									<top>500</top>
+									<width>400</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Artist), • ]</label>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+				<control type="group" id="189"> <!--songs-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>155</height>
+					<visible>Container(302).HasFocus(8)</visible>
+						
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="0" />
+						<effect type="slide" start="0,500" end="0,0" time="0" />
+					</animation>
+					
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="0" />
+						<effect type="slide" start="0,0" end="0,-500" time="0" />
+					</animation>
+					
+					<control type="grouplist">
+						<left>75</left>
+						<top>335</top>
+						<width>1200</width>
+						<height>66</height>
+						<orientation>horizontal</orientation>
+						
+						<control type="label" id="180"> <!--number of movies found-->
+							<width min="10" max="280">auto</width>
+							<label>-</label>
+							<font>HomeHeader</font>
+						</control>
+						
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<label> $LOCALIZE[134]</label>
+							<font>HomeHeader</font>
+						</control>
+						
+					</control>
+					
+					<control type="list" id="181">
+						<left>75</left>
+						<top>395</top>
+						<width>1920</width>
+						<height>700</height>
+						<onright>181</onright>
+						<onleft>302</onleft>
+						<onup>302</onup>
+						<ondown>302</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="Poster">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<scrolltime>0</scrolltime>
+						
+						<itemlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>55</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+								</control>
+
+								<control type="label"> <!--label-->
+									<left>15</left>
+									<top>425</top>
+									<width>400</width>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>PrimaryT</textcolor>
+									<scroll>false</scroll>
+								</control>
+								
+							</control>
+							
+						</itemlayout>
+						
+						<focusedlayout height="700" width="445">
+				
+							<control type="group">
+								<top>0</top>
+
+								<control type="image"> <!--thumb bg-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--fallback image-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultmusic.png</texture>
+									<visible>IsEmpty(ListItem.Thumb)</visible>
+								</control>
+
+								<control type="image"> <!--thumb-->
+									<left>0</left>
+									<top>0</top>
+									<width>430</width>
+									<height>430</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Thumb]</texture>
+								</control>
+								
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									<visible>Control.HasFocus(181)</visible>
+								</control>
+						
+								<control type="image"> <!--label bg-->
+									<left>0</left>
+									<top>430</top>
+									<width>430</width>
+									<height>120</height>
+									<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+									<visible>!Control.HasFocus(181)</visible>
+								</control>
+
+								<control type="textbox"> <!--label-->
+									<left>15</left>
+									<top>434</top>
+									<width>400</width>
+									<height>70</height>
+									<label>$INFO[ListItem.Label]</label>
+									<font>list</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<autoscroll delay="2000" time="1750" repeat="3000"/>
+								</control>
+								
+									
+								<control type="label"> <!--base info-->
+									<left>15</left>
+									<top>500</top>
+									<width>400</width>
+									<height>50</height>
+									<font>ButtonBoldSmall</font>
+									<textcolor>white</textcolor>
+									<selectedcolor>white</selectedcolor>
+									<label>$INFO[ListItem.Property(Artist)] ($INFO[ListItem.Property(Album)])$INFO[ListItem.Property(Duration), • ]</label>
+								</control>
+								
+							</control>
+							
+						</focusedlayout>
+						
+					</control>
+					
+				</control>
+				
+			</control>
+			
+			<control type="group"> <!--menus/buttons-->	
+				<top>170</top>
+				<include>HiddenByMenu</include>
+				<include>FadeandZoom</include>
+				<animation effect="slide" start="0,0" end="0,-2000" time="0" condition="!IsEmpty(Control.GetLabel(190))">Conditional</animation>
+			
+				<control type="list" id="302"> <!--menu-->
+					<left>75</left>
+					<top>60</top>
+					<width>1776</width>
+					<height>850</height>
+					<onup>198</onup>
+					<onright>302</onright>
+					<onleft>302</onleft>
+					<ondown condition="Container(302).HasFocus(1)">111</ondown>
+					<ondown condition="Container(302).HasFocus(2)">121</ondown>
+					<ondown condition="Container(302).HasFocus(3)">131</ondown>
+					<ondown condition="Container(302).HasFocus(4)">141</ondown>
+					<ondown condition="Container(302).HasFocus(5)">151</ondown>
+					<ondown condition="Container(302).HasFocus(6)">161</ondown>
+					<ondown condition="Container(302).HasFocus(7)">171</ondown>
+					<ondown condition="Container(302).HasFocus(8)">181</ondown>
+					<ondown>300</ondown>
+					<scrolltime>0</scrolltime>
+					<orientation>horizontal</orientation>
+					
+					<itemlayout width="222" height="200">
+
+						<control type="image"> <!--background-->
+							<width>214</width>
+							<height>90</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>
+				
+						<control type="label">
+							<left>107</left>
+							<top>13</top>
+							<width>194</width>
+							<font>HomeTitle</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+			
+					</itemlayout>
+				
+					<focusedlayout width="222" height="200">
+
+						<control type="image"> <!--background-->
+							<width>214</width>
+							<height>90</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+							<visible>!Control.HasFocus(302)</visible>
+						</control>
+
+						<control type="image"> <!--background-->
+							<width>214</width>
+							<height>90</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+							<visible>Control.HasFocus(302)</visible>
+						</control>
+			
+						<control type="label">
+							<left>107</left>
+							<top>13</top>
+							<width>194</width>
+							<font>HomeTitle</font>
+							<textcolor>PrimaryT</textcolor>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!Control.HasFocus(302)</visible>
+						</control>
+			
+						<control type="label">
+							<left>107</left>
+							<top>13</top>
+							<width>194</width>
+							<font>HomeTitle</font>
+							<textcolor>white</textcolor>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(302)</visible>
+						</control>
+				
+					</focusedlayout>
+
+					<content>
+					
+						<item id="1" description="Movies">
+							<label>Movies</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(110))</visible>
+						</item>
+					
+						<item id="2" description="TV Shows">
+							<label>TV Shows</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(120))</visible>
+						</item>
+					
+						<item id="3" description="Seasons">
+							<label>Seasons</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(130))</visible>
+						</item>
+					
+						<item id="4" description="Episodes">
+							<label>Episodes</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(140))</visible>
+						</item>
+					
+						<item id="5" description="Music Videos">
+							<label>Music Videos</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(150))</visible>
+						</item>
+					
+						<item id="6" description="Artists">
+							<label>Artists</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(160))</visible>
+						</item>
+					
+						<item id="7" description="Albums">
+							<label>Albums</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(170))</visible>
+						</item>
+					
+						<item id="8" description="Songs">
+							<label>Songs</label>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Control.GetLabel(180))</visible>
+						</item>
+					
+					</content>
+				
+				</control>
+			
+				<control type="button" id="198"> <!--new search button-->
+					<left>-1000</left>
+					<label>-</label>
+					<texturenofocus>-</texturenofocus>
+					<texturefocus>-</texturefocus>
+					<onup>198</onup>
+					<ondown>302</ondown>
+					<onleft>302</onleft>
+					<onright>302</onright>
+				</control>
+	
+				<control type="label">
+					<left>75</left>
+					<top>-65</top>
+					<width>500</width>
+					<font>ButtonSmallUpper</font>
+					<textcolor>PrimaryT</textcolor>
+					<align>left</align>
+					<label>New search</label>
+					<visible>!Control.HasFocus(198)</visible>
+				</control>
+	
+				<control type="label">
+					<left>75</left>
+					<top>-65</top>
+					<width>500</width>
+					<font>ButtonSmallUpper</font>
+					<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+					<align>left</align>
+					<label>New search</label>
+					<visible>Control.HasFocus(198)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

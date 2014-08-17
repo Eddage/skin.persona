@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="113">
+
+	<defaultcontrol always="true">901</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<zorder>7</zorder>
+
+	<controls>
+
+		<control type="group">
+			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<animation effect="fade" start="100" end="5" time="250" condition="ControlGroup(9000).HasFocus">Conditional</animation>
+			
+			<control type="image" id="901"> <!--mute symbol-->
+				<right>75</right>
+				<bottom>45</bottom>
+				<width>38</width>
+				<height>38</height>
+				<texture colordiffuse="PrimaryT">symbols/mute-48.png</texture>
+			</control>
+
+		</control>
+
+		<control type="group">
+			<visible>Window.IsVisible(fullscreenvideo)</visible>
+
+			<control type="image"> <!--bg-->
+				<left>0</left>
+				<top>57</top>
+				<width>1920</width>
+				<height>68</height>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+				<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(fullscreeninfo) | Window.IsVisible(videoosd) | Window.IsVisible(seekbar) | Window.IsVisible(volumebar) | Window.IsVisible(infodialog)]</visible>
+			</control>
+			
+			<control type="image" id="901"> <!--mute symbol-->
+				<right>75</right>
+				<top>74</top>
+				<width>38</width>
+				<height>38</height>
+				<texture colordiffuse="white">symbols/mute-48.png</texture>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

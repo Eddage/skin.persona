@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window type="dialog" id="142">
+
+	<defaultcontrol always="true">603</defaultcontrol>
+	<zorder>0</zorder>
+	
+	<controls>
+
+		<control type="group">
+		
+			<control type="image"> <!--top-->
+				<include>FullScreenDimensions</include>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+			</control>
+			
+			<control type="group">
+
+				<control type="label"> <!--time-->
+					<right>75</right>
+					<top>50</top>
+					<width>200</width>
+					<label>$INFO[System.Time]</label>
+					<font>Breadcrumb</font>
+					<textcolor>PrimaryOSD</textcolor>
+					<align>right</align>
+					<aligny>bottom</aligny>
+					<visible>!Window.IsVisible(infodialog) + !Window.IsVisible(volumebar)</visible>
+					<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+				</control>
+
+				<control type="label"> <!--end time-->
+					<right>75</right>
+					<top>105</top>
+					<width>500</width>
+					<label>$INFO[Player.FinishTime,Finishes at ]</label>
+					<font>ButtonSmallUpper</font>
+					<textcolor>PrimaryT</textcolor>
+					<align>right</align>
+				</control>
+				
+				<control type="group">
+					<top>885</top>
+
+					<control type="label"> <!--title-->
+						<left>395</left>
+						<top>-85</top>
+						<width>1125</width>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<align>left</align>
+						<font>NowPlayingTitle</font>
+						<textcolor>PrimaryOSD</textcolor>
+						<scroll>false</scroll>
+						<animation effect="slide" start="0,0" end="0,-80" time="0" condition="!IsEmpty(VideoPlayer.Plot)">Conditional</animation>
+					</control>
+
+					<control type="label"> <!--tagline-->
+						<left>395</left>
+						<top>-40</top>
+						<width>1125</width>
+						<label>$VAR[NowPlayingLine2]</label>
+						<align>left</align>
+						<font>PlotBold</font>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<animation effect="slide" start="0,0" end="0,-80" time="0" condition="!IsEmpty(VideoPlayer.Plot)">Conditional</animation>
+					</control>
+				
+					<control type="textbox"> <!--plot-->
+						<left>398</left>
+						<top>-72</top>
+						<width>1125</width>
+						<height>80</height>
+						<textcolor>PrimaryOSD</textcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<align>left</align>
+						<font>Plot</font>
+						<visible>!IsEmpty(VideoPlayer.Plot)</visible>
+					</control>
+
+					<control type="label"> <!--video time/duration-->
+						<left>395</left>
+						<width>1125</width>
+						<label>$VAR[NowPlayingLine3]</label>
+						<align>left</align>
+						<font>PlotBold</font>
+						<textcolor>PrimaryOSD</textcolor>
+					</control>
+				
+				</control>
+			
+				<control type="group"> <!--progress-->
+					<top>950</top>
+			
+					<control type="progress" description="Buffer Bar">
+						<centerleft>50%</centerleft>
+						<width>1125</width>
+						<texturebg colordiffuse="TertiaryOSD">backgrounds/white.png</texturebg>
+						<midtexture colordiffuse="SecondaryOSD">backgrounds/white.png</midtexture>
+						<info>Player.CacheLevel</info>
+						<visible>Player.IsInternetStream</visible>
+					</control>
+	  
+					<control type="progress" description="Progress Bar">
+						<centerleft>50%</centerleft>
+						<width>1125</width>
+						<texturebg colordiffuse="TertiaryOSD">backgrounds/white.png</texturebg>
+						<midtexture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</midtexture>
+						<info>Player.Progress</info>
+						<visible>true</visible>
+					</control>
+				
+				</control>
+			
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

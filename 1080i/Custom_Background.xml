@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="701">
+
+	<defaultcontrol always="true">100</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>	
+		
+		<control type="label">
+			<label>$LOCALIZE[31077]</label>
+			<include>BreadcrumbLabelLeft</include>
+		</control>
+		
+		<control type="group"> <!--content-->
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+
+			<control type="panel" id="100"> <!--colours-->
+				<left>68</left>
+				<top>200</top>
+				<width>1852</width>
+				<height>760</height>
+				<onup>100</onup>
+				<ondown>100</ondown>
+				<onleft>100</onleft>
+				<onright>100</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+
+				<itemlayout width="645" height="370">
+
+					<control type="image">
+						<left>5</left>
+						<top>5</top>
+						<width>650</width>
+						<height>366</height>
+						<texture>$INFO[ListItem.Thumb]</texture>
+						<bordertexture colordiffuse="TertiaryM">backgrounds/white.png</bordertexture>
+						<bordersize>5</bordersize>
+					</control>
+
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>640</width>
+						<height>356</height>
+						<texture colordiffuse="PrimaryBG">backgrounds/white.png</texture>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="645" height="370">
+
+					<control type="image">
+						<left>0</left>
+						<width>660</width>
+						<height>376</height>
+						<texture>$INFO[ListItem.Thumb]</texture>
+						<bordertexture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+
+					<control type="image">
+						<left>14</left>
+						<top>10</top>
+						<width>632</width>
+						<height>356</height>
+						<texture colordiffuse="PrimaryBG">backgrounds/white.png</texture>
+					</control>
+
+				</focusedlayout>
+
+				<content>
+
+					<item id="1"> <!--simple-->
+						<onclick>Skin.SetString(Background,Simple)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Simple.png</thumb>
+					</item>
+
+					<item id="2"> <!--geometric-->
+						<onclick>Skin.SetString(Background,Geometric)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Geometric.png</thumb>
+					</item>
+
+					<item id="3"> <!--mountains-->
+						<onclick>Skin.SetString(Background,Mountains)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Mountains.png</thumb>
+					</item>
+
+					<item id="4"> <!--circles-->
+						<onclick>Skin.SetString(Background,Circles)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Circles.png</thumb>
+					</item>
+
+					<item id="5"> <!--curve-->
+						<onclick>Skin.SetString(Background,Curve)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Curve.png</thumb>
+					</item>
+
+					<item id="6"> <!--diagonal-->
+						<onclick>Skin.SetString(Background,Diagonal)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Diagonal.png</thumb>
+					</item>
+
+					<item id="6"> <!--stripes-->
+						<onclick>Skin.SetString(Background,Stripes)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Stripes.png</thumb>
+					</item>
+
+					<item id="8"> <!--mono-->
+						<onclick>Skin.SetString(Background,Mono)</onclick>
+						<onclick>Close</onclick>
+						<thumb>backgrounds/Mono.png</thumb>
+					</item>
+
+				</content>
+
+			</control>
+		
+		</control>
+
+	</controls>
+
+</window>

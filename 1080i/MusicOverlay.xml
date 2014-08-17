@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2903">
+
+	<defaultcontrol always="true">2</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<top>1000</top>
+			<visible>!Window.IsVisible(playercontrols) + !Window.IsVisible(visualisation)</visible>
+
+			<control type="group">
+				<left>25</left>
+				<bottom>30</bottom>
+				<height>70</height>
+			
+				<control type="image">
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
+				</control>
+			
+				<control type="image"> <!--music fallback-->
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<texture>symbols/music.png</texture>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
+				</control>
+			
+				<control type="image"> <!--thumb-->
+					<left>50</left>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				
+				<control type="grouplist"> <!--labels-->
+					<left>130</left>
+					<centertop>50%</centertop>
+					<width>1750</width>
+					<height>54</height>
+					<orientation>vertical</orientation>
+					<itemgap>2</itemgap>
+
+					<control type="label">
+						<width>875</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070]</label>
+						<scroll>true</scroll>
+						<font>ButtonBlackUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>!Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>875</width>
+						<height>25</height>
+						<label>$LOCALIZE[31070] • $LOCALIZE[112]</label>
+						<scroll>true</scroll>
+						<font>ButtonBlackUpper</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>Player.Paused</visible>
+					</control>
+
+					<control type="label">
+						<width>875</width>
+						<height>25</height>
+						<label>$INFO[MusicPlayer.Time]/$INFO[MusicPlayer.Duration,, • ]$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
+						<scroll>false</scroll>
+						<font>Button</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+					</control>
+					
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

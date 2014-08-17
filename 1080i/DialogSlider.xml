@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="145">
+
+	<defaultcontrol always="true">11</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<control type="group">		
+			
+			<control type="image"> <!--bg-->
+				<left>0</left>
+				<top>37</top>
+				<width>1920</width>
+				<height>68</height>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+				<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(fullscreeninfo) | Window.IsVisible(videoosd) | Window.IsVisible(seekbar) | Window.IsVisible(volumebar)]</visible>
+			</control>	
+
+			<control type="group">
+				<top>29</top>
+
+				<control type="label" id="10"> <!--header-->
+					<left>760</left>
+					<width>375</width>
+					<label>-</label>
+					<textcolor>PrimaryOSD</textcolor>
+					<font>ButtonBoldUpper</font>
+				</control>
+
+				<control type="label" id="12"> <!--label-->
+					<right>760</right>
+					<width>375</width>
+					<label>-</label>
+					<align>right</align>
+					<textcolor>PrimaryOSD</textcolor>
+					<font>Button</font>
+				</control>
+
+				<control type="slider" id="11"> <!--slider-->
+					<centerleft>50%</centerleft>
+					<top>50</top>
+					<onleft>11</onleft>
+					<onright>11</onright>
+					<texturesliderbar colordiffuse="TertiaryOSD">backgrounds/white.png</texturesliderbar>
+					<textureslidernib colordiffuse="TertiaryOSD">backgrounds/white.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="PrimaryOSD">backgrounds/white.png</textureslidernibfocus>
+				</control>
+
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

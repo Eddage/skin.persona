@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fonts>
+
+	<fontset id="default" unicode="true">
+	
+		<font>
+			<name>Button</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>24</size>
+			<linespacing>0.9</linespacing>
+		</font>
+	
+		<font>
+			<name>ButtonSemiBold</name>
+			<filename>Segoe UI.ttf</filename>
+			<size>24</size>
+		</font>
+	
+		<font>
+			<name>ButtonSmallUpper</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>21</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>ButtonBoldSmall</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>22</size>
+			<linespacing>0.85</linespacing>
+		</font>
+	
+		<font>
+			<name>ButtonBold</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>24</size>
+			<linespacing>0.85</linespacing>
+		</font>
+	
+		<font>
+			<name>ButtonUpper</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>24</size>
+		</font>
+	
+		<font>
+			<name>ButtonUpperItalic</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>24</size>
+			<style>italics bold</style>
+		</font>
+	
+		<font>
+			<name>ButtonBoldUpper</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>24</size>
+			<linespacing>0.9</linespacing>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>ButtonBlackUpper</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>24</size>
+			<linespacing>0.9</linespacing>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>MenuTitle</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>34</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>MenuTitleLower</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>34</size>
+		</font>
+	
+		<font>
+			<name>NotificationTitle</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>26</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>NowPlayingTitle</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>45</size>
+		</font>
+	
+		<font>
+			<name>List</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>27</size>
+			<linespacing>0.9</linespacing>
+		</font>
+	
+		<font>
+			<name>ListBold</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>27</size>
+		</font>
+	
+		<font>
+			<name>ListUpper</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>27</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>ListUpperBold</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>27</size>
+			<style>uppercase</style>
+			<linespacing>0.9</linespacing>
+		</font>
+	
+		<font>
+			<name>ListLarge</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>32</size>
+			<linespacing>0.9</linespacing>
+		</font>
+	
+		<font>
+			<name>Plot</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>26</size>
+		</font>
+	
+		<font>
+			<name>PlotLight</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>26</size>
+		</font>
+	
+		<font>
+			<name>PlotBold</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>28</size>
+		</font>
+	
+		<font>
+			<name>Breadcrumb</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>55</size>
+		</font>
+	
+		<font>
+			<name>BreadcrumbSmall</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>45</size>
+		</font>
+	
+		<font>
+			<name>BreadcrumbUpper</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>55</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>MusicLarge</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>100</size>
+		</font>
+	
+		<font>
+			<name>MusicTimeLarge</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>250</size>
+		</font>
+	
+		<font>
+			<name>MusicTime</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>150</size>
+		</font>
+	
+		<font>
+			<name>MusicSmall</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>85</size>
+		</font>
+	
+		<font>
+			<name>MusicNowPlaying</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>50</size>
+		</font>
+	
+		<font>
+			<name>MusicSmaller</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>40</size>
+		</font>
+	
+		<font>
+			<name>MusicSmallest</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>30</size>
+		</font>
+	
+		<font>
+			<name>HomeTitle</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>30</size>
+		</font>
+	
+		<font>
+			<name>HomeTitleLarge</name>
+			<filename>Segoe UI Semi Light.ttf</filename>
+			<size>35</size>
+		</font>
+	
+		<font>
+			<name>HomeHeader</name>
+			<filename>Segoe UI.ttf</filename>
+			<size>22</size>
+			<style>uppercase</style>
+		</font>
+	
+		<font>
+			<name>HomeMovieTitle</name>
+			<filename>Segoe UI.ttf</filename>
+			<size>22</size>
+		</font>
+	
+		<font>
+			<name>HomeMovieInfo</name>
+			<filename>Segoe UI Bold.ttf</filename>
+			<size>18</size>
+		</font>
+	
+		<font>
+			<name>LoginTitle</name>
+			<filename>Segoe UI Light.ttf</filename>
+			<size>95</size>
+			<style>lowercase</style>
+		</font>
+	
+	
+	
+	
+	
+	
+		<font>
+			<name>NotificationHeader</name>
+			<filename>Roboto Bold Condensed.ttf</filename>
+			<size>24</size>
+		</font>
+		<font>
+			<name>NotificationBody</name>
+			<filename>Roboto Light Condensed.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>MainMenu</name>
+			<filename>Roboto Light Condensed.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
+			<name>MainMenuF</name>
+			<filename>Roboto Condensed.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
+			<name>MainMenuS</name>
+			<filename>Roboto Light Condensed.ttf</filename>
+			<size>29</size>
+		</font>
+		<font>
+			<name>InfoHeader</name>
+			<filename>Roboto Light Condensed.ttf</filename>
+			<size>55</size>
+		</font>
+		<font>
+			<name>PlayerHeader</name>
+			<filename>Roboto Condensed.ttf</filename>
+			<size>40</size>
+		</font>
+		<font>
+			<name>Clock</name>
+			<filename>Roboto Bold Condensed.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
+			<name>Button</name>
+			<filename>Roboto Condensed.ttf</filename>
+			<size>24</size>
+		</font>
+		<font>
+			<name>Flag</name>
+			<filename>Roboto Bold Condensed.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>ContextHeader</name>
+			<filename>Roboto Bold Condensed.ttf</filename>
+			<size>26</size>
+		</font>
+		<font>
+			<name>General</name>
+			<filename>Roboto Condensed.ttf</filename>
+			<size>25</size>
+		</font>
+		<font>
+			<name>Hidden</name>
+			<filename>Roboto Condensed.ttf</filename>
+			<size>1</size>
+		</font>
+		
+		
+
+		<font>
+			<name>Home</name>
+			<filename>Arial.ttf</filename>
+			<size>96</size>
+		</font>
+		
+		<font>
+			<name>Large</name>
+			<filename>Arial.ttf</filename>
+			<size>48</size>
+		</font>
+		
+		<font>
+			<name>Medium</name>
+			<filename>Arial.ttf</filename>
+			<size>39</size>
+		</font>
+		
+		<font>
+			<name>Small</name>
+			<filename>Arial.ttf</filename>
+			<size>30</size>
+		</font>
+
+		<!-- Required for system -->
+		<font>
+			<name>font13</name>
+			<filename>Arial.ttf</filename>
+			<size>30</size>
+		</font>
+
+	</fontset>
+</fonts>

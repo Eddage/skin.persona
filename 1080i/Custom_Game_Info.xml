@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="703" type="dialog">
+
+	<defaultcontrol always="true">9000</defaultcontrol>
+	
+    <onload>SetProperty(Title,$INFO[ListItem.Title],703)</onload>
+    <onload>SetProperty(Year,$INFO[ListItem.Year],703)</onload>
+    <onload>SetProperty(Studio,$INFO[ListItem.Studio],703)</onload>
+    <onload>SetProperty(Genre,$INFO[ListItem.Genre],703)</onload>
+    <onload>SetProperty(Console,$INFO[ListItem.Writer],703)</onload>
+    <onload>SetProperty(Plot,$ESCINFO[ListItem.Plot],703)</onload>
+    <onload>SetProperty(Fanart,$INFO[ListItem.Property(fanart_image)],703)</onload>
+	
+    <onunload>ClearProperty(Title,703)</onunload>
+    <onunload>ClearProperty(Year,703)</onunload>
+    <onunload>ClearProperty(Studio,703)</onunload>
+    <onunload>ClearProperty(Genre,703)</onunload>
+    <onunload>ClearProperty(Console,703)</onunload>
+    <onunload>ClearProperty(Plot,703)</onunload>
+    <onunload>ClearProperty(Fanart,703)</onunload>
+    <onunload>ClearProperty(ChooseArt,703)</onunload>
+	
+    <allowoverlay>no</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(filebrowser) + !Window.IsActive(textviewer)  + !Window.IsActive(addonsettings) + !Window.IsActuve(progressdialog) + !Window.IsActive(yesnodialog) + !Window.IsActive(okdialog) + !Window.IsActive(virtualkeyboard)</visible>
+		
+			<control type="label"> <!--title-->
+				<left>75</left>
+				<top>50</top>
+				<width>1700</width>
+				<label>$INFO[Window.Property(Title)]</label>
+				<font>Breadcrumb</font>
+				<aligny>bottom</aligny>
+			</control>
+			
+			<control type="group"> <!--main content-->
+				<left>25</left>
+				<top>60</top>
+
+				<control type="image"> <!--cover-->
+					<left>50</left>
+					<top>140</top>
+					<width>525</width>
+					<height>788</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+					<aspectratio aligny="top">keep</aspectratio>
+				</control>
+				
+				<control type="group"> <!--information-->
+					<left>170</left>
+					<top>75</top>
+					
+					<control type="grouplist" id="9000">
+						<left>435</left>
+						<top>65</top>
+						<width>1225</width>
+						<height>255</height>
+						<itemgap>5</itemgap>
+						<onup>50</onup>
+						<ondown>50</ondown>
+						<onright>9000</onright>
+						<onleft>9000</onleft>
+						<orientation>horizontal</orientation>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime>0</scrolltime>		
+
+						<control type="button" id ="6"> <!--play-->
+							<include>OptionButton</include>
+							<label>208</label>
+                            <onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
+						</control>			
+
+						<control type="button" id ="7"> <!--get info-->
+							<include>OptionButton</include>
+							<label>31133</label>
+							<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_INFO%%)</onclick>
+						</control>
+
+						<control type="button" id ="9"> <!--get thumb-->
+							<include>OptionButton</include>
+							<label>13405</label>
+							<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_THUMB%%)</onclick>
+						</control>
+
+						<control type="button" id="8"> <!--get fanart-->
+							<include>OptionButton</include>
+							<label>20413</label>
+							<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_FANART%%)</onclick>
+						</control>
+
+						<control type="button" id="10"> <!--get fanart-->
+							<include>OptionButton</include>
+							<label>31134</label>
+							<onclick>Dialog.Close(703)</onclick>
+						</control>
+
+					</control>
+					
+					<control type="grouplist"> <!--info-->		
+						<left>435</left>
+						<top>135</top>
+						<width>1500</width>
+						<height>auto</height>
+						<itemgap>0</itemgap>
+						<orientation>vertical</orientation>
+
+						<control type="label"> <!--year-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $INFO[Window.Property(Year)]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--genre-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $INFO[Window.Property(Genre)]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--studio-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31131][/COLOR] $INFO[Window.Property(Studio)]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--console-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31132][/COLOR] $INFO[Window.Property(Console)]</label>
+							<include>InfoLabel</include>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>15</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+							
+						<control type="textbox" id="400"> <!--plot-->
+							<width>1210</width>
+							<height>440</height>
+							<align>left</align>
+							<label>$INFO[Window.Property(Plot)]</label>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+						</control>
+						
+					</control>
+					
+				</control>
+				
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

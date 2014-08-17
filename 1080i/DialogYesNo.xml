@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="100">
+
+    <defaultcontrol always="true">10</defaultcontrol>
+	
+    <controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu)</visible>
+			
+			<control type="label" id="1"> <!--Header-->
+				<left>460</left>
+				<top>383</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+				<align>center</align>
+			</control>
+			
+			<control type="label" id="2"> <!--Line 1-->
+				<left>100</left>
+				<top>440</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+			
+			<control type="label" id="3"> <!--Line 2-->
+				<left>100</left>
+				<top>480</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+			
+			<control type="label" id="4"> <!--Line 3-->
+				<left>100</left>
+				<top>520</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+		
+			<control type="grouplist">
+				<centerleft>50%</centerleft>
+				<top>585</top>
+				<width>425</width>
+				<itemgap>5</itemgap>
+				<orientation>horizontal</orientation>
+				<onright>9000</onright>
+				<onleft>9000</onleft>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<scrolltime>0</scrolltime>
+
+				<control type="button" id="11"> <!--yes-->
+					<include>OptionButtonBig</include>
+					<label>107</label>
+				</control>
+				
+				<control type="button" id="10"> <!--no-->
+					<include>OptionButtonBig</include>
+					<label>106</label>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+    </controls>
+	
+</window>

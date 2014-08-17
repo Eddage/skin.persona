@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2003">
+
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(filebrowser) + !Window.IsActive(progressdialog) + !Window.IsActive(yesnodialog)</visible>
+		
+			<control type="label"> <!--title-->
+				<left>75</left>
+				<top>50</top>
+				<width>1600</width>
+				<label>$INFO[ListItem.Title]</label>
+				<font>Breadcrumb</font>
+				<aligny>top</aligny>
+			</control>
+
+			<control type="label" id="20"> <!--tagline-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[ListItem.Tagline]</label>
+				<scroll>true</scroll>
+			</control>
+
+			<control type="label" id="20"> <!--artist-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[ListItem.Artist]</label>
+				<scroll>true</scroll>
+			</control>
+
+			<control type="label" id="20"> <!--show/season-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[ListItem.TVShowTitle] • Season $INFO[ListItem.Season] / Episode $INFO[ListItem.Episode]</label>
+				<scroll>true</scroll>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+						
+			<control type="grouplist"> <!--rating-->
+				<right>75</right>
+				<top>67</top>
+				<width min="90" max="900">auto</width>
+				<height>78</height>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+					
+				<control type="image"> <!--star-->
+					<width>48</width>
+					<height>48</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+	
+				<control type="label"> <!--label-->
+					<width min="29" max="200">auto</width>
+					<height>48</height>
+					<label fallback="NR">$INFO[ListItem.Rating]</label>
+					<font>Breadcrumb</font>
+					<textcolor>PrimaryT</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+			
+			<control type="group"> <!--main content-->
+				<left>25</left>
+				<top>60</top>
+				<animation effect="slide" start="0,0" end="0,-20" time="0" condition="Window.IsVisible(musicoverlay) | Window.IsVisible(videooverlay)">Conditional</animation>
+
+				<control type="image"> <!--cover-->
+					<left>50</left>
+					<top>140</top>
+					<width>525</width>
+					<height>788</height>
+					<texture>$VAR[VidInfoImage]</texture>
+					<aspectratio aligny="top" align="left">keep</aspectratio>
+				</control>
+				
+				<control type="group"> <!--information-->
+					<left>170</left>
+					<top>75</top>
+					
+					<control type="grouplist" id="9000">
+						<left>435</left>
+						<top>65</top>
+						<width>1225</width>
+						<height>255</height>
+						<itemgap>5</itemgap>
+						<onup>50</onup>
+						<ondown>50</ondown>
+						<onright>9000</onright>
+						<onleft>9000</onleft>
+						<orientation>horizontal</orientation>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime>0</scrolltime>		
+
+						<control type="button" id ="8"> <!--play-->
+							<include>OptionButton</include>
+							<label>$VAR[VidInfoPlayLabel]</label>
+						</control>			
+
+						<control type="button" id ="5"> <!--plot/cast-->
+							<include>OptionButton</include>
+							<label>206</label>
+							<enable>!IsEmpty(ListItem.Cast)</enable>
+						</control>
+
+						<control type="button" id ="9"> <!--resume-->
+							<include>OptionButton</include>
+							<label>13404</label>
+							<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+						</control>
+
+						<control type="button" id="11"> <!--trailer-->
+							<include>OptionButton</include>
+							<label>20410</label>
+							<visible>Container.Content(movies)</visible>
+							<enable>!IsEmpty(ListItem.Trailer)</enable>
+						</control>
+
+						<control type="button" id ="6"> <!--refresh-->
+							<include>OptionButton</include>
+							<label>184</label>
+						</control>
+
+						<control type="button" id ="10"> <!--get art-->
+							<include>OptionButton</include>
+							<label>31052</label>
+						</control>
+
+					</control>
+					
+					<control type="grouplist"> <!--info-->		
+						<left>435</left>
+						<top>135</top>
+						<width>1500</width>
+						<height>1500</height>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<itemgap>0</itemgap>
+						<orientation>vertical</orientation>
+
+						<control type="label"> <!--year-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $INFO[ListItem.Year]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Year)</visible>
+							<visible>!Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes)</visible>
+						</control>
+
+						<control type="label"> <!--premiered-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20416][/COLOR] $INFO[ListItem.Premiered]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
+						</control>
+
+						<control type="label"> <!--duration-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[180][/COLOR] $INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Duration)</visible>
+						</control>
+
+						<control type="label"> <!--rated-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31135][/COLOR] $INFO[ListItem.Mpaa]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Mpaa)</visible>
+						</control>
+
+						<control type="label"> <!--genre-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $INFO[ListItem.Genre]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Genre)</visible>
+						</control>
+
+						<control type="label"> <!--director-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20339][/COLOR] $INFO[ListItem.Director,]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Director)</visible>
+						</control>
+
+						<control type="label"> <!--seasons-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[33054][/COLOR] $INFO[ListItem.Property(TotalSeasons)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+						</control>
+
+						<control type="label"> <!--episodes-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20453][/COLOR] $INFO[ListItem.Property(NumEpisodes)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(NumEpisodes))</visible>
+						</control>
+
+						<control type="label"> <!--writer-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20417][/COLOR] $INFO[ListItem.Writer]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Writer)</visible>
+						</control>
+
+						<control type="label"> <!--unwatched episodes (tv shows)-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[16101][/COLOR] $INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[20453]]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						</control>
+
+						<control type="label"> <!--studio-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[572][/COLOR] $INFO[ListItem.Studio]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Studio)</visible>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>10</height>
+							<texture>backgrounds/trans.png</texture>
+							<visible>![IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.VideoCodec) + IsEmpty(ListItem.AudioChannels) + IsEmpty(ListItem.AudioCodec) + IsEmpty(ListItem.VideoAspect)]</visible>
+						</control>
+						
+						<control type="grouplist"> <!--flags-->
+							<width min="90" max="900">auto</width>
+							<height>45</height>
+							<itemgap>5</itemgap>
+							<orientation>horizontal</orientation>
+							<align>left</align>
+							<aligny>center</aligny>
+							<visible>![IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.VideoCodec) + IsEmpty(ListItem.AudioChannels) + IsEmpty(ListItem.AudioCodec) + IsEmpty(ListItem.VideoAspect)]</visible>
+							
+							<control type="button">
+								<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+								<label>$INFO[ListItem.VideoResolution,,p]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+								<label>$INFO[ListItem.VideoCodec]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(ListItem.AudioChannels)</visible>
+								<label>$VAR[AudioChannels]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+								<label>$VAR[AudioCodec]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+								<label>$INFO[ListItem.VideoAspect]</label>
+								<include>Flag</include>
+							</control>
+							
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>10</height>
+							<texture>backgrounds/trans.png</texture>
+							<visible>![IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.VideoCodec) + IsEmpty(ListItem.AudioChannels) + IsEmpty(ListItem.AudioCodec) + IsEmpty(ListItem.VideoAspect)]</visible>
+						</control>
+
+						<control type="label"> <!--path-->
+							<width>1225</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Path,$LOCALIZE[15311] ]</label>
+							<scroll>true</scroll>
+							<font>Button</font>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>19</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+							
+						<control type="textbox" id="4"> <!--plot-->
+							<width>1210</width>
+							<height>290</height>
+							<align>left</align>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+						</control>
+						
+						<control type="group">
+
+							<control type="list" id="50"> <!--cast-->
+								<width>1218</width>
+								<height>317</height>
+								<onup>9000</onup>
+								<ondown>61</ondown>
+								<onleft>50</onleft>
+								<onright>50</onright>
+								<orientation>horizontal</orientation>
+								<scrolltime>0</scrolltime>
+								<pagecontrol>61</pagecontrol>
+
+								<itemlayout height="307" width="203">
+									
+									<control type="image"> <!--background-->
+										<width>195</width>
+										<height>307</height>
+										<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+									</control>
+								
+									<control type="image"> <!--fallback-->
+										<left>-3</left>
+										<top>0</top>
+										<width>210</width>
+										<height>300</height>
+										<texture colordiffuse="PrimaryM">symbols/user-256.png</texture>
+										<aspectratio>keep</aspectratio>
+									</control>
+								
+									<control type="image"> <!--thumb-->
+										<width>195</width>
+										<height>307</height>
+										<texture>$INFO[ListItem.Thumb]</texture>
+										<aspectratio>scale</aspectratio>
+									</control>
+
+								</itemlayout>
+
+								<focusedlayout height="307" width="203">
+									
+									<control type="image"> <!--background-->
+										<width>195</width>
+										<height>307</height>
+										<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+									</control>
+								
+									<control type="image"> <!--fallback-->
+										<left>-3</left>
+										<top>0</top>
+										<width>210</width>
+										<height>300</height>
+										<texture colordiffuse="PrimaryM">symbols/user-256.png</texture>
+										<aspectratio>keep</aspectratio>
+									</control>
+								
+									<control type="image"> <!--thumb-->
+										<width>195</width>
+										<height>307</height>
+										<texture>$INFO[ListItem.Thumb]</texture>
+										<aspectratio>scale</aspectratio>
+									</control>
+									
+									<control type="image"> <!--text bg-->
+										<top>215</top>
+										<width>195</width>
+										<height>92</height>
+										<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+									</control>
+
+									<control type="textbox"> <!--cast/role-->
+										<left>8</left>
+										<top>215</top>
+										<width>179</width>
+										<height>90</height>
+										<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+										<font>ButtonBold</font>
+										<textcolor>White</textcolor>
+										<autoscroll delay="2000" time="1500" repeat="2000"/>
+									</control>
+									
+									<control type="image"> <!--text border-->
+										<top>215</top>
+										<width>195</width>
+										<height>90</height>
+										<texture colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/castborder.png</texture>
+									</control>
+
+								</focusedlayout>
+
+							</control>
+
+							<control type="scrollbar" id="61"> <!--cast scrollbar movies/episodes-->
+								<top>317</top>
+								<width>1210</width>
+								<height>7</height>
+								<onleft>-</onleft>
+								<onright>-</onright>
+								<ondown>9000</ondown>
+								<onup>50</onup>
+								<showonepage>false</showonepage>
+								<orientation>horizontal</orientation>
+								<visible>Control.HasFocus(50)</visible>
+							</control>
+							
+						</control>
+					
+					</control>
+					
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

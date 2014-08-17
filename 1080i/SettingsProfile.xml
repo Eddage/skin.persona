@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="34">
+
+	<defaultcontrol always="true">4</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+			<visible>!Window.IsVisible(profilesettings)</visible>
+
+			<control type="radiobutton" id="4"> <!--enable login screen-->
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>1000</width>
+				<radioposx>940</radioposx>
+				<textwidth>895</textwidth>
+				<label>20096</label>
+				<onup>2</onup>
+				<ondown>SetFocus(2,0)</ondown>
+			</control>
+
+			<control type="list" id="2">
+				<centerleft>50%</centerleft>
+				<top>380</top>
+				<width>1000</width>
+				<height>455</height>
+				<onup>4</onup>
+				<ondown>4</ondown>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+
+				<itemlayout width="1000" height="65">
+
+					<control type="label">
+						<left>20</left>
+						<width>810</width>
+						<info>ListItem.Label</info>
+					</control>
+
+					<control type="label">
+						<left>980</left>
+						<width>810</width>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1000" height="65">
+		
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>1000</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(2)</visible>
+					</control>
+
+					<control type="label">
+						<left>20</left>
+						<width>810</width>
+						<info>ListItem.Label</info>
+					</control>
+
+					<control type="label">
+						<left>980</left>
+						<width>810</width>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>380</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>430</left>
+				<top>395</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>823</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

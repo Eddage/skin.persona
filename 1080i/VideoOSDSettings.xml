@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="123">
+
+	<defaultcontrol always="true">5</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<control type="image"> <!--top-->
+			<include>FullScreenDimensions</include>
+			<texture colordiffuse="Black95">backgrounds/white.png</texture>
+			<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)</visible>
+		</control>
+
+		<control type="label"> <!--time-->
+			<right>75</right>
+			<top>50</top>
+			<width>200</width>
+			<label>$INFO[System.Time]</label>
+			<font>Breadcrumb</font>
+			<textcolor>PrimaryOSD</textcolor>
+			<align>right</align>
+			<aligny>bottom</aligny>
+			<visible>!Window.IsVisible(infodialog) + !Window.IsVisible(volumebar)</visible>
+			<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+		</control>
+
+		<control type="label"> <!--end time-->
+			<right>75</right>
+			<top>105</top>
+			<width>500</width>
+			<label>$INFO[Player.FinishTime,Finishes at ]</label>
+			<font>ButtonSmallUpper</font>
+			<textcolor>PrimaryT</textcolor>
+			<align>right</align>
+		</control>
+
+		
+		<control type="group">
+			<visible>!Window.IsVisible(filebrowser)</visible>
+			<animation effect="slide" start="0,0" end="0,-120" time="0" condition="Window.IsVisible(fullscreeninfo)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-30" time="0" condition="Window.IsVisible(seekbar)">Conditional</animation>
+
+			<control type="label" id="2"> <!--header-->
+				<centerleft>50%</centerleft>
+				<top>250</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+				<textcolor>PrimaryOSD</textcolor>
+			</control>
+
+			<control type="grouplist" id="5">
+				<description>Control Area</description>
+				<centerleft>50%</centerleft>
+				<top>325</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<orientation>vertical</orientation>
+				<pagecontrol>60</pagecontrol>
+				<onleft>28</onleft>
+				<onright>28</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime>0</scrolltime>
+			</control>
+
+			<control type="button" id="7"> <!--button-->
+				<textcolor>PrimaryOSD</textcolor>
+				<focusedcolor>PrimaryOSD</focusedcolor>
+				<texturefocus colordiffuse="TertiaryOSD">backgrounds/white.png</texturefocus>
+			</control>
+
+			<control type="radiobutton" id="8"> <!--radiobutton-->
+				<textcolor>PrimaryOSD</textcolor>
+				<focusedcolor>PrimaryOSD</focusedcolor>
+				<width>1000</width>
+				<radioposx>940</radioposx>
+				<textwidth>895</textwidth>
+				<texturefocus colordiffuse="TertiaryOSD">backgrounds/white.png</texturefocus>
+				<textureradioonfocus colordiffuse="SecondaryOSD">controls/radioonfocus.png</textureradioonfocus>
+				<textureradioofffocus colordiffuse="SecondaryOSD">controls/radioofffocus.png</textureradioofffocus>
+			</control>
+
+			<control type="spincontrolex" id="9"> <!--spin control ex-->
+				<textcolor>PrimaryOSD</textcolor>
+				<focusedcolor>PrimaryOSD</focusedcolor>
+				<width>1000</width>
+				<textwidth>895</textwidth>
+				<texturefocus colordiffuse="TertiaryOSD">backgrounds/white.png</texturefocus>
+				<textureupfocus colordiffuse="SecondaryOSD">controls/spinupf.png</textureupfocus>
+				<texturedownfocus colordiffuse="SecondaryOSD">controls/spindownf.png</texturedownfocus>
+			</control>
+
+			<control type="sliderex" id="10"> <!--slider-->
+				<textcolor>PrimaryOSD</textcolor>
+				<focusedcolor>PrimaryOSD</focusedcolor>
+				<texturefocus colordiffuse="TertiaryOSD">backgrounds/white.png</texturefocus>
+				<texturesliderbar colordiffuse="TertiaryOSD">backgrounds/white.png</texturesliderbar>
+				<textureslidernib colordiffuse="TertiaryOSD">backgrounds/white.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="PrimaryOSD">backgrounds/white.png</textureslidernibfocus>
+			</control>
+	
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>325</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="SecondaryOSD">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(60)</visible>
+			</control>
+
+			<control type="scrollbar" id="60"> <!--scrollbar-->
+				<left>430</left>
+				<top>340</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+				<texturesliderbackground colordiffuse="TertiaryOSD">backgrounds/white.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="SecondaryOSD">backgrounds/white.png</texturesliderbar>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>768</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="SecondaryOSD" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(60)</visible>
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

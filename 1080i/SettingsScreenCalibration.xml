@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="11">
+
+	<defaultcontrol always="true">8</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="videowindow" id="20">
+			<description>videowindow</description>
+			<include>Dimensions_Fullscreen</include>
+		</control>
+
+		<control type="mover" id="8">
+			<left>0</left>
+			<top>0</top>
+			<width>192</width>
+			<height>192</height>
+			<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/CalibrateTopLeft.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<control type="mover" id="9">
+			<left>1050</left>
+			<top>750</top>
+			<width>192</width>
+			<height>192</height>
+			<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/CalibrateBottomRight.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<control type="mover" id="10">
+			<left>300</left>
+			<top>750</top>
+			<width>768</width>
+			<height>192</height>
+			<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/CalibrateSubTitles.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<control type="resize" id="11">
+			<left>0</left>
+			<top>348</top>
+			<width>384</width>
+			<height>384</height>
+			<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/CalibratePixelRatio.png</texturefocus>
+			<texturenofocus>-</texturenofocus>
+		</control>
+
+		<control type="label" id="2">
+			<description>coordinates label</description>
+			<left>30</left>
+			<top>60</top>
+			<width>1860</width>
+			<align>center</align>
+			<label>-</label>
+		</control>
+
+		<control type="label" id="3">
+			<description>help information</description>
+			<left>30</left>
+			<top>105</top>
+			<width>1860</width>
+			<align>center</align>
+			<label>-</label>
+		</control>
+
+	</controls>
+
+</window>

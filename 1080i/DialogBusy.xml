@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="136">
+
+	<defaultcontrol always="true">-</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<controls>
+	
+		<control type="group">
+			<top>1000</top>
+			<left>1775</left>
+			
+			<control type="group">
+				<bottom>30</bottom>
+				<height>70</height>
+			
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="PrimaryT">logo/1s.png</texture>
+				</control>
+					
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="PrimaryT">logo/2s.png</texture>
+					<animation effect="rotate" start="0" end="-72" center="auto" time="1000" acceleration="0" pulse="true" delay="500" condition="true">conditional</animation>
+				</control>
+					
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="PrimaryT">logo/3s.png</texture>
+					<animation effect="rotate" start="0" end="-144" center="auto" time="1000" acceleration="0" pulse="true" delay="500" condition="true">conditional</animation>
+				</control>
+					
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="PrimaryT">logo/4s.png</texture>
+					<animation effect="rotate" start="0" end="-216" center="auto" time="1000" acceleration="0" pulse="true" delay="500" condition="true">conditional</animation>
+				</control>
+					
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="PrimaryT">logo/5s.png</texture>
+					<animation effect="rotate" start="0" end="-288" center="auto" time="1000" acceleration="0" pulse="true" delay="500" condition="true">conditional</animation>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+
+</window>

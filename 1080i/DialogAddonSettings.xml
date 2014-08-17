@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="10140">
+
+	<defaultcontrol always="true">9</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(filebrowser) + !Window.IsActive(selectdialog) + !Window.IsActive(yesnodialog)</visible>
+
+			<control type="label" id="20"> <!--header-->
+				<left>75</left>
+				<top>50</top>
+				<width>1720</width>
+				<font>Breadcrumb</font>
+				<aligny>top</aligny>
+				<label>-</label>
+			</control>
+
+			<control type="grouplist" id="9"> <!--categories-->
+				<left>658</left>
+				<top>240</top>
+				<width>600</width>
+				<height>720</height>
+				<onleft>9</onleft>
+				<onright>9</onright>
+				<onup>9001</onup>
+				<ondown>SetFocus(2,0)</ondown>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>	
+				<scrolltime>0</scrolltime>				
+			</control>
+
+			<control type="grouplist" id="2"> <!--options-->
+				<left>460</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>9</onleft>
+				<onright>9001</onright>
+				<onup>9</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+			</control>
+		
+			<control type="group"> <!--left/right arrows focused-->
+				<visible>!ControlGroup(2).HasFocus + !ControlGroup(9001).HasFocus</visible>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>720</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="ControlGroup(9).HasFocus">Conditional</animation>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>720</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]" flipx="true">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="ControlGroup(9).HasFocus">Conditional</animation>
+				</control>
+				
+			</control>
+		
+			<control type="group"> <!--left/right arrows unfocused-->
+				<visible>ControlGroup(2).HasFocus | ControlGroup(9001).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>720</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT">symbols/previous-32.png</texture>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>720</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT" flipx="true">symbols/previous-32.png</texture>
+				</control>
+				
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>430</left>
+				<top>330</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>758</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="button" id="13"> <!--category button-->
+				<width>600</width>
+				<align>center</align>
+				<font>MenuTitle</font>
+				<height>55</height>
+				<textoffsetx>0</textoffsetx>
+				<texturefocus>-</texturefocus>
+			</control>
+
+			<control type="button" id="3">
+			</control>
+
+			<control type="radiobutton" id="4"> <!--radio button-->
+				<width>1000</width>
+				<radioposx>940</radioposx>
+				<textwidth>895</textwidth>
+			</control>
+
+			<control type="spincontrolex" id="5">
+				<width>1000</width>
+				<textwidth>895</textwidth>
+			</control>
+
+			<control type="label" id="7">
+				<label>-</label>
+				<align>left</align>
+				<font>ButtonUpper</font>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+			</control>
+
+			<control type="image" id="6"> <!--seperator-->
+				<height>-5</height>
+				<texture>-</texture>
+			</control>
+
+			<control type="sliderex" id="8"> <!--slider-->
+			</control>
+
+			<control type="grouplist" id="9001">
+				<left>460</left>
+				<top>800</top>
+				<width>800</width>
+				<itemgap>5</itemgap>
+				<orientation>horizontal</orientation>
+				<onright>9001</onright>
+				<onleft>9001</onleft>
+				<onup>2</onup>
+				<ondown>9</ondown>
+				<scrolltime>0</scrolltime>
+					
+				<control type="button" id="10"> <!--ok-->
+					<include>OptionButton</include>
+					<label>186</label>
+				</control>
+
+				<control type="button" id="11"> <!--cancel-->
+					<include>OptionButton</include>
+					<label>222</label>
+				</control>
+
+				<control type="button" id="12"> <!--defaults-->
+					<include>OptionButton</include>
+					<label>409</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

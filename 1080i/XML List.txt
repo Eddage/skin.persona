@@ -1,0 +1,4 @@
+
+DialogKaraokeSongSelector.xml
+DialogKaraokeSongSelectorLarge.xml
+MusicKaraokeLyrics.xml

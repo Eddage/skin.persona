@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="6">
+
+	<defaultcontrol always="false">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>50,51,52,53,54,58,59</views>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>GlobalItems</include>
+		<include>Breadcrumb</include>
+		
+		<include>View_50_List_Videos</include>
+		<include>View_51_Poster_Videos</include>
+		<include>View_52_Landscape_Videos</include>
+		<include>View_53_Panel_Videos</include>
+		<include>View_54_Info_Panel_Videos</include>
+		<include>View_58_Slideshow_Videos</include>
+		<include>View_59_Episode_Videos</include>
+		
+		<control type="group">
+			<include>DialogBG</include>
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+			<include>BGFade</include>
+		</control>
+		
+		<control type="group">
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus + !Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(mediafilter) + !Window.IsActive(filebrowser)</visible>
+			<include>FadeandZoom2</include>
+		
+			<control type="label">
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>500</width>
+				<font>MenuTitle</font>
+				<label>14018</label>
+			</control>
+				
+			<control type="grouplist" id="9000"> <!--view options menu-->
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onback>9000</onback>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<control type="button" id="2"> <!--view-->
+				</control>
+				
+				<control type="button" id="3"> <!--sort by-->
+				</control>
+
+				<control type="togglebutton" id="4"> <!--ascending/descending-->
+					<label>584</label>
+					<altlabel>585</altlabel>
+					<usealttexture>Container.SortDirection(Descending)</usealttexture>
+				</control>
+				
+				<control type="edit" id="19"> <!--filter basic-->
+					<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+					<label>587</label>
+				</control>
+				
+				<control type="radiobutton" id="98"> <!--filter advanced-->
+					<visible>Container.CanFilterAdvanced</visible>
+					<label>587</label>
+					<selected>Container.Filtered</selected>
+					<onclick>Filter</onclick>
+				</control>
+				
+				<control type="radiobutton" id="14"> <!--watched toggle-->
+					<label>20367</label>
+				</control>
+				
+				<control type="button" id="8"> <!--search-->
+					<label>137</label>
+				</control>
+				
+				<control type="radiobutton" id="16"> <!--party mode-->
+					<label>589</label>
+					<visible>Container.Content(MusicVideos)</visible>
+				</control>
+				
+				<control type="radiobutton" id="11"> <!--unlock shares-->
+					<label>20336</label>
+					<onclick>xbmc.mastermode</onclick>
+					<selected>system.ismaster</selected>
+					<visible>system.haslocks</visible>
+				</control>
+				
+				<control type="togglebutton" id="20"> <!--update library-->
+					<label>653</label>
+					<altlabel>13353</altlabel>
+					<usealttexture>library.isscanningvideo</usealttexture>
+				</control>
+			
+				<control type="radiobutton" id="301"> <!--show movie plot-->
+					<label>31043</label>
+					<onclick>Skin.ToggleSetting(ListMoviePlot)</onclick>
+					<selected>Skin.HasSetting(ListMoviePlot)</selected>
+					<visible>[Control.IsVisible(50) + Container.Content(Movies)] + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			
+				<control type="radiobutton" id="302"> <!--show tv plot-->
+					<label>31043</label>
+					<onclick>Skin.ToggleSetting(ListTVPlot)</onclick>
+					<selected>Skin.HasSetting(ListTVPlot)</selected>
+					<visible>[Control.IsVisible(50) + Container.Content(TVShows)] + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+
+				<control type="radiobutton" id="303"> <!--use video custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(video.custom.bg)</onclick>
+					<selected>Skin.HasSetting(video.custom.bg)</selected>
+					<visible>[!SubString(Container.FolderPath,/movies/) + !SubString(Container.FolderPath,/tvshows/) + !Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)]</visible>
+				</control>
+
+				<control type="radiobutton" id="304"> <!--use movie custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(movie.custom.bg)</onclick>
+					<selected>Skin.HasSetting(movie.custom.bg)</selected>
+					<visible>SubString(Container.FolderPath,/movies/) | Container.Content(movies)</visible>
+				</control>
+
+				<control type="button" id="305"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(movie.custom.bg)]</label2>
+					<onclick>Skin.SetImage(movie.custom.bg)</onclick>
+					<visible>SubString(Container.FolderPath,/movies/)</visible>
+					<enable>Skin.HasSetting(movie.custom.bg)</enable>
+				</control>
+
+				<control type="radiobutton" id="306"> <!--movie fanart-->
+					<label>31044</label>
+					<onclick>Skin.ToggleSetting(movie.fanart)</onclick>
+					<onclick condition="Skin.HasSetting(movie.extra.fanart)">Skin.ToggleSetting(movie.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(movie.fanart)</selected>
+					<visible>Container.Content(movies)</visible>
+				</control>
+
+				<control type="radiobutton" id="307"> <!--movie extra fanart-->
+					<label>31042</label>
+					<onclick>Skin.ToggleSetting(movie.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(movie.extra.fanart)</selected>
+					<visible>Container.Content(movies)</visible>
+					<enable>Skin.HasSetting(movie.fanart)</enable>
+				</control>
+
+				<control type="radiobutton" id="308"> <!--use tv custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(tv.custom.bg)</onclick>
+					<selected>Skin.HasSetting(tv.custom.bg)</selected>
+					<visible>SubString(Container.FolderPath,/tvshows/) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				</control>
+
+				<control type="button" id="309"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(tv.custom.bg)]</label2>
+					<onclick>Skin.SetImage(tv.custom.bg)</onclick>
+					<visible>SubString(Container.FolderPath,/tvshows/)</visible>
+					<enable>Skin.HasSetting(tv.custom.bg)</enable>
+				</control>
+
+				<control type="radiobutton" id="310"> <!--tv fanart-->
+					<label>31044</label>
+					<onclick>Skin.ToggleSetting(tv.fanart)</onclick>
+					<selected>Skin.HasSetting(tv.fanart)</selected>
+					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				</control>
+				
+				<control type="button" id="351"> <!--change colour-->
+					<label>$LOCALIZE[31074]</label>
+					<onclick>ActivateWindow(700)</onclick>
+				</control>
+
+			</control>
+			
+			<include>MenuScrollbar</include>
+			
+		</control>
+
+	</controls>
+
+</window>

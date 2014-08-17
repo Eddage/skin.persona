@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="123">
+
+	<defaultcontrol>5</defaultcontrol>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(okdialog) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(filebrowser) + !Window.IsActive(selectdialog)</visible>
+
+			<control type="label"> <!--Header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+				<label>5</label>
+			</control>
+
+			<control type="label" id="3">
+				<description>No Settings Label</description>
+				<posx>15</posx>
+				<posy>270</posy>
+				<width>990</width>
+				<align>center</align>
+				<label>35004</label>
+				<font>Medium</font>
+			</control>
+			
+			<control type="grouplist" id="5"> <!--options-->
+				<left>460</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+			</control>
+
+			<control type="button" id="7">
+			</control>
+
+			<control type="radiobutton" id="8">
+				<width>1000</width>
+				<radioposx>940</radioposx>
+				<textwidth>895</textwidth>
+			</control>
+
+			<control type="spincontrolex" id="9">
+				<width>1000</width>
+				<textwidth>895</textwidth>
+			</control>
+
+			<control type="sliderex" id="10">
+			</control>
+
+			<control type="image" id="11"> <!--seperator-->
+				<height>-5</height>
+				<texture>-</texture>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>430</left>
+				<top>330</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>758</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+				
+			<control type="grouplist" id="9000">
+				<left>460</left>
+				<top>800</top>
+				<width>600</width>
+				<itemgap>5</itemgap>
+				<orientation>horizontal</orientation>
+				<onright>9000</onright>
+				<onleft>9000</onleft>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<scrolltime>0</scrolltime>
+
+				<control type="button" id="28"> <!--ok-->
+					<include>OptionButton</include>
+					<label>186</label>
+				</control>
+
+				<control type="button" id="29"> <!--cancel-->
+					<include>OptionButton</include>
+					<label>222</label>
+				</control>
+
+				<control type="button" id="50"> <!--defaults-->
+					<include>OptionButton</include>
+					<label>409</label>
+				</control>
+
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

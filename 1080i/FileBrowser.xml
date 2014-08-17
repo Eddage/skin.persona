@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="126">
+
+	<defaultcontrol always="true">450</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(networksetup)</visible>
+
+			<control type="label" id="411">
+				<left>710</left>
+				<top>210</top>
+				<width>500</width>
+				<font>MenuTitle</font>
+				<label>1021</label>
+			</control>
+
+			<control type="label" id="412"> <!--Header-->
+				<left>710</left>
+				<top>245</top>
+				<width>500</width>
+				<font>ButtonUpper</font>
+				<label>1021</label>
+			</control>
+
+			<control type="list" id="450">
+				<left>760</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>455</height>
+				<onup>9000</onup>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<ondown>9000</ondown>
+				<pagecontrol>60</pagecontrol>
+				
+				<itemlayout width="500" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>460</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</itemlayout>
+	
+				<focusedlayout width="500" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(450)</visible>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>460</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</focusedlayout>
+
+			</control>
+			
+			<control type="group"> <!--scrollbar stuff-->
+		
+				<control type="image"> <!--scrollbar arrow up-->
+					<left>680</left>
+					<top>315</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+
+				<control type="scrollbar" id="60"> <!--scrollbar-->
+					<left>680</left>
+					<top>330</top>
+					<height>420</height>
+					<showonepage>false</showonepage>
+				</control>
+			
+				<control type="image"> <!--scrollbar arrow down-->
+					<left>680</left>
+					<top>758</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+				
+			</control>
+			
+			<control type="group"> <!--bottom buttons-->
+				<top>0</top>
+
+				<control type="grouplist" id="9000">
+					<left>710</left>
+					<top>800</top>
+					<width>800</width>
+					<itemgap>5</itemgap>
+					<orientation>horizontal</orientation>
+					<onright>9000</onright>
+					<onleft>9000</onleft>
+					<onup>450</onup>
+					<ondown>450</ondown>
+					<scrolltime>0</scrolltime>
+
+					<control type="button" id="413"> <!--ok-->
+						<include>OptionButton</include>
+						<label>186</label>
+					</control>
+
+					<control type="button" id="414"> <!--cancel-->
+						<include>OptionButton</include>
+						<label>222</label>
+					</control>
+
+					<control type="button" id="415"> <!--new folder-->
+						<include>OptionButton</include>
+						<label>119</label>
+					</control>
+
+					<control type="radiobutton" id="416"> <!--mirror image-->
+						<include>OptionButton</include>
+						<label>749</label>
+						<textureradioonfocus colordiffuse="PrimaryT">controls/radioonnofocus.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="PrimaryT">controls/radioonnofocus.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="PrimaryT">controls/radiooffnofocus.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="PrimaryT">controls/radiooffnofocus.png</textureradiooffnofocus>
+						<visible>false</visible>
+					</control>
+
+				</control>
+			
+			</control>
+				
+			<control type="image"> <!--thumb bg-->
+				<top>315</top>
+				<left>200</left>
+				<width>455</width>
+				<height>455</height>
+				<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				<visible>!IsEmpty(ListItem.Thumb)</visible>
+				<animation effect="slide" start="0,0" end="32,0" time="0" condition="!Control.IsVisible(60)">Conditional</animation>
+			</control>
+
+			<control type="image"> <!--thumb-->
+				<top>315</top>
+				<left>200</left>
+				<width>455</width>
+				<height>455</height>
+				<texture background="true">$INFO[ListItem.Thumb]</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="slide" start="0,0" end="32,0" time="0" condition="!Control.IsVisible(60)">Conditional</animation>
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

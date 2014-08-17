@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2006">
+
+	<defaultcontrol always="true">-</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+
+	<onload condition="IsEmpty(Skin.String(music.viz.custom.bg))">Skin.SetString(music.viz.custom.bg,special://skin/backgrounds/music.jpg)</onload>
+	<onload condition="!Skin.HasSetting(MusicVizFanart)">Skin.ToggleSetting(MusicVizFanart)</onload>
+	
+	<controls>
+		
+		<control type="group"> <!--fanart-->
+		
+			<control type="image"> <!--view options bg-->
+				<include>FullscreenDimensions</include>
+				<texture>$INFO[Skin.String(background)]</texture>
+				<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<animation effect="slide" start="-10,-10" end="0,0" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+			</control>
+			
+			<control type="image">
+				<texture colordiffuse="QuaternaryBG">backgrounds/white.png</texture>
+			</control>
+		
+			<control type="image"> <!--music-->
+				<include>FullscreenDimensions</include>
+				<fadetime>250</fadetime>
+				<texture>$INFO[Skin.String(music.viz.custom.bg)]</texture>
+				<visible>Skin.HasSetting(music.viz.custom.bg)</visible>
+				<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<animation effect="slide" start="-10,-10" end="0,0" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+			</control>
+			
+			<control type="image"> <!--single fanart-->
+				<include>Dimensions_Fullscreen</include>
+				<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+				<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<animation effect="slide" start="-10,-10" end="0,0" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<visible>Skin.HasSetting(MusicVizFanart)</visible>
+			</control>
+			
+			<control type="multiimage"> <!--multi fanart-->
+				<include>FullscreenDimensions</include>
+				<timeperimage>5000</timeperimage>
+				<fadetime>750</fadetime>
+				<randomize>true</randomize>
+				<aspectratio>scale</aspectratio>
+				<imagepath background="true">$INFO[Skin.String(artists.path)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
+				<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<animation effect="slide" start="-10,-10" end="0,0" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(AnimatedFanart)">Conditional</animation>
+				<visible>Skin.HasSetting(MusicVizExtraFanart) + !Skin.HasSetting(HideMusicVizFanart)</visible>
+			</control>
+
+			<control type="visualisation" id="2"> <!--visualisation-->
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<animation effect="slide" start="0,0" end="1920,1080" time="0" condition="Skin.HasSetting(HideViz)">Conditional</animation>
+			</control>
+		
+			<control type="image">
+				<texture colordiffuse="HomeBG">backgrounds/diffuse.png</texture>
+			</control>
+			
+		</control>
+		
+		<control type="group"> <!--time and date-->
+			<visible>Skin.HasSetting(MusicVizTime)</visible>
+			<visible>!Window.IsVisible(1118)</visible>
+			<visible>!Window.IsVisible(script-XBMC_Lyrics-main.xml)</visible>
+	
+			<control type="label">
+				<right>75</right>
+				<top>50</top>
+				<width>200</width>
+				<label>$INFO[System.Time]</label>
+				<font>Breadcrumb</font>
+				<textcolor>PrimaryT</textcolor>
+				<align>right</align>
+				<aligny>bottom</aligny>
+				<include>ViewAnimation2</include>
+			</control>
+		
+			<control type="label">
+				<right>75</right>
+				<top>105</top>
+				<width>500</width>
+				<label>$INFO[System.Date(DDD)] $INFO[System.Date(DD)] $INFO[System.Date(MMM)]</label>
+				<font>ButtonSmallUpper</font>
+				<textcolor>PrimaryT</textcolor>
+				<align>right</align>
+				<include>ViewAnimation2</include>
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--bg labels-->
+			<visible>!Player.ShowInfo</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+			<include>HiddenByMenuMusicPlayer</include>
+		
+			<control type="group"> <!--paused label-->
+				<top>90</top>
+				<visible>!Control.IsVisible(500)</visible>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="100">Hidden</animation>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),30)</visible>	
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+					
+					<control type="label">
+						<description>Paused Label</description>
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
+						<visible>Player.Paused</visible>
+					</control>
+				
+				</control>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),31)</visible>		
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<description>Paused Label</description>
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
+						<visible>Player.Paused</visible>
+					</control>
+				
+				</control>	
+
+			</control>
+			
+			<control type="group"> <!--fast forward label-->
+				<top>90</top>
+				<visible>!Control.IsVisible(500)</visible>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="100">Hidden</animation>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),30)</visible>	
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x2</label>
+						<visible>Player.Forwarding2x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x4</label>
+						<visible>Player.Forwarding4x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x8</label>
+						<visible>Player.Forwarding8x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x16</label>
+						<visible>Player.Forwarding16x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x32</label>
+						<visible>Player.Forwarding32x</visible>
+					</control>
+				
+				</control>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),31)</visible>		
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x2</label>
+						<visible>Player.Forwarding2x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x4</label>
+						<visible>Player.Forwarding4x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x8</label>
+						<visible>Player.Forwarding8x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x16</label>
+						<visible>Player.Forwarding16x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31080] x32</label>
+						<visible>Player.Forwarding32x</visible>
+					</control>
+				
+				</control>	
+
+			</control>
+			
+			<control type="group"> <!--rewind label-->
+				<top>90</top>
+				<visible>!Control.IsVisible(500)</visible>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="100">Hidden</animation>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),30)</visible>	
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x2</label>
+						<visible>Player.Rewinding2x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x4</label>
+						<visible>Player.Rewinding4x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x8</label>
+						<visible>Player.Rewinding8x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x16</label>
+						<visible>Player.Rewinding16x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>545</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x32</label>
+						<visible>Player.Rewinding32x</visible>
+					</control>
+				
+				</control>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),31)</visible>		
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x2</label>
+						<visible>Player.Rewinding2x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x4</label>
+						<visible>Player.Rewinding4x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x8</label>
+						<visible>Player.Rewinding8x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x16</label>
+						<visible>Player.Rewinding16x</visible>
+					</control>
+				
+					<control type="label">
+						<left>10</left>
+						<top>645</top>
+						<include>MusicVizPausedLabel</include>
+						<include>MusicVizTextAnimation</include>
+						<label>$LOCALIZE[31081] x32</label>
+						<visible>Player.Rewinding32x</visible>
+					</control>
+				
+				</control>	
+
+			</control>
+			
+			<control type="group"> <!--time label-->
+				<top>-25</top>
+				<visible>!Control.IsVisible(500)</visible>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="group">
+					<top>90</top>
+					<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),30)</visible>	
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<description>Duration</description>
+						<left>0</left>
+						<top>508</top>
+						<width>1900</width>
+						<height>50</height>
+						<font>MusicTimeLarge</font>
+						<label>$INFO[MusicPlayer.Duration]</label>
+						<textcolor>QuaternaryT</textcolor>
+						<align>right</align>
+					</control>
+				
+					<control type="label">
+						<description>Current time</description>
+						<left>0</left>
+						<top>547</top>
+						<width>1900</width>
+						<height>50</height>
+						<font>MusicTime</font>
+						<label>$INFO[MusicPlayer.Time]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<align>right</align>
+					</control>
+				
+				</control>
+			
+				<control type="group">
+					<top>90</top>
+					<visible> IntegerGreaterThan(System.Time(ss),31)</visible>		
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<description>Duration</description>
+						<left>0</left>
+						<top>608</top>
+						<width>1900</width>
+						<height>50</height>
+						<font>MusicTimeLarge</font>
+						<label>$INFO[MusicPlayer.Duration]</label>
+						<textcolor>QuaternaryT</textcolor>
+						<align>right</align>
+					</control>
+				
+					<control type="label">
+						<description>Current time</description>
+						<left>0</left>
+						<top>647</top>
+						<width>1900</width>
+						<height>50</height>
+						<font>MusicTime</font>
+						<label>$INFO[MusicPlayer.Time]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<align>right</align>
+					</control>
+				
+				</control>	
+
+			</control>
+			
+			<control type="group"> <!--artist/song label-->
+				<top>-25</top>
+				<visible>!Control.IsVisible(500)</visible>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),30)</visible>	
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<description>Current time</description>
+						<left>0</left>
+						<top>758</top>
+						<width>1920</width>
+						<height>50</height>
+						<font>MusicTime</font>
+						<label>[COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+						<textcolor>PrimaryT</textcolor>
+						<align>right</align>
+						<scroll>true</scroll>
+						<scrollsuffix></scrollsuffix>
+					</control>
+				
+				</control>
+			
+				<control type="group">
+					<visible> IntegerGreaterThan(System.Time(ss),31)</visible>		
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				
+					<control type="label">
+						<description>Current time</description>
+						<left>0</left>
+						<top>858</top>
+						<width>1920</width>
+						<height>50</height>
+						<font>MusicTime</font>
+						<label>[COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=SecondaryT]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+						<textcolor>PrimaryT</textcolor>
+						<align>right</align>
+						<scroll>true</scroll>
+						<scrollsuffix></scrollsuffix>
+					</control>
+				
+				</control>	
+
+			</control>
+			
+		</control>
+
+		<control type="group">
+			<visible>Player.ShowInfo</visible>
+			<left>75</left>
+			<bottom>75</bottom>
+			<height>480</height>
+			<width>1770</width>
+			<visible>Player.ShowInfo</visible>
+			<include>HiddenByMenuMusicPlayer</include>
+			
+			<animation type="Visible">
+				<effect type="slide" time="500" start="0,500" end="0,0" easing="out" tween="cubic"/>
+			</animation>
+			<animation type="Hidden">
+				<effect type="slide" time="500" start="0,0" end="0,500" easing="in" tween="cubic"/>
+			</animation>
+			
+			<animation type="WindowOpen">
+				<effect type="slide" time="500" start="0,700" end="0,0" easing="out" tween="cubic"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" time="500" start="0,0" end="0,700" easing="in" tween="cubic"/>
+			</animation>
+				
+			<control type="image"> <!--cdart-->		
+				<left>190</left>
+				<bottom>15</bottom>
+				<width>390</width>
+				<height>390</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true" fallback="cdart.png">$INFO[Player.FolderPath]cdart.png</texture>				
+				<animation effect="rotate" end="-360" center="auto" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-165,0" time="400" reversible="true" condition="Player.Paused">Conditional</animation>
+				<visible>Skin.HasSetting(MusicVizCDArt)</visible>
+			</control>
+				
+			<control type="image"> <!--cover-->
+				<bottom>0</bottom>
+				<width>420</width>
+				<height>420</height>
+				<aspectratio>stretch</aspectratio>
+				<texture fallback="DefaultArtist.png">$INFO[MusicPlayer.Cover]</texture>
+			</control>
+			
+			<control type="group">
+			
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31088] x2</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31088] x4</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31088] x8</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31088] x16</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31088] x32</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31089] x2</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31089] x4</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31089] x8</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31089] x16</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+		
+				<control type="label">
+					<include>MusicVizPausedLabelSmall</include>
+					<label>$LOCALIZE[31089] x32</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+				
+			</control>
+			
+			<control type="group">
+				<top>95</top>
+				<left>450</left>
+					
+				<control type="group"> <!--Info (no cd art)-->
+					<visible>!Skin.HasSetting(MusicVizCDArt)</visible>
+				
+					<control type="label">
+						<top>0</top>
+						<width>1400</width>
+						<height>30</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>MusicNowPlaying</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[MusicPlayer.Title]</label>
+					</control>
+					
+					<control type="label">
+						<top>70</top>
+						<width>1400</width>
+						<height>25</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<scroll>true</scroll>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Artist]</label>
+					</control>
+					
+					<control type="label">
+						<top>130</top>
+						<width>1400</width>
+						<height>24</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Album]</label>
+					</control>
+
+					<control type="image">
+						<top>200</top>
+						<height>30</height>
+						<width>182</width>
+						<aspectratio></aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/$INFO[Player.StarRating]</texture>
+					</control>
+						
+					<control type="label">
+						<top>245</top>
+						<width>1400</width>
+						<height>50</height>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
+						<align>left</align>
+					</control>
+					
+					<control type="fadelabel">
+						<top>295</top>
+						<width>1400</width>
+						<height>50</height>
+						<visible>true</visible>
+						<scroll>false</scroll>
+						<scrollout>false</scrollout>
+						<scrollspeed>70</scrollspeed>
+						<pauseatend>7000</pauseatend>
+						<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[19031]: [/COLOR]$INFO[MusicPlayer.offset(1).Title] $INFO[MusicPlayer.offset(1).Artist,(,)]</label>
+						<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[210]: [/COLOR]$INFO[MusicPlayer.offset(-1).Title] $INFO[MusicPlayer.offset(-1).Artist,(,)]</label>
+						<font>MusicSmallest</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>![IsEmpty(MusicPlayer.offset(1).Title) + IsEmpty(MusicPlayer.offset(-1).Title) + IsEmpty(MusicPlayer.offset(1).Artist) + IsEmpty(MusicPlayer.offset(-1).Artist)]</visible>
+					</control>
+				
+				</control>
+					
+				<control type="group"> <!--Info (cd art)-->
+					<left>160</left>
+					<animation effect="slide" start="0,0" end="-160,0" time="400" reversible="true" condition="Player.Paused">Conditional</animation>
+					<visible>Skin.HasSetting(MusicVizCDArt)</visible>
+				
+					<control type="label">
+						<top>0</top>
+						<width>1400</width>
+						<height>30</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>MusicNowPlaying</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[MusicPlayer.Title]</label>
+					</control>
+					
+					<control type="label">
+						<top>70</top>
+						<width>1400</width>
+						<height>25</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<scroll>true</scroll>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Artist]</label>
+					</control>
+					
+					<control type="label">
+						<top>130</top>
+						<width>1400</width>
+						<height>24</height>
+						<align>left</align>
+						<aligny>-</aligny>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Album]</label>
+					</control>
+
+					<control type="image">
+						<top>200</top>
+						<height>30</height>
+						<width>182</width>
+						<aspectratio></aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/$INFO[Player.StarRating]</texture>
+					</control>
+						
+					<control type="label">
+						<top>245</top>
+						<width>1400</width>
+						<height>50</height>
+						<font>MusicSmaller</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
+						<align>left</align>
+					</control>
+					
+					<control type="fadelabel">
+						<top>295</top>
+						<width>1400</width>
+						<height>50</height>
+						<visible>true</visible>
+						<scroll>false</scroll>
+						<scrollout>false</scrollout>
+						<scrollspeed>70</scrollspeed>
+						<pauseatend>7000</pauseatend>
+						<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[19031]: [/COLOR]$INFO[MusicPlayer.offset(1).Title] $INFO[MusicPlayer.offset(1).Artist,(,)]</label>
+						<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[210]: [/COLOR]$INFO[MusicPlayer.offset(-1).Title] $INFO[MusicPlayer.offset(-1).Artist,(,)]</label>
+						<font>MusicSmallest</font>
+						<textcolor>PrimaryT</textcolor>
+						<align>left</align>
+						<visible>![IsEmpty(MusicPlayer.offset(1).Title) + IsEmpty(MusicPlayer.offset(-1).Title) + IsEmpty(MusicPlayer.offset(1).Artist) + IsEmpty(MusicPlayer.offset(-1).Artist)]</visible>
+					</control>
+				
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

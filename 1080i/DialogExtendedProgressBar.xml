@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<defaultcontrol/>
+	
+	<controls>
+	
+		<control type="group">
+			<left>75r</left>
+			<top>982</top>
+			<visible>!Window.IsVisible(fullscreenvideo) + !Window.Visible(visualisation) + !Window.IsVisible(volumebar) + !Window.IsVisible(infodialog)</visible>
+			<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+			
+			<control type="label" id="30"> <!--Header-->
+				<width>750</width>
+				<height>25</height>
+				<font>ButtonBlackUpper</font>
+				<align>right</align>
+			</control>
+		
+			<control type="label" id="31"> <!--Line 1-->
+				<top>28</top>
+				<width>750</width>
+				<height>25</height>
+				<font>Button</font>
+				<align>right</align>
+			</control>
+			
+			<control type="group">
+		
+				<control type="progress" id="32">
+					<right>75</right>
+					<top>62</top>
+					<width>450</width>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

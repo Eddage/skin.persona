@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="1">
+
+	<onload condition="![Skin.HasSetting(games.widget.shape.dvd) | Skin.HasSetting(games.widget.shape.square) | Skin.HasSetting(games.widget.shape.rectangle)">Skin.ToggleSetting(games.widget.shape.dvd)</onload>
+
+	<defaultcontrol always="true">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>50,501,502,504,503</views>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>GlobalItems</include>
+		<include>Breadcrumb</include>
+
+		<include>View_50_List_Addons</include>
+		<include>View_501_List_Advanced_Launcher</include>
+		<include>View_502_Poster_Advanced_Launcher</include>
+		<include>View_504_Landscape_Advanced_Launcher</include>
+		<include>View_503_Slideshow_Advanced_Launcher</include>
+		
+		<control type="group">
+			<include>DialogBG</include>
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+			<include>BGFade</include>
+		</control>
+		
+		<control type="group">
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus + !Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(mediafilter) + !Window.IsActive(filebrowser)</visible>
+			<include>FadeandZoom2</include>
+		
+			<control type="label">
+				<left>710</left>
+				<top>240</top>
+				<width>500</width>
+				<label>14018</label>
+				<font>MenuTitle</font>
+			</control>
+			
+			<control type="grouplist" id="9000">
+				<left>710</left>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<control type="button" id="2"> <!--view-->
+				</control>
+				
+				<control type="button" id="3"> <!--sort by-->
+					<label>103</label>
+				</control>
+				
+				<control type="togglebutton" id="4"> <!--ascending/descending-->
+					<label>584</label>
+					<altlabel>585</altlabel>
+					<usealttexture>Container.SortDirection(Descending)</usealttexture>
+				</control>
+				
+				<control type="edit" id="19"> <!--filter basic-->
+					<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+					<label>587</label>
+				</control>
+				
+				<control type="radiobutton" id="20"> <!--filter advanced-->
+					<visible>Container.CanFilterAdvanced</visible>
+					<label>587</label>
+					<onclick>right</onclick>
+					<onclick>Filter</onclick>
+				</control>
+			
+				<control type="radiobutton" id="301"> <!--show game plot-->
+					<label>31043</label>
+					<onclick>Skin.ToggleSetting(ListGamePlot)</onclick>
+					<selected>Skin.HasSetting(ListGamePlot)</selected>
+					<visible>SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher) + Control.IsVisible(501)</visible>
+				</control>
+
+				<control type="radiobutton" id="307"> <!--use addon custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(addon.custom.bg)</onclick>
+					<selected>Skin.HasSetting(addon.custom.bg)</selected>
+					<visible>!SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+				</control>
+
+				<control type="button" id="308"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(addon.custom.bg)]</label2>
+					<onclick>Skin.SetImage(addon.custom.bg)</onclick>
+					<enable>Skin.HasSetting(addon.custom.bg)</enable>
+					<visible>!SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+				</control>
+
+				<control type="radiobutton" id="309"> <!--use games custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(games.custom.bg)</onclick>
+					<selected>Skin.HasSetting(games.custom.bg)</selected>
+					<visible>SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+				</control>
+
+				<control type="button" id="310"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(games.custom.bg)]</label2>
+					<onclick>Skin.SetImage(games.custom.bg)</onclick>
+					<visible>SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+					<enable>Skin.HasSetting(games.custom.bg)</enable>
+				</control>
+
+				<control type="radiobutton" id="311"> <!--game fanart-->
+					<label>31044</label>
+					<onclick>Skin.ToggleSetting(games.fanart)</onclick>
+					<onclick condition="Skin.HasSetting(games.extra.fanart)">Skin.ToggleSetting(games.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(games.fanart)</selected>
+					<visible>SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+				</control>
+
+				<control type="radiobutton" id="312"> <!--game extra fanart-->
+					<label>31042</label>
+					<onclick>Skin.ToggleSetting(games.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(games.extra.fanart)</selected>
+					<visible>SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher)</visible>
+					<enable>Skin.HasSetting(games.fanart)</enable>
+				</control>
+				
+				<control type="label" id="320"> <!--home widget options-->
+					<label>Home widget options</label>
+					<font>ButtonBoldUpper</font>
+				</control>
+				
+				<control type="button" id="321"> <!--set widget 1 path-->
+					<label>$LOCALIZE[31141]</label>
+					<label2>$INFO[Skin.String(Games.Widget.1.Path)]</label2>
+					<onclick>Skin.SetString(Games.Widget.1.Path,$INFO[Container.FolderPath])</onclick>
+				</control>
+				
+				<control type="button" id="322"> <!--set widget 1 label-->
+					<label>$LOCALIZE[31142]</label>
+					<label2>$INFO[Skin.String(Games.Widget.1.Label)]</label2>
+					<onclick>Skin.SetString(Games.Widget.1.Label)</onclick>
+				</control>
+				
+				<control type="button" id="323"> <!--set widget 1 shape-->
+					<label>$LOCALIZE[31143]</label>
+					<label2>$VAR[GamesWidgetShape]</label2>
+					<onclick condition="Skin.HasSetting(games.widget.shape.dvd)">Skin.ToggleSetting(games.widget.shape.dvd)</onclick> <!--turn dvd off-->
+					<onclick condition="Skin.HasSetting(games.widget.shape.dvd)">Skin.ToggleSetting(games.widget.shape.square)</onclick> <!--turn square on-->
+					
+					<onclick condition="Skin.HasSetting(games.widget.shape.square)">Skin.ToggleSetting(games.widget.shape.square)</onclick> <!--turn square off-->
+					<onclick condition="Skin.HasSetting(games.widget.shape.square)">Skin.ToggleSetting(games.widget.shape.rectangle)</onclick> <!--turn rectangle on-->
+					
+					<onclick condition="Skin.HasSetting(games.widget.shape.rectangle)">Skin.ToggleSetting(games.widget.shape.rectangle)</onclick> <!--turn rectangle off-->
+					<onclick condition="Skin.HasSetting(games.widget.shape.rectangle)">Skin.ToggleSetting(games.widget.shape.dvd)</onclick> <!--turn dvd on-->
+				</control>
+				
+				<control type="label" id="350"> <!--Global skin options-->
+					<label>Global Skin options</label>
+					<font>ButtonBoldUpper</font>
+				</control>
+				
+				<control type="button" id="351"> <!--change colour-->
+					<label>$LOCALIZE[31074]</label>
+					<onclick>ActivateWindow(700)</onclick>
+				</control>
+
+			</control>
+			
+			<include>MenuScrollbar</include>
+			
+		</control>
+
+	</controls>
+
+</window>

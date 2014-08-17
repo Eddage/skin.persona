@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="139">
+
+	<defaultcontrol always="true">5</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		
+		<control type="image"> <!--top-->
+			<include>FullScreenDimensions</include>
+			<texture colordiffuse="Black95">backgrounds/white.png</texture>
+			<visible>Window.IsVisible(slideshow)</visible>
+			<include>BGFade</include>
+		</control>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(filebrowser) + !Window.IsActive(selectdialog)</visible>
+
+			<control type="label"> <!--Header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>850</width>
+				<font>MenuTitle</font>
+				<label>13406</label>
+			</control>
+
+			<control type="list" id="5">
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>850</width>
+				<height>450</height>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+					
+				<itemlayout width="1000" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>960</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Button</font>
+					</control>
+
+					<control type="label">
+						<left>830</left>
+						<width>600</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1000" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>1000</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>960</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Button</font>
+					</control>
+
+					<control type="label">
+						<left>830</left>
+						<width>600</width>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

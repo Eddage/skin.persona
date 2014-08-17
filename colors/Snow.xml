@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<colors>
+	
+	<!--background colours-->
+	<color name="PrimaryBG">CCFFFFFF</color>
+	<color name="SecondaryBG">FFFFFFFF</color>
+	<color name="TertiaryBG">FFFFFFFF</color>
+	<color name="QuaternaryBG">01000000</color>
+	<color name="HomeBG">CCFFFFFF</color>
+	
+	<!--main colours-->
+	<color name="PrimaryM">FF999999</color>
+	<color name="PriSecondaryM">FFcccccc</color>
+	<color name="SecondaryM">FFebebeb</color>
+	<color name="SecondaryMT">70FFFFFF</color>
+	<color name="TertiaryM">FFeaeaea</color>
+	<color name="TertiaryMT">CCf3f3f3</color>
+	<color name="QuaternaryM">FFeeeeee</color>
+	
+	<!--text colours-->
+	<color name="PrimaryT">FF555555</color>
+	<color name="SecondaryT">FF999999s</color>
+	<color name="TertiaryT">FFbbbbbb</color>
+	<color name="QuaternaryT">35555555</color>
+	
+	<!--osd colours-->
+	<color name="PrimaryOSD">FFFFFFFF</color>
+	<color name="SecondaryOSD">90FFFFFF</color>
+	<color name="TertiaryOSD">30FFFFFF</color>
+	
+	<!--others-->
+	<color name="Black">FF000000</color>
+	<color name="Black95">95000000</color>
+	<color name="Blue">FFff0000</color>
+	<color name="Red">FF006cff</color>
+	<color name="White">FFFFFFFF</color>
+	
+</colors>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(Videos,RecentlyAddedMovies,return)</action>
+		<label>Recently added</label>
+		<label2>32014</label2>
+		<defaultID>recently-added</defaultID>
+		<icon>DefaultRecentlyAddedMovies.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieTitles,return)</action>
+		<label>369</label>
+		<label2>342</label2>
+		<defaultID>369</defaultID>
+		<icon>DefaultMovieTitle.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieGenres,return)</action>
+		<label>135</label>
+		<label2>342</label2>
+		<defaultID>135</defaultID>
+		<icon>DefaultGenre.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieYears,return)</action>
+		<label>562</label>
+		<label2>342</label2>
+		<defaultID>562</defaultID>
+		<icon>DefaultYear.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieActors,return)</action>
+		<label>344</label>
+		<label2>342</label2>
+		<defaultID>344</defaultID>
+		<icon>DefaultActor.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieDirectors,return)</action>
+		<label>20348</label>
+		<label2>342</label2>
+		<defaultID>20348</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieStudios,return)</action>
+		<label>20388</label>
+		<label2>342</label2>
+		<defaultID>20388</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,MovieCountries,return)</action>
+		<label>20451</label>
+		<label2>342</label2>
+		<defaultID>20451</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,Addons,return)</action>
+		<label>1037</label>
+		<label2>32014</label2>
+		<defaultID>1037</defaultID>
+		<icon>DefaultAddonVideo.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,Files,return)</action>
+		<label>744</label>
+		<label2>32014</label2>
+		<defaultID>744</defaultID>
+		<icon>DefaultFolder.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>UpdateLibrary(video)</action>
+		<label>Update library</label>
+		<label2>32054</label2>
+		<defaultID>update-library</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+</shortcuts>

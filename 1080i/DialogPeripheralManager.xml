@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="10140">
+
+	<defaultcontrol always="true">20</defaultcontrol>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(okdialog) + !Window.IsVisible(PeripheralSettings)</visible>
+
+			<control type="label" id="1"> <!--Header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+				<label>35000</label>
+			</control>
+
+			<control type="list" id="20">
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>1000</width>
+				<height>520</height>
+				<onup>10</onup>
+				<onleft>-</onleft>
+				<onright>10</onright>
+				<ondown>10</ondown>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+
+				<itemlayout height="130" width="825">
+
+					<control type="label"> <!--name-->
+						<left>20</left>
+						<width>960</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Button</font>
+					</control>
+
+					<control type="label"> <!--product id/vendor id-->
+						<left>20</left>
+						<top>45</top>
+						<width>960</width>
+						<height>30</height>
+						<label>$LOCALIZE[35504]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<font>ButtonBoldSmall</font>
+					</control>
+
+					<control type="label"> <!--class-->
+						<left>20</left>
+						<top>75</top>
+						<width>960</width>
+						<height>30</height>
+						<label>$LOCALIZE[35501]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Class)][/COLOR]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<font>ButtonBoldSmall</font>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="130" width="825">
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>1000</width>
+						<height>125</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(20)</visible>
+					</control>
+
+					<control type="label"> <!--name-->
+						<left>20</left>
+						<width>960</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Button</font>
+					</control>
+
+					<control type="label"> <!--product id/vendor id-->
+						<left>20</left>
+						<top>45</top>
+						<width>960</width>
+						<height>30</height>
+						<label>$LOCALIZE[35504]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<font>ButtonBoldSmall</font>
+					</control>
+
+					<control type="label"> <!--class-->
+						<left>20</left>
+						<top>75</top>
+						<width>960</width>
+						<height>30</height>
+						<label>$LOCALIZE[35501]:  [COLOR=PrimaryT]$INFO[ListItem.Property(Class)][/COLOR]</label>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<font>ButtonBoldSmall</font>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>430</left>
+				<top>330</top>
+				<height>485</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>823</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="button" id="10"> <!--ok-->
+				<include>OptionButton</include>
+				<left>460</left>
+				<top>870</top>
+				<label>186</label>
+				<onup>20</onup>
+				<ondown>20</ondown>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

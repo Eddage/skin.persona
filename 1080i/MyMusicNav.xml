@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="502">
+
+	<defaultcontrol always="true">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>50,51,52</views>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>GlobalItems</include>
+		<include>Breadcrumb</include>
+		
+		<include>View_50_List_Music</include>
+		<include>View_51_Poster_Music</include>
+		<include>View_52_Landscape_Music</include>
+		
+		<control type="group">
+			<include>DialogBG</include>
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+			<include>BGFade</include>
+		</control>
+		
+		<control type="group">
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus + !Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(mediafilter) + !Window.IsActive(filebrowser)</visible>
+			<include>FadeandZoom</include>
+		
+			<control type="label">
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>500</width>
+				<label>14018</label>
+				<font>MenuTitle</font>
+			</control>
+			
+			<control type="grouplist" id="9000">
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<control type="button" id="2"> <!--view-->
+				</control>
+				
+				<control type="button" id="3"> <!--sort by-->
+					<label>103</label>
+				</control>
+				
+				<control type="togglebutton" id="4"> <!--ascending/descending-->
+					<label>584</label>
+					<altlabel>585</altlabel>
+					<usealttexture>Container.SortDirection(Descending)</usealttexture>
+				</control>
+				
+				<control type="radiobutton" id="99"> <!--library button-->
+					<label>$LOCALIZE[29800]</label>
+					<onclick>ReplaceWindow(MusicFiles)</onclick>
+					<selected>Window.IsVisible(MusicLibrary)</selected>
+				</control>
+
+				
+				<control type="edit" id="19"> <!--filter basic-->
+					<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+					<label>587</label>
+				</control>
+				
+				<control type="radiobutton" id="98"> <!--filter advanced-->
+					<visible>Container.CanFilterAdvanced</visible>
+					<label>587</label>
+					<selected>Container.Filtered</selected>
+					<onclick>right</onclick>
+					<onclick>Filter</onclick>
+				</control>
+				
+				<control type="button" id="8"> <!--search-->
+					<label>137</label>
+				</control>
+				
+				<control type="radiobutton" id="16"> <!--party mode-->
+					<label>589</label>
+				</control>
+				
+				<control type="togglebutton" id="20"> <!--update library-->
+					<label>653</label>
+					<altlabel>13353</altlabel>
+					<usealttexture>library.isscanningmusic</usealttexture>
+				</control>
+			
+				<control type="radiobutton" id="301"> <!--show artist info-->
+					<label>31057</label>
+					<onclick>Skin.ToggleSetting(ListArtistInfo)</onclick>
+					<selected>Skin.HasSetting(ListArtistInfo)</selected>
+					<visible>Control.IsVisible(50) + Container.Content(Artists)</visible>
+				</control>
+			
+				<control type="radiobutton" id="302"> <!--show album info-->
+					<label>31058</label>
+					<onclick>Skin.ToggleSetting(ListAlbumInfo)</onclick>
+					<selected>Skin.HasSetting(ListAlbumInfo)</selected>
+					<visible>Control.IsVisible(50) + Container.Content(Albums)</visible>
+				</control>
+
+				<control type="radiobutton" id="303"> <!--use music custom background-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(music.custom.bg)</onclick>
+					<selected>Skin.HasSetting(music.custom.bg)</selected>
+				</control>
+
+				<control type="button" id="304"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(music.custom.bg)]</label2>
+					<onclick>Skin.SetImage(music.custom.bg)</onclick>
+					<enable>Skin.HasSetting(music.custom.bg)</enable>
+				</control>
+
+				<control type="radiobutton" id="305"> <!--music fanart-->
+					<label>31044</label>
+					<onclick>Skin.ToggleSetting(music.fanart)</onclick>
+					<onclick condition="Skin.HasSetting(music.extra.fanart)">Skin.ToggleSetting(music.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(music.fanart)</selected>
+					<visible>Container.Content(artists) | Container.Content(Albums) | Container.Content(Songs)</visible>
+				</control>
+
+				<control type="radiobutton" id="306"> <!--music extra fanart-->
+					<label>31042</label>
+					<onclick>Skin.ToggleSetting(music.extra.fanart)</onclick>
+					<selected>Skin.HasSetting(music.extra.fanart)</selected>
+					<visible>Container.Content(artists) | Container.Content(Albums) | Container.Content(Songs)</visible>
+					<enable>Skin.HasSetting(music.fanart)</enable>
+				</control>
+					
+				<control type="button" id="307"> <!--artists path-->
+					<label>31048</label>
+					<label2>$INFO[Skin.String(artists.path)]</label2>
+					<onclick>Skin.SetPath(artists.path)</onclick>
+					<visible>Skin.HasSetting(music.extra.fanart)</visible>
+				</control>
+				
+				<control type="button" id="351"> <!--change colour-->
+					<label>$LOCALIZE[31074]</label>
+					<onclick>ActivateWindow(700)</onclick>
+				</control>
+
+			</control>
+			
+			<include>MenuScrollbar</include>
+			
+		</control>
+
+	</controls>
+
+</window>

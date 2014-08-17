@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+    <controls>
+	
+		<control type="group">
+			<top>200</top>
+	
+			<control type="group">
+
+				<control type="label" id="10011"> <!--DIALOG TITLE-->
+					<centerleft>50%</centerleft>
+					<top>210</top>
+					<width>490</width>
+					<font>MenuTitle</font>
+					<label>$ADDON[script.trakt 1313]</label>
+				</control>
+
+				<control type="label" id="10012"> <!--MEDIA TITLE-->
+					<centerleft>50%</centerleft>
+					<top>255</top>
+					<width>490</width>
+					<font>NotificationTitle</font>
+					<label></label>
+				</control>
+
+				<control type="label" id="10013"> <!--RATING TITLE-->
+					<centerleft>50%</centerleft>
+					<top>375</top>
+					<width>490</width>
+					<font>NotificationTitle</font>
+					<align>center</align>
+					<label></label>
+				</control>
+				
+			</control>
+
+			<!--SIMPLE -->
+			<control type="group" id="10014">
+				<control type="button" id="10030">
+					<description>Love Button</description>
+					<posx>170</posx>
+					<posy>110</posy>
+					<width>100</width>
+					<height>60</height>
+					<label></label>
+					<texturefocus>love.png</texturefocus>
+					<texturenofocus>love_nofocus.png</texturenofocus>
+					<aligny>center</aligny>
+					<align>center</align>
+					<onleft>10031</onleft>
+					<onright>10031</onright>
+				</control>
+
+				<control type="button" id="10031">
+					<description>Hate Button</description>
+					<posx>330</posx>
+					<posy>110</posy>
+					<width>100</width>
+					<height>60</height>
+					<label></label>
+					<texturefocus>hate.png</texturefocus>
+					<texturenofocus>hate_nofocus.png</texturenofocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<onleft>10030</onleft>
+					<onright>10030</onright>
+				</control>
+			</control>
+
+			<!--ADVANCED-->
+			<control type="group" id="10015">
+				<centerleft>50%</centerleft>
+				<top>325</top>
+				<width>490</width>
+			
+				<control type="button" id="11030">
+					<description>1 Button</description>
+					<left>0</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11039</ondown>
+					<onup>11031</onup>
+					<onleft>11039</onleft>
+					<onright>11031</onright>
+				</control>
+
+				<control type="button" id="11031">
+					<description>2 Button</description>
+					<left>50</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11030</ondown>
+					<onup>11032</onup>
+					<onleft>11030</onleft>
+					<onright>11032</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11032)</visible>
+				</control>
+
+				<control type="image">
+					<description>2 Button Placeholder</description>
+					<left>50</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)</visible>
+				</control>
+
+				<control type="button" id="11032">
+					<description>3 Button</description>
+					<left>100</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11031</ondown>
+					<onup>11033</onup>
+					<onleft>11031</onleft>
+					<onright>11033</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)</visible>
+				</control>
+
+				<control type="image">
+					<description>3 Button Placeholder</description>
+					<left>100</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)</visible>
+				</control>
+
+				<control type="button" id="11033">
+					<description>4 Button</description>
+					<left>150</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<ondown>11032</ondown>
+					<onup>11034</onup>
+					<onleft>11032</onleft>
+					<onright>11034</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)</visible>
+				</control>
+
+				<control type="image">
+					<description>4 Button Placeholder</description>
+					<left>150</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)</visible>
+				</control>
+
+				<control type="button" id="11034">
+					<description>5 Button</description>
+					<left>200</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<align>center</align>
+					<aligny>center</aligny>
+					<ondown>11033</ondown>
+					<onup>11035</onup>
+					<onleft>11033</onleft>
+					<onright>11035</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)</visible>
+				</control>
+
+				<control type="image">
+					<description>5 Button Placeholder</description>
+					<left>200</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)</visible>
+				</control>
+
+				<control type="button" id="11035">
+					<description>6 Button</description>
+					<left>250</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11034</ondown>
+					<onup>11036</onup>
+					<onleft>11034</onleft>
+					<onright>11036</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)</visible>
+				</control>
+
+				<control type="image">
+					<description>6 Button Placeholder</description>
+					<left>250</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)</visible>
+				</control>
+
+				<control type="button" id="11036">
+					<description>7 Button</description>
+					<left>300</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11035</ondown>
+					<onup>11037</onup>
+					<onleft>11035</onleft>
+					<onright>11037</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)</visible>
+				</control>
+
+				<control type="image">
+					<description>7 Button Placeholder</description>
+					<left>300</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)</visible>
+				</control>
+
+				<control type="button" id="11037">
+					<description>8 Button</description>
+					<left>350</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11036</ondown>
+					<onup>11038</onup>
+					<onleft>11036</onleft>
+					<onright>11038</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)</visible>
+				</control>
+
+				<control type="image">
+					<description>8 Button Placeholder</description>
+					<left>350</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)</visible>
+				</control>
+
+				<control type="button" id="11038">
+					<description>9 Button</description>
+					<left>400</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11037</ondown>
+					<onup>11039</onup>
+					<onleft>11037</onleft>
+					<onright>11039</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)|!Control.HasFocus(11037)</visible>
+				</control>
+
+				<control type="image">
+					<description>9 Button Placeholder</description>
+					<left>400</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)|Control.HasFocus(11037)</visible>
+				</control>
+
+				<control type="button" id="11039">
+					<description>10 Button</description>
+					<left>450</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(MainColour)]">symbols/star-48.png</texturenofocus>
+					<ondown>11038</ondown>
+					<onup>11030</onup>
+					<onleft>11038</onleft>
+					<onright>11030</onright>
+					<visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)|!Control.HasFocus(11037)|!Control.HasFocus(11038)</visible>
+				</control>
+
+				<control type="image">
+					<description>10 Button Placeholder</description>
+					<left>450</left>
+					<width>40</width>
+					<height>40</height>
+					<texture colordiffuse="PrimaryM">symbols/star-48.png</texture>
+					<visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)|Control.HasFocus(11037)|Control.HasFocus(11038)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+
+    </controls>
+
+</window>

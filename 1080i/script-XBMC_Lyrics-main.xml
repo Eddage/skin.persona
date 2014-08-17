@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<allowoverlay>no</allowoverlay>
+	<defaultcontrol always="false">101</defaultcontrol>
+	
+	<controls>
+	
+		<control type="group">
+			
+			<control type="image">
+				<height>500</height>
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="HomeBG">backgrounds/white.png</texture>
+			</control>
+
+			<!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
+			
+			<control type="list" id="110">
+				<centerleft>50%</centerleft>
+				<top>15</top>
+				<width>1920</width>
+				<height>460</height>
+				<onleft>dialog.close(all,true)</onleft>
+				<onright>dialog.close(all,true)</onright>
+				<onup>110</onup>
+				<ondown>110</ondown>
+				<scrolltime>200</scrolltime>
+				
+				<itemlayout height="50">
+				
+					<control type="label">
+						<left>960</left>
+						<width>1820</width>
+						<label fallback="">$INFO[ListItem.Label]</label>
+						<font>MusicSmallest</font>
+						<align>center</align>
+						<textcolor>PrimaryT</textcolor>
+						<wrapmultiline>true</wrapmultiline>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="50">
+				
+					<control type="label">
+						<left>960</left>
+						<top>0</top>
+						<width>1820</width>
+						<label fallback="">[B]$INFO[ListItem.Label][/B]</label>
+						<font>MusicSmaller</font>
+						<align>center</align>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<wrapmultiline>true</wrapmultiline>
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<!--next page-->
+			<control type="spincontrol" id="111">
+				<subtype>page</subtype>
+				<showonepage>true</showonepage>
+				<!--<visible>Control.IsVisible(110)</visible>-->
+				<visible>false</visible>
+			</control>
+			
+			<!--pick label-->
+			<control type="label" id="2">
+				<width>550</width>
+				<height>30</height>
+				<align>left</align>
+				<label>31203</label>
+				<font>List</font>
+				<textcolor>red</textcolor>
+				<visible>Control.IsVisible(120) + ![Control.IsVisible(100) | Control.IsVisible(110)]</visible>
+			</control>
+			
+			<!-- ** Required ** Do not change <id> or <type> (Song Chooser if it gets it wrong) -->
+			<control type="list" id="120">
+				<width>550</width>
+				<height>440</height>
+				<onleft>121</onleft>
+				<onright>121</onright>
+				<onup>120</onup>
+				<ondown>120</ondown>
+				<pagecontrol>121</pagecontrol>
+				<animation effect="slide" start="0,0" end="20,0" time="0" condition="!Control.IsVisible(121)">Conditional</animation>
+				
+				<itemlayout height="40">
+					
+					<control type="label">
+						<left>10</left>
+						<top>0</top>
+						<width>530</width>
+						<height>40</height>
+						<font>Button</font>
+						<aligny>center</aligny>
+						<selectedcolor>PrimaryT</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="40">
+					
+					<control type="image">
+						<width>550</width>
+						<height>41</height>
+						<visible>Control.HasFocus(120)</visible>
+						<texture border="5">MenuItemFO.png</texture>
+					</control>
+					
+					<control type="label">
+						<width>530</width>
+						<height>40</height>
+						<font>Button</font>
+						<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<!--next page-->
+			<control type="spincontrol" id="121">
+				<subtype>page</subtype>
+				<font>regular</font>
+				<onleft>120</onleft>
+				<onright>120</onright>
+				<ondown>120</ondown>
+				<onup>120</onup>
+				<showonepage>true</showonepage>
+				<visible>false</visible>
+				<visible>Control.IsVisible(120)</visible>
+			</control>
+			
+			<!--scraper label-->
+			<control type="label" id="200">
+				<visible>false</visible>
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

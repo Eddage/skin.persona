@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Artists,return)</action>
+		<label>133</label>
+		<label2>32019</label2>
+		<defaultID>133</defaultID>
+		<icon>DefaultMusicArtists.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Albums,return)</action>
+		<label>132</label>
+		<label2>32019</label2>
+		<defaultID>132</defaultID>
+		<icon>DefaultMusicAlbums.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Songs,return)</action>
+		<label>134</label>
+		<label2>32019</label2>
+		<defaultID>134</defaultID>
+		<icon>DefaultMusicSongs.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Genres,return)</action>
+		<label>135</label>
+		<label2>32019</label2>
+		<defaultID>135</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Years,return)</action>
+		<label>652</label>
+		<label2>32019</label2>
+		<defaultID>652</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Top100,return)</action>
+		<label>271</label>
+		<label2>32019</label2>
+		<defaultID>271</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)</action>
+		<label>Recently added</label>
+		<label2>32019</label2>
+		<defaultID>recently-added</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)</action>
+		<label>Recently played</label>
+		<label2>32019</label2>
+		<defaultID>recently-played</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicLibrary,Playlists,return)</action>
+		<label>136</label>
+		<label2>32019</label2>
+		<defaultID>136</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>UpdateLibrary(music)</action>
+		<label>Update library</label>
+		<label2>32054</label2>
+		<defaultID>update-library</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+</shortcuts>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<defaultcontrol>-</defaultcontrol>
+	
+	<controls>
+	
+		<control type="list" id="100">
+			<visible>false</visible>
+		</control>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(filebrowser) + !Window.IsActive(progressdialog) + !Window.IsActive(yesnodialog)</visible>
+		
+			<control type="label"> <!--title-->
+				<left>75</left>
+				<top>50</top>
+				<width>1600</width>
+				<label>$INFO[Container(100).ListItem.Label]</label>
+				<font>Breadcrumb</font>
+				<aligny>top</aligny>
+			</control>
+
+			<control type="label" id="20"> <!--tagline-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[Container(100).ListItem.Property(Tagline)]</label>
+				<scroll>true</scroll>
+				<visible>Control.IsVisible(110)</visible>
+			</control>
+
+			<control type="label" id="20"> <!--artist-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[Container(100).ListItem.Property(Artist)]</label>
+				<scroll>true</scroll>
+				<visible>Control.IsVisible(170)</visible>
+			</control>
+
+			<control type="label" id="20"> <!--album/artist-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[Container(100).ListItem.Property(Album)] • $INFO[Container(100).ListItem.Property(Artist)]</label>
+				<scroll>true</scroll>
+				<visible>Control.IsVisible(150) | Control.IsVisible(180)</visible>
+			</control>
+
+			<control type="label" id="20"> <!--show/season-->
+				<left>75</left>
+				<top>110</top>
+				<width>1600</width>
+				<font>ButtonSmallUpper</font>
+				<label>$INFO[Container(100).ListItem.Property(TvShowTitle)] • Season $INFO[Container(100).ListItem.Property(Season)] / Episode $INFO[Container(100).ListItem.Property(Episode)]</label>
+				<scroll>true</scroll>
+				<visible>Control.IsVisible(140)</visible>
+			</control>
+						
+			<control type="grouplist"> <!--rating-->
+				<right>75</right>
+				<top>67</top>
+				<width min="90" max="900">auto</width>
+				<height>78</height>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(140)</visible>
+					
+				<control type="image"> <!--star-->
+					<width>48</width>
+					<height>48</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+	
+				<control type="label"> <!--label-->
+					<width min="29" max="200">auto</width>
+					<height>48</height>
+					<label fallback="NR">$INFO[Container(100).ListItem.Property(Rating)]</label>
+					<font>Breadcrumb</font>
+					<textcolor>PrimaryT</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+			
+			<control type="group"> <!--main content-->		
+				<left>25</left>
+				<top>60</top>
+				<animation effect="slide" start="0,0" end="0,-20" time="0" condition="Window.IsVisible(musicoverlay) | Window.IsVisible(videooverlay)">Conditional</animation>
+
+				<control type="image"> <!--cover-->
+					<left>50</left>
+					<top>140</top>
+					<width>525</width>
+					<height>788</height>
+					<texture>$INFO[Container(100).ListItem.Thumb]</texture>
+					<aspectratio aligny="top" align="left">keep</aspectratio>
+				</control>
+				
+				<control type="group"> <!--information-->
+					<left>170</left>
+					<top>75</top>
+			
+					<control type="grouplist" id="190">
+						<left>435</left>
+						<top>65</top>
+						<width>1225</width>
+						<height>255</height>
+						<itemgap>5</itemgap>
+						<onup>190</onup>
+						<ondown>190</ondown>
+						<onright>190</onright>
+						<onleft>190</onleft>
+						<orientation>horizontal</orientation>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime>0</scrolltime>	
+					
+						<control type="button" id="191">
+							<include>OptionButton</include>
+							<label>$LOCALIZE[186]</label>
+						</control>
+					
+						<control type="button" id="192">
+							<include>OptionButton</include>
+							<label>-</label>
+						</control>
+					
+						<control type="button" id="193">
+							<include>OptionButton</include>
+							<label>-</label>
+						</control>
+					
+					</control>
+					
+					<control type="grouplist"> <!--info-->		
+						<left>435</left>
+						<top>135</top>
+						<width>1500</width>
+						<height>1500</height>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<itemgap>0</itemgap>
+						<orientation>vertical</orientation>
+						
+						<control type="grouplist">
+							<width>1500</width>
+							<height>1500</height>
+							<onup>9000</onup>
+							<ondown>9000</ondown>
+							<itemgap>0</itemgap>
+							<orientation>vertical</orientation>
+							<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)</visible>
+
+							<control type="label"> <!--year-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $INFO[Container(100).ListItem.Property(Year)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+								<visible>!Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes)</visible>
+							</control>
+
+							<control type="label"> <!--premiered-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20416][/COLOR] $INFO[Container(100).ListItem.Property(Premiered)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Premiered))</visible>
+							</control>
+
+							<control type="label"> <!--duration-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[180][/COLOR] $INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+							</control>
+
+							<control type="label"> <!--rated-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31135][/COLOR] $INFO[Container(100).ListItem.Property(Mpaa)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Mpaa))</visible>
+							</control>
+
+							<control type="label"> <!--genre-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $INFO[Container(100).ListItem.Property(Genre)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+							</control>
+
+							<control type="label"> <!--director-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20339][/COLOR] $INFO[Container(100).ListItem.Property(Director)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+							</control>
+
+							<control type="label"> <!--writer-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[20417][/COLOR] $INFO[Container(100).ListItem.Property(Writer)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Writer))</visible>
+							</control>
+
+							<control type="label"> <!--studio-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[572][/COLOR] $INFO[Container(100).ListItem.Property(Studio)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Studio))</visible>
+							</control>
+							
+						</control>
+						
+						<control type="grouplist">
+							<width>1500</width>
+							<height>1500</height>
+							<onup>9000</onup>
+							<ondown>9000</ondown>
+							<itemgap>0</itemgap>
+							<orientation>vertical</orientation>
+							<visible>Control.IsVisible(160) | Control.IsVisible(170)</visible>
+
+							<control type="label"> <!--genre-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $INFO[Container(100).ListItem.Property(Genre)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+							</control>
+
+							<control type="label"> <!--genre unknown-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $LOCALIZE[1446]</label>
+								<include>InfoLabel</include>
+								<visible>IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+							</control>
+
+							<control type="label"> <!--years active-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21898][/COLOR] $INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
+							</control>
+
+							<control type="label"> <!--formed-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21894][/COLOR] $INFO[ListItem.Property(Artist_Formed)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--born-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21893][/COLOR] $INFO[Container(100).ListItem.Property(Artist_Born)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--born/formed fallback-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21900][/COLOR] $LOCALIZE[1446]</label>
+								<include>InfoLabel</include>
+								<visible>IsEmpty(Container(100).ListItem.Property(Artist_Formed)) + IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--disbanded-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21896][/COLOR] $INFO[Container(100).ListItem.Property(Artist_Disbanded)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Disbanded))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--died-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21897][/COLOR] $INFO[Container(100).ListItem.Property(Artist_Died)]</label>
+								<include>InfoLabel</include>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--died/disbanded fallback-->
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[21897]/$LOCALIZE[21896][/COLOR] $LOCALIZE[1446]</label>
+								<include>InfoLabel</include>
+								<visible>IsEmpty(Container(100).ListItem.Property(Artist_Died)) + IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
+								<visible>Control.IsVisible(160)</visible>
+							</control>
+
+							<control type="label"> <!--year-->
+								<include>InfoLabel</include>
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $INFO[Container(100).ListItem.Property(Year)]</label>
+								<visible>Control.IsVisible(170)</visible>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+							</control>
+
+							<control type="label"> <!--year unknown-->
+								<include>InfoLabel</include>
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $LOCALIZE[1446]</label>
+								<visible>Control.IsVisible(170)</visible>
+								<visible>IsEmpty(Container(100).ListItem.Property(Year)ListItem.Year)</visible>
+							</control>
+
+							<control type="label"> <!--album type-->
+								<include>InfoLabel</include>
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31136][/COLOR] $INFO[Container(100).ListItem.Property(Album_Type)]</label>
+								<visible>Control.IsVisible(170)</visible>
+								<visible>!IsEmpty(Container(100).ListItem.Property(Album_Type))</visible>
+							</control>
+
+							<control type="label"> <!--album type unknown-->
+								<include>InfoLabel</include>
+								<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31136][/COLOR] $LOCALIZE[1446]</label>
+								<visible>Control.IsVisible(170)</visible>
+								<visible>IsEmpty(Container(100).ListItem.Property(Album_Type))</visible>
+							</control>
+							
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>10</height>
+							<texture>backgrounds/trans.png</texture>
+							<visible>![IsEmpty(Container(100).ListItem.Property(VideoResolution)) + IsEmpty(Container(100).ListItem.Property(VideoCodec)) + IsEmpty(Container(100).ListItem.Property(AudioChannels)) + IsEmpty(Container(100).ListItem.Property(AudioCodec)) + IsEmpty(Container(100).ListItem.Property(VideoAspect))]</visible>
+						</control>
+						
+						<control type="grouplist"> <!--flags-->
+							<width min="90" max="900">auto</width>
+							<height>45</height>
+							<itemgap>5</itemgap>
+							<orientation>horizontal</orientation>
+							<align>left</align>
+							<aligny>center</aligny>
+							<visible>![IsEmpty(Container(100).ListItem.Property(VideoResolution)) + IsEmpty(Container(100).ListItem.Property(VideoCodec)) + IsEmpty(Container(100).ListItem.Property(AudioChannels)) + IsEmpty(Container(100).ListItem.Property(AudioCodec)) + IsEmpty(Container(100).ListItem.Property(VideoAspect))]</visible>
+							
+							<control type="button">
+								<visible>!IsEmpty(Container(100).ListItem.Property(VideoResolution))</visible>
+								<label>$INFO[Container(100).ListItem.Property(VideoResolution),,p]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(Container(100).ListItem.Property(VideoCodec))</visible>
+								<label>$INFO[Container(100).ListItem.Property(VideoCodec)]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(Container(100).ListItem.Property(AudioChannels))</visible>
+								<label>$VAR[AudioChannels]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(Container(100).ListItem.Property(AudioCodec))</visible>
+								<label>$VAR[AudioCodecGS]</label>
+								<include>Flag</include>
+							</control>
+							
+							<control type="button">
+								<visible>!IsEmpty(Container(100).ListItem.Property(VideoAspect))</visible>
+								<label>$INFO[Container(100).ListItem.Property(VideoAspect)]</label>
+								<include>Flag</include>
+							</control>
+							
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>10</height>
+							<texture>backgrounds/trans.png</texture>
+							<visible>![IsEmpty(Container(100).ListItem.Property(VideoResolution)) + IsEmpty(Container(100).ListItem.Property(VideoCodec)) + IsEmpty(Container(100).ListItem.Property(AudioChannels)) + IsEmpty(Container(100).ListItem.Property(AudioCodec)) + IsEmpty(Container(100).ListItem.Property(VideoAspect))]</visible>
+						</control>
+
+						<control type="label"> <!--path-->
+							<width>1225</width>
+							<height>40</height>
+							<label>$INFO[Container(100).ListItem.Property(Path),$LOCALIZE[15311] ]</label>
+							<scroll>true</scroll>
+							<font>Button</font>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>19</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+							
+						<control type="textbox"> <!--plot-->
+							<width>1210</width>
+							<height>290</height>
+							<align>left</align>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+							<label>$INFO[Container(100).ListItem.Property(Plot)]</label>
+							<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(140)</visible>
+						</control>
+							
+						<control type="textbox"> <!--artist description-->
+							<width>1210</width>
+							<height>430</height>
+							<align>left</align>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+							<label>$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
+							<visible>Control.IsVisible(160)</visible>
+						</control>
+							
+						<control type="textbox"> <!--album description-->
+							<width>1210</width>
+							<height>465</height>
+							<align>left</align>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+							<label>$INFO[Container(100).ListItem.Property(Album_Description)]</label>
+							<visible>Control.IsVisible(170)</visible>
+						</control>
+						
+					</control>
+					
+				</control>
+			
+			</control>
+			
+			<control type="group"> <!--information-->
+				<posx>250</posx>
+				<posy>87</posy>
+				
+				<control type="group">
+					<posy>-5</posy>
+					<visible>Control.IsVisible(110)</visible>
+
+					<control type="label"> <!--rating/year/length/mpaa-->
+						<posx>465</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Rating)] • $INFO[Container(100).ListItem.Property(Year)] • $INFO[Container(100).ListItem.Property(Duration)] minutes • $INFO[Container(100).ListItem.Property(Mpaa)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Genre]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--director-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>Directed by $INFO[Container(100).ListItem.Property(Director]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--writer-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label>Written by $INFO[Container(100).ListItem.Property(Writer]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--studio-->
+						<posx>435</posx>
+						<posy>330</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Studio]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+				
+				</control>
+				
+				<control type="group">
+					<posy>-25</posy>
+					<visible>Control.IsVisible(120) | Control.IsVisible(130)</visible>
+				
+					<control type="image"> <!--star-->
+						<posx>435</posx>
+						<posy>152</posy>
+						<width>26</width>
+						<height>26</height>
+						<texture>global/star.png</texture>
+						<colordiffuse>blue</colordiffuse>
+					</control>
+
+					<control type="label"> <!--rating-->
+						<posx>465</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Rating]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--mpaa-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Mpaa]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Genre]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--premiered-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label>Premiered on $INFO[Container(100).ListItem.Property(Premiered]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+				
+				</control>
+				
+				<control type="group">
+					<posy>20</posy>
+					<visible>Control.IsVisible(140)</visible>
+				
+					<control type="image"> <!--star-->
+						<posx>435</posx>
+						<posy>152</posy>
+						<width>26</width>
+						<height>26</height>
+						<texture>global/star.png</texture>
+						<colordiffuse>blue</colordiffuse>
+					</control>
+
+					<control type="label"> <!--rating/year/length/mpaa-->
+						<posx>465</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Rating]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--rating/year/length/mpaa-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label>$INFO[Container(100).ListItem.Property(Duration] minutes</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>First aired on $INFO[Container(100).ListItem.Property(Premiered]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--director-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label>Directed by $INFO[Container(100).ListItem.Property(Director]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+				
+				</control>
+				
+				<control type="group">
+					<posy>-40</posy>
+					<visible>Control.IsVisible(160)</visible>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label fallback="Unknown genre">$INFO[Container(100).ListItem.Genre]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--years active-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label fallback="Unknown Type">$INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--formed-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>Formed in $INFO[Container(100).ListItem.Property(Artist_Formed)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
+					</control>
+
+					<control type="label"> <!--born-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>Born in $INFO[Container(100).ListItem.Property(Artist_Born)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
+					</control>
+
+					<control type="label"> <!--born/formed fallback-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label>Unknown birth/formation</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>IsEmpty(Container(100).ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
+					</control>
+
+					<control type="label"> <!--disbanded-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label fallback="Unknown disbandment">Disbanded in $INFO[Container(100).ListItem.Property(Artist_Disbanded)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Disbanded))</visible>
+					</control>
+
+					<control type="label"> <!--died-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label fallback="Unknown death">Died in $INFO[Container(100).ListItem.Property(Artist_Died)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
+					</control>
+
+					<control type="label"> <!--died/disbanded fallback-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label>Unknown death/disbandment</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+						<visible>IsEmpty(Container(100).ListItem.Property(Artist_Died)) + IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
+					</control>
+				
+				</control>
+				
+				<control type="group">
+					<posy>10</posy>
+					<visible>Control.IsVisible(170)</visible>
+				
+					<control type="image"> <!--star-->
+						<posx>435</posx>
+						<posy>152</posy>
+						<width>26</width>
+						<height>26</height>
+						<texture>global/star.png</texture>
+						<colordiffuse>blue</colordiffuse>
+					</control>
+
+					<control type="label"> <!--rating-->
+						<posx>465</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label fallback="NR">$INFO[Container(100).ListItem.Property(Rating]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--year-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label fallback="Unkown year">$INFO[Container(100).ListItem.Property(Year]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label fallback="Unknown genre">$INFO[Container(100).ListItem.Property(Genre]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--album type-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label fallback="Unknown Type">$INFO[Container(100).ListItem.Property(Album_Type)]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+				
+				</control>
+				
+				<control type="group">
+					<posy>10</posy>
+					<visible>Control.IsVisible(180)</visible>
+				
+					<control type="image"> <!--star-->
+						<posx>435</posx>
+						<posy>152</posy>
+						<width>26</width>
+						<height>26</height>
+						<texture>global/star.png</texture>
+						<colordiffuse>blue</colordiffuse>
+					</control>
+
+					<control type="label"> <!--rating-->
+						<posx>465</posx>
+						<posy>130</posy>
+						<width>1100</width>
+						<label fallback="NR">$INFO[Container(100).ListItem.Property(Rating]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--track-->
+						<posx>435</posx>
+						<posy>180</posy>
+						<width>1100</width>
+						<label>Track $INFO[Container(100).ListItem.Property(Track]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--duration-->
+						<posx>435</posx>
+						<posy>230</posy>
+						<width>1100</width>
+						<label fallback="Unkown length">$INFO[Container(100).ListItem.Property(Duration]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--year-->
+						<posx>435</posx>
+						<posy>280</posy>
+						<width>1100</width>
+						<label fallback="Unkown year">$INFO[Container(100).ListItem.Property(Year]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+
+					<control type="label"> <!--genre-->
+						<posx>435</posx>
+						<posy>330</posy>
+						<width>1100</width>
+						<label fallback="Unknown genre">$INFO[Container(100).ListItem.Property(Genre]</label>
+						<scroll>true</scroll>
+						<textcolor>grey</textcolor>
+					</control>
+				
+				</control>
+					
+
+
+			
+				<control type="group" id="101">
+					<posy>2000</posy>
+			
+					<control type="list" id="110">					
+					</control>
+				
+					<control type="list" id="120">
+					</control>
+				
+					<control type="list" id="130">
+					</control>
+				
+					<control type="list" id="140">
+					</control>
+				
+					<control type="list" id="150">
+					</control>
+				
+					<control type="list" id="160">
+					</control>
+				
+					<control type="list" id="170">
+					</control>
+				
+					<control type="list" id="180">
+					</control>
+				
+				</control>
+			
+				<control type="spincontrol" id="195">
+					<visible>false</visible>
+				</control>
+			
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

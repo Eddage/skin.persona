@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="129">
+
+	<defaultcontrol always="true">22</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<top>-190</top>
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(okdialog) + !Window.IsActive(addonsettings) + !Window.IsVisible(smartplaylistrule) + !Window.IsVisible(virtualkeyboard)</visible>
+
+			<control type="label" id="2"> <!--Header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+				<label>21432</label>
+			</control>
+			
+			<control type="group">
+				<top>210</top>
+
+				<control type="spincontrolex" id="22"> <!--set playlist type-->
+					<centerleft>50%</centerleft>
+					<top>105</top>
+					<width>1000</width>
+					<label>467</label>
+					<onright>22</onright>
+					<onleft>22</onleft>
+					<onup>9001</onup>
+					<ondown>12</ondown>
+				</control>
+
+				<control type="label"> <!--name label-->
+					<centerleft>50%</centerleft>
+					<top>164</top>
+					<width>1000</width>
+					<font>ButtonBoldUpper</font>
+					<label>21433</label>
+				</control>
+
+				<control type="edit" id="12"> <!--name button-->
+					<centerleft>50%</centerleft>
+					<top>233</top>
+					<width>1000</width>
+					<onup>22</onup>
+					<onleft>12</onleft>
+					<onright>12</onright>
+					<ondown>10</ondown>
+					<texturenofocus colordiffuse="TertiaryM">backgrounds/white25.png</texturenofocus>
+				</control>
+
+				<control type="label"> <!--rules label-->
+					<centerleft>50%</centerleft>
+					<top>297</top>
+					<width>1000</width>
+					<align>left</align>
+					<label>21434</label>
+					<font>ButtonBoldUpper</font>
+				</control>
+
+				<control type="list" id="10"> <!--rules list-->
+					<left>460</left>
+					<top>360</top>
+					<width>805</width>
+					<height>195</height>
+					<onup>12</onup>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<ondown>16</ondown>
+					<pagecontrol>60</pagecontrol>
+
+					<itemlayout width="805" height="65">
+			
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>765</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Button</font>
+							<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+						</control>
+
+					</itemlayout>
+			
+					<focusedlayout width="805" height="65">
+		
+						<control type="image"> <!--focus bg-->
+							<left>0</left>
+							<top>0</top>
+							<width>805</width>
+							<height>60</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+							<visible>Control.HasFocus(10)</visible>
+						</control>
+		
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>765</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Button</font>
+							<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+						</control>
+			
+					</focusedlayout>
+
+				</control>
+					
+				<control type="group"> <!--scrollbar stuff-->
+					<top>45</top>
+					<left>430</left>
+			
+					<control type="image"> <!--scrollbar arrow up-->
+						<top>315</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(60)</visible>
+					</control>
+
+					<control type="scrollbar" id="60"> <!--scrollbar-->
+						<top>330</top>
+						<height>140</height>
+						<showonepage>false</showonepage>
+					</control>
+				
+					<control type="image"> <!--scrollbar arrow down-->
+						<top>498</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(60)</visible>
+					</control>
+					
+				</control>
+
+				<control type="grouplist" id="9000">
+					<right>-350</right>
+					<top>360</top>
+					<width>1000</width>
+					<itemgap>5</itemgap>
+					<orientation>vertical</orientation>
+					<onleft>10</onleft>
+					<onright>10</onright>
+					<onup>12</onup>
+					<ondown>16</ondown>
+					<scrolltime>0</scrolltime>
+
+
+					<control type="button" id="13"> <!--add rule-->
+						<include>OptionButton</include>
+						<label>15019</label>
+					</control>
+
+					<control type="button" id="14"> <!--remove rule-->
+						<include>OptionButton</include>
+						<label>1210</label>
+					</control>
+
+					<control type="button" id="15"> <!--edit rule-->
+						<include>OptionButton</include>
+						<label>21435</label>
+					</control>
+
+				</control>
+
+				<control type="label"> <!--playlist options-->
+					<centerleft>50%</centerleft>
+					<width>1000</width>
+					<font>ButtonBoldUpper</font>
+					<top>558</top>
+					<label>31101</label>
+				</control>
+				
+				<control type="group">
+					<top>-40</top>
+
+					<control type="spincontrolex" id="16">
+						<centerleft>50%</centerleft>
+						<top>657</top>
+						<width>1000</width>
+						<label>21424</label>
+						<onright>16</onright>
+						<onleft>16</onleft>
+						<onup>10</onup>
+						<ondown>17</ondown>
+					</control>
+
+					<control type="spincontrolex" id="17">
+						<centerleft>50%</centerleft>
+						<top>726</top>
+						<width>1000</width>
+						<label>21427</label>
+						<onright>17</onright>
+						<onleft>17</onleft>
+						<onup>16</onup>
+						<ondown>18</ondown>
+					</control>
+				
+					<control type="group">
+						<centerleft>50%</centerleft>
+						<width>1000</width>	
+
+						<control type="spincontrolex" id="18">
+							<top>795</top>
+							<width>805</width>
+							<label>21429</label>
+							<onright>19</onright>
+							<onleft>19</onleft>
+							<onup>17</onup>
+							<ondown>9001</ondown>
+						</control>
+
+						<control type="togglebutton" id="19">
+							<right>0</right>
+							<top>795</top>
+							<include>OptionButton</include>
+							<label>21431</label>
+							<altlabel>21430</altlabel>
+							<onright>18</onright>
+							<onleft>18</onleft>
+							<onup>17</onup>
+							<ondown>9001</ondown>
+						</control>
+						
+					</control>
+					
+				</control>
+
+				<control type="grouplist" id="9001">
+					<left>460</left>
+					<top>850</top>
+					<width>400</width>
+					<itemgap>5</itemgap>
+					<orientation>horizontal</orientation>
+					<onright>9001</onright>
+					<onleft>9001</onleft>
+					<onup>18</onup>
+					<ondown>22</ondown>
+					<scrolltime>0</scrolltime>
+
+					<control type="button" id="20"> <!--ok-->
+						<include>OptionButton</include>
+						<label>186</label>
+					</control>
+
+					<control type="button" id="21"> <!--cancel-->
+						<include>OptionButton</include>
+						<label>222</label>
+					</control>
+
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="6">
+
+	<defaultcontrol always="true">501</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>501</views>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>GlobalItems</include>
+		<include>Breadcrumb</include>
+
+		<include>View_501_List_Videos</include>
+		
+		<control type="group">
+			<include>DialogBG</include>
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+			<include>BGFade</include>
+		</control>
+		
+		<control type="group">
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus + !Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(mediafilter) + !Window.IsActive(filebrowser)</visible>
+			<include>FadeandZoom</include>
+		
+			<control type="label">
+				<left>760</left>
+				<top>240</top>
+				<width>700</width>
+				<label>14018</label>
+				<font>MenuTitle</font>
+			</control>
+
+			<control type="grouplist" id="9000">
+				<left>760</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>501</onleft>
+				<onright>501</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+
+				<control type="button" id="2"> <!--view-->
+				</control>
+
+				<control type="button" id="3"> <!--sort by-->
+				</control>
+
+				<control type="togglebutton" id="4"> <!--ascending/descending-->
+					<label>584</label>
+					<altlabel>585</altlabel>
+					<usealttexture>Container.SortDirection(Descending)</usealttexture>
+				</control>
+
+				<control type="radiobutton" id="20"> <!--shuffle-->
+					<label>191</label>
+				</control>
+
+				<control type="button" id="21"> <!--save-->
+					<label>190</label>
+				</control>
+
+				<control type="button" id="22"> <!--clear-->
+					<label>192</label>
+				</control>
+
+				<control type="button" id="23"> <!--play-->
+					<label>208</label>
+				</control>
+				
+				<control type="button" id="350"> <!--change background-->
+					<label>$LOCALIZE[31077]</label>
+					<onclick>ActivateWindow(701)</onclick>
+				</control>
+				
+				<control type="button" id="351"> <!--change colour-->
+					<label>$LOCALIZE[31074]</label>
+					<onclick>ActivateWindow(700)</onclick>
+				</control>
+
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

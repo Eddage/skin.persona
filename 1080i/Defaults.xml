@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+	<default type="label">
+		<posx>0</posx>
+		<posy>0</posy>
+		<label>-</label>
+		<height>60</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>List</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+		<scroll>true</scroll>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="fadelabel">
+		<posx>0</posx>
+		<posy>0</posy>
+		<height>66</height>
+		<label>-</label>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>Small</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+		<scrollout>false</scrollout>
+		<pauseatend>2000</pauseatend>
+	</default>
+
+	<default type="image">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>-</width>
+		<height>-</height>
+		<align>center</align>
+		<aligny>center</aligny>
+		<texture>-</texture>
+	</default>
+	
+	<default type="button">
+		<description>Default Button</description>
+		<width>500</width>
+		<height>60</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>0</textoffsety>
+		<font>ButtonUpper</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+	
+	<default type="edit">
+		<description>Default Button</description>
+		<width>500</width>
+		<height>60</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>0</textoffsety>
+		<font>ButtonUpper</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<selectedcolor>$INFO[Skin.String(MainColour)]</selectedcolor>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="togglebutton">
+		<width>500</width>
+		<height>60</height>
+		<label>-</label>
+		<textoffsetx>20</textoffsetx>
+		<font>ButtonUpper</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<texturenofocus>-</texturenofocus>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<alttexturenofocus>-</alttexturenofocus>
+		<alttexturefocus colordiffuse="TertiaryM">backgrounds/white.png</alttexturefocus>
+		<align>left</align>
+		<aligny>center</aligny>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="radiobutton">
+		<width>500</width>
+		<height>60</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>ButtonUpper</font>
+		<label>-</label>
+		<textcolor>PrimaryT</textcolor>
+		<textwidth>305</textwidth>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<radiowidth>60</radiowidth>
+		<radioheight>60</radioheight>
+		<texturenofocus>-</texturenofocus>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<textureradioonfocus colordiffuse="$INFO[Skin.String(MainColour)]">controls/radioonfocus.png</textureradioonfocus>
+		<textureradioonnofocus colordiffuse="PrimaryT">controls/radioonnofocus.png</textureradioonnofocus>
+		<textureradioofffocus colordiffuse="$INFO[Skin.String(MainColour)]">controls/radioofffocus.png</textureradioofffocus>
+		<textureradiooffnofocus colordiffuse="PrimaryT">controls/radiooffnofocus.png</textureradiooffnofocus>
+		<textoffsetx>20</textoffsetx>
+		<pulseonselect>false</pulseonselect>
+		<radioposx>440</radioposx>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="spincontrolex">
+		<width>500</width>
+		<height>60</height>
+		<label>-</label>
+		<font>ButtonUpper</font>
+		<spinwidth>60</spinwidth>
+		<spinheight>60</spinheight>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<textureup colordiffuse="PrimaryT">controls/spinup.png</textureup>
+		<texturedown colordiffuse="PrimaryT">controls/spindown.png</texturedown>
+		<textureupfocus colordiffuse="$INFO[Skin.String(MainColour)]">controls/spinupf.png</textureupfocus>
+		<texturedownfocus colordiffuse="$INFO[Skin.String(MainColour)]">controls/spindownf.png</texturedownfocus>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<textoffsetx>20</textoffsetx>
+		<align>left</align>
+		<aligny>center</aligny>
+		<reverse>yes</reverse>
+		<pulseonselect>false</pulseonselect>
+		<spinposx>-0.1</spinposx>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="spincontrol">
+		<posx>0</posx>
+		<posy>0</posy>
+		<height>23</height>
+		<width>23</width>
+		<spinwidth>39</spinwidth>
+		<spinheight>39</spinheight>
+		<textureup>other_textures/ArrowUpNF.png</textureup>
+		<texturedown>other_textures/ArrowDownNF.png</texturedown>
+		<textureupfocus>other_textures/ArrowUpFo.png</textureupfocus>
+		<texturedownfocus>other_textures/ArrowDownFo.png</texturedownfocus>
+		<font>Small</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<textoffsetx>20</textoffsetx>
+		<align>left</align>
+		<aligny>center</aligny>
+		<reverse>yes</reverse>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="sliderex">
+		<width>500</width>
+		<height>60</height>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<sliderwidth>240</sliderwidth>
+		<sliderheight>10</sliderheight>
+		<texturesliderbar colordiffuse="PriSecondaryM">backgrounds/white.png</texturesliderbar>
+		<textureslidernib colordiffuse="TertiaryM">backgrounds/white.png</textureslidernib>
+		<textureslidernibfocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</textureslidernibfocus>
+		<font>ButtonUpper</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>0</textoffsety>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="progress">
+		<height>5</height>
+		<texturebg colordiffuse="SecondaryM">backgrounds/white.png</texturebg>
+		<midtexture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</midtexture>
+		<lefttexture>-</lefttexture>
+		<righttexture>-</righttexture>
+		<overlaytexture>-</overlaytexture>
+	</default>
+
+	<default type="slider">
+		<width>600</width>
+		<height>10</height>
+		<texturefocus colordiffuse="TertiaryM">backgrounds/white.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<sliderwidth>240</sliderwidth>
+		<sliderheight>10</sliderheight>
+		<texturesliderbar colordiffuse="PriSecondaryM">backgrounds/white.png</texturesliderbar>
+		<textureslidernib colordiffuse="TertiaryM">backgrounds/white.png</textureslidernib>
+		<textureslidernibfocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</textureslidernibfocus>
+		<font>ButtonUpper</font>
+		<textcolor>PrimaryT</textcolor>
+		<focusedcolor>PrimaryT</focusedcolor>
+		<disabledcolor>TertiaryT</disabledcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>0</textoffsety>
+		<pulseonselect>false</pulseonselect>
+		<scrollsuffix>    •    </scrollsuffix>
+	</default>
+
+	<default type="scrollbar">
+		<width>7</width>
+		<texturesliderbackground colordiffuse="SecondaryM">backgrounds/white.png</texturesliderbackground>
+		<texturesliderbar colordiffuse="PrimaryM">backgrounds/white.png</texturesliderbar>
+		<texturesliderbarfocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texturesliderbarfocus>
+		<textureslidernib>-</textureslidernib>
+		<textureslidernibfocus>-</textureslidernibfocus>
+		<showonepage>true</showonepage>
+		<orientation>vertical</orientation>
+	</default>
+
+	<default type="textbox">
+		<label>-</label>
+		<font>Plot</font>
+		<textcolor>PrimaryT</textcolor>
+		<pagecontrol>62</pagecontrol>
+		<autoscroll delay="10000" time="2500" repeat="15000"/>
+	</default>
+
+</includes>

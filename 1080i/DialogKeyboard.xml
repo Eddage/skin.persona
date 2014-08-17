@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="103">
+
+	<defaultcontrol always="true">300</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<top>-80</top>
+			<include>FadeandZoom</include>
+			<visible>!Window.IsVisible(numericinput) + !Window.IsActive(ShutdownMenu)</visible>	
+			
+			<control type="group">
+				<left>357.5</left>
+				<top>530</top>
+			
+				<control type="group">
+					<top>70</top>
+
+					<control type="label" id="311"> <!--Header-->
+						<top>5</top>
+						<font>ButtonUpper</font>
+						<label>1021</label>
+					</control>
+
+					<control type="label" id="310"> <!--edit text-->
+						<top>40</top>
+						<width>1210</width>
+					</control>
+				
+				</control>
+
+				<control type="group"> <!--row 1-->
+					<top>175</top>
+					
+					<control type="group" id="1000">
+
+						<control type="button" id="81"> <!--Q button-->
+							<onleft>57</onleft>
+							<onright>87</onright>
+							<onup>32</onup>
+							<ondown>65</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="87"> <!--W button-->
+							<left>85</left>
+							<onleft>81</onleft>
+							<onright>69</onright>
+							<onup>32</onup>
+							<ondown>83</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="69"> <!--E button-->
+							<left>170</left>
+							<onleft>87</onleft>
+							<onright>82</onright>
+							<onup>32</onup>
+							<ondown>68</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="82"> <!--R button-->
+							<left>255</left>
+							<onleft>69</onleft>
+							<onright>84</onright>
+							<onup>32</onup>
+							<ondown>70</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="84"> <!--T button-->
+							<left>340</left>
+							<onleft>82</onleft>
+							<onright>89</onright>
+							<onup>32</onup>
+							<ondown>71</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="89"> <!--Y button-->
+							<left>425</left>
+							<onleft>84</onleft>
+							<onright>85</onright>
+							<onup>32</onup>
+							<ondown>72</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="85"> <!--U button-->
+							<left>510</left>
+							<onleft>89</onleft>
+							<onright>73</onright>
+							<onup>32</onup>
+							<ondown>74</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="73"> <!--I button-->
+							<left>595</left>
+							<onleft>85</onleft>
+							<onright>79</onright>
+							<onup>32</onup>
+							<ondown>75</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="79"> <!--O button-->
+							<left>680</left>
+							<onleft>73</onleft>
+							<onright>80</onright>
+							<onup>32</onup>
+							<ondown>76</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+						
+					</control>
+
+					<control type="button" id="80"> <!--P button-->
+						<left>765</left>
+						<onleft>79</onleft>
+						<onright>8</onright>
+						<onup>300</onup>
+						<ondown>303</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+					
+					<control type="image">
+						<left>850</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>!Control.HasFocus(8)</visible>
+					</control>
+				
+					<control type="image">
+						<left>850</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(8)</visible>
+					</control>
+
+					<control type="button" id="8"> <!--BACKSPACE button-->
+						<left>850</left>
+						<onleft>80</onleft>
+						<onright>55</onright>
+						<onup>300</onup>
+						<ondown>303</ondown>
+						<texturenofocus colordiffuse="PrimaryM">controls/keyback.png</texturenofocus>
+						<texturefocus colordiffuse="white">controls/keyback.png</texturefocus>
+						<include>KeyboardSingle</include>
+					</control>
+					
+					<control type="group" id="1002">
+
+						<control type="button" id="55"> <!--7 button-->
+							<left>955</left>
+							<onleft>8</onleft>
+							<onright>56</onright>
+							<onup>48</onup>
+							<ondown>305</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="56"> <!--8 button-->
+							<left>1040</left>
+							<onleft>55</onleft>
+							<onright>57</onright>
+							<onup>306</onup>
+							<ondown>53</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="57"> <!--9 button-->
+							<left>1125</left>
+							<onleft>56</onleft>
+							<onright>81</onright>
+							<onup>48</onup>
+							<ondown>54</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+						
+					</control>
+				
+				</control>
+
+				<control type="group"> <!--row 2-->
+					<top>250</top>
+
+					<control type="button" id="65"> <!--A button-->
+						<onleft>54</onleft>
+						<onright>83</onright>
+						<onup>81</onup>
+						<ondown>90</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="83"> <!--S button-->
+						<left>85</left>
+						<onleft>65</onleft>
+						<onright>68</onright>
+						<onup>87</onup>
+						<ondown>88</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="68"> <!--D button-->
+						<left>170</left>
+						<onleft>83</onleft>
+						<onright>70</onright>
+						<onup>69</onup>
+						<ondown>67</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="70"> <!--F button-->
+						<left>255</left>
+						<onleft>68</onleft>
+						<onright>71</onright>
+						<onup>82</onup>
+						<ondown>86</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="71"> <!--G button-->
+						<left>340</left>
+						<onleft>70</onleft>
+						<onright>72</onright>
+						<onup>84</onup>
+						<ondown>66</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="72"> <!--H button-->
+						<left>425</left>
+						<onleft>71</onleft>
+						<onright>74</onright>
+						<onup>89</onup>
+						<ondown>78</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="74"> <!--J button-->
+						<left>510</left>
+						<onleft>72</onleft>
+						<onright>75</onright>
+						<onup>85</onup>
+						<ondown>77</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="75"> <!--K button-->
+						<left>595</left>
+						<onleft>74</onleft>
+						<onright>76</onright>
+						<onup>73</onup>
+						<ondown>307</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="76"> <!--L button-->
+						<left>680</left>
+						<onleft>75</onleft>
+						<onright>303</onright>
+						<onup>79</onup>
+						<ondown>304</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="radiobutton" id="303"> <!--CAPS LOCK button-->
+						<left>765</left>
+						<label>20179</label>
+						<onleft>76</onleft>
+						<onright>52</onright>
+						<onup>8</onup>
+						<ondown>302</ondown>
+						<include>KeyboardDouble</include>
+						<textureradioonfocus colordiffuse="white">backgrounds/white.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="$INFO[Skin.String(MainColour)]">-</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="PrimaryT">-</textureradiooffnofocus>
+						<radiowidth>145</radiowidth>
+						<radioheight>5</radioheight>
+						<radioposx>75</radioposx>
+						<radioposy>70</radioposy>
+					</control>
+
+					<control type="button" id="52"> <!--4 button-->
+						<left>955</left>
+						<onleft>303</onleft>
+						<onright>53</onright>
+						<onup>55</onup>
+						<ondown>49</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="53"> <!--5 button-->
+						<left>1040</left>
+						<onleft>52</onleft>
+						<onright>54</onright>
+						<onup>56</onup>
+						<ondown>50</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="54"> <!--6 button-->
+						<left>1125</left>
+						<onleft>53</onleft>
+						<onright>65</onright>
+						<onup>57</onup>
+						<ondown>51</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+				
+				</control>
+
+				<control type="group"> <!--row 3-->
+					<top>325</top>
+					
+					<control type="group" id="1003">
+
+						<control type="button" id="90"> <!--Z button-->
+							<onleft>51</onleft>
+							<onright>88</onright>
+							<onup>65</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="88"> <!--X button-->
+							<left>85</left>
+							<onleft>90</onleft>
+							<onright>67</onright>
+							<onup>83</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="67"> <!--C button-->
+							<left>170</left>
+							<onleft>88</onleft>
+							<onright>86</onright>
+							<onup>68</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="86"> <!--V button-->
+							<left>255</left>
+							<onleft>67</onleft>
+							<onright>66</onright>
+							<onup>70</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="66"> <!--B button-->
+							<left>340</left>
+							<onleft>86</onleft>
+							<onright>78</onright>
+							<onup>71</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="78"> <!--N button-->
+							<left>425</left>
+							<onleft>66</onleft>
+							<onright>77</onright>
+							<onup>72</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="77"> <!--M button-->
+							<left>510</left>
+							<onleft>78</onleft>
+							<onright>307</onright>
+							<onup>74</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="307"> <!--IP INPUT button-->
+							<left>595</left>
+							<label>I.P</label>
+							<onleft>77</onleft>
+							<onright>304</onright>
+							<onup>75</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="radiobutton" id="304"> <!--SYMBOLS button-->
+							<left>680</left>
+							<label>?!@#</label>
+							<onleft>307</onleft>
+							<onright>302</onright>
+							<onup>76</onup>
+							<ondown>32</ondown>
+							<include>KeyboardSingle</include>
+							<textureradioonfocus colordiffuse="white">backgrounds/white.png</textureradioonfocus>
+							<textureradioonnofocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</textureradioonnofocus>
+							<textureradioofffocus colordiffuse="$INFO[Skin.String(MainColour)]">-</textureradioofffocus>
+							<textureradiooffnofocus colordiffuse="PrimaryT">-</textureradiooffnofocus>
+							<radiowidth>145</radiowidth>
+							<radioheight>5</radioheight>
+							<radioposx>-5</radioposx>
+							<radioposy>70</radioposy>
+						</control>
+						
+					</control>
+
+					<control type="radiobutton" id="302"> <!--SHIFT button-->
+						<left>765</left>
+						<label>20178</label>
+						<onleft>304</onleft>
+						<onright>49</onright>
+						<onup>303</onup>
+						<ondown>300</ondown>
+						<include>KeyboardDouble</include>
+						<textureradioonfocus colordiffuse="white">backgrounds/white.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="$INFO[Skin.String(MainColour)]">-</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="PrimaryT">-</textureradiooffnofocus>
+						<radiowidth>145</radiowidth>
+						<radioheight>5</radioheight>
+						<radioposx>75</radioposx>
+						<radioposy>70</radioposy>
+					</control>
+					
+					<control type="group" id="1004">
+
+						<control type="button" id="49"> <!--1 button-->
+							<left>955</left>
+							<onleft>302</onleft>
+							<onright>50</onright>
+							<onup>52</onup>
+							<ondown>305</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="50"> <!--2 button-->
+							<left>1040</left>
+							<onleft>49</onleft>
+							<onright>51</onright>
+							<onup>53</onup>
+							<ondown>306</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+
+						<control type="button" id="51"> <!--3 button-->
+							<left>1125</left>
+							<onleft>50</onleft>
+							<onright>90</onright>
+							<onup>54</onup>
+							<ondown>48</ondown>
+							<include>KeyboardSingle</include>
+						</control>
+						
+					</control>
+				
+				</control>
+
+				<control type="group"> <!--row 4-->
+					<top>400</top>
+
+					<control type="button" id="32"> <!--SPACE button-->
+						<label>20182</label>
+						<onleft>48</onleft>
+						<onright>300</onright>
+						<onup>1003</onup>
+						<ondown>1000</ondown>
+						<include>KeyboardSpace</include>
+					</control>
+
+					<control type="button" id="300"> <!--DONE button-->
+						<left>765</left>
+						<label>20177</label>
+						<onleft>32</onleft>
+						<onright>305</onright>
+						<onup>302</onup>
+						<ondown>8</ondown>
+						<include>KeyboardDouble</include>
+					</control>
+					
+					<control type="image">
+						<left>955</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>!Control.HasFocus(305)</visible>
+					</control>
+				
+					<control type="image">
+						<left>955</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(305)</visible>
+					</control>
+
+					<control type="button" id="305"> <!--LEFT button-->
+						<left>955</left>
+						<texturenofocus colordiffuse="PrimaryM">controls/keyleft.png</texturenofocus>
+						<texturefocus colordiffuse="white">controls/keyleft.png</texturefocus>
+						<onleft>300</onleft>
+						<onright>306</onright>
+						<onup>49</onup>
+						<ondown>55</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+				
+					<control type="image">
+						<left>1040</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>!Control.HasFocus(306)</visible>
+					</control>
+				
+					<control type="image">
+						<left>1040</left>
+						<width>80</width>
+						<height>70</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>Control.HasFocus(306)</visible>
+					</control>
+
+					<control type="button" id="306"> <!--RIGHT button-->
+						<left>1040</left>
+						<texturenofocus colordiffuse="PrimaryM" flipx="true">controls/keyleft.png</texturenofocus>
+						<texturefocus colordiffuse="white" flipx="true">controls/keyleft.png</texturefocus>
+						<onleft>305</onleft>
+						<onright>48</onright>
+						<onup>50</onup>
+						<ondown>56</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+
+					<control type="button" id="48"> <!--0 button-->
+						<left>1125</left>
+						<onleft>306</onleft>
+						<onright>32</onright>
+						<onup>51</onup>
+						<ondown>57</ondown>
+						<include>KeyboardSingle</include>
+					</control>
+				
+				</control>
+				
+			</control>
+		
+		</control>
+
+		<control type="image">
+			<left>-420</left>
+			<top>-270</top>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>debuggrid1080.png</texture>
+			<visible>Skin.HasSetting(DebugGrid)</visible>
+		</control>
+
+	</controls>
+
+</window>

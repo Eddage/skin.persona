@@ -1,0 +1,3147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+	<include name="View_50_List_Videos">
+		
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="list" id="50">
+				<left>75</left>
+				<top>250</top>
+				<width>1200</width>
+				<height>680</height>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<focusposition>0</focusposition>
+
+				<itemlayout width="1200" height="85">
+				
+					<control type="image"> <!--watched icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="PrimaryM">$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="PrimaryM">overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="label"> <!--title-->
+						<include>ListTitle</include>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+					<control type="label"> <!--label 2-->
+						<include>ListLabel2</include>
+						<label>$VAR[ListLabel2]</label>
+					</control>
+
+					<control type="label"> <!--label 3-->
+						<include>ListLabel3</include>
+						<label>$VAR[ListLabel3]</label>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1200" height="85">
+
+					<control type="image"> <!--focused background-->
+						<width>1235</width>
+						<height>75</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+
+					<control type="image"> <!--focused background left edge-->
+						<width>5</width>
+						<height>75</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="label"> <!--title-->
+						<include>ListTitleF</include>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+					<control type="label"> <!--label 2-->
+						<include>ListLabel2</include>
+						<label>$VAR[ListLabel2]</label>
+					</control>
+
+					<control type="label"> <!--label 3-->
+						<include>ListLabel3</include>
+						<label>$VAR[ListLabel3]</label>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+			
+			<control type="group"> <!--poster/info-->
+				<visible>Control.IsVisible(50)</visible>
+				
+				<control type="image"> <!--poster-->
+					<right>75</right>
+					<top>250</top>
+					<width>454</width>
+					<height>680</height>
+					<texture>$VAR[ListPoster]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>[!Skin.HasSetting(ListMoviePlot) + Container.Content(Movies)] | [!Skin.HasSetting(ListTVPlot) + Container.Content(TVShows)] | Container.Content(Seasons) | SubString(Container.FolderPath,plugin://)]] | [Skin.HasSetting(ListMoviePlot) | Skin.HasSetting(ListTVPlot)] + Container.Content(Seasons)] | StringCompare(Container.FolderPath,videodb://movies/actors/) | SubString(Container.FolderPath,plugin://) | Container.Content(Addons) | Container.Content(Files)</visible>
+					<include>PosterMenuFade</include>
+				</control>
+				
+				<control type="group"> <!--plot items-->
+					<top>250</top>
+					<height>680</height>
+					<visible>[[Container.Content(Movies) + Skin.HasSetting(ListMoviePlot)] | [Container.Content(TVShows) + Skin.HasSetting(ListTVPlot)] | Container.Content(Episodes)] + !SubString(Container.FolderPath,plugin://)</visible>
+					
+					<control type="image"> <!--plot background-->
+						<right>75</right>
+						<top>0</top>
+						<width>504</width>
+						<height>670</height>
+						<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+					</control>
+										
+					<control type="image"> <!--show plot image-->
+						<right>75</right>
+						<top>0</top>
+						<width>504</width>
+						<height>330</height>
+						<texture>$VAR[ListPlotImage]</texture>
+						<aspectratio>scale</aspectratio>
+						<include>PosterMenuFade</include>
+					</control>
+					
+					<control type="textbox"> <!--plot-->
+						<right>90</right>
+						<top>334</top>
+						<width>474</width>
+						<height>327</height>
+						<align>left</align>
+						<font>plot</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="10000" time="2000" repeat="10000"/>
+					</control> 
+					
+					<control type="image"> <!--background base-->
+						<right>75</right>
+						<top>665</top>
+						<width>504</width>
+						<height>5</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+					
+				</control>
+				
+				<control type="group">
+					<visible>Control.IsVisible(50)</visible>
+
+					<control type="scrollbar" id="60"> <!--scrollbar-->
+						<right>0</right>
+						<posy>0</posy>
+						<height>1080</height>
+						<onleft>50</onleft>
+						<onright>9000</onright>
+						<showonepage>true</showonepage>
+						<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+					</control>
+					
+				</control>
+				
+			</control>
+		
+		</control>
+
+	</include>
+
+	<include name="View_501_List_Videos">
+		
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="list" id="501">
+				<left>75</left>
+				<top>250</top>
+				<width>1200</width>
+				<height>680</height>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>501</onup>
+				<ondown>501</ondown>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<focusposition>0</focusposition>
+
+				<itemlayout width="1200" height="85">
+				
+					<control type="image"> <!--watched icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="PrimaryM">$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="PrimaryM">overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="label"> <!--title-->
+						<include>ListTitle</include>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout width="1200" height="85">
+
+					<control type="image"> <!--focused background-->
+						<width>1235</width>
+						<height>75</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+
+					<control type="image"> <!--focused background left edge-->
+						<width>5</width>
+						<height>75</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+						<animation effect="fade" start="100" end="30" time="100" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<right>0</right>
+						<include>WatchedOverlay</include>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="label"> <!--title-->
+						<include>ListTitleF</include>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+				</focusedlayout>
+
+			</control>
+			
+			<control type="group"> <!--poster/info-->
+				<visible>Control.IsVisible(501)</visible>
+				
+				<control type="image"> <!--poster-->
+					<right>75</right>
+					<top>250</top>
+					<width>454</width>
+					<height>680</height>
+					<texture>$VAR[ListPoster]</texture>
+					<aspectratio>keep</aspectratio>
+					<include>PosterMenuFade</include>
+				</control>
+				
+				<control type="group">
+					<visible>Control.IsVisible(501)</visible>
+
+					<control type="scrollbar" id="60"> <!--scrollbar-->
+						<right>0</right>
+						<posy>0</posy>
+						<height>1080</height>
+						<onleft>501</onleft>
+						<onright>9000</onright>
+						<showonepage>true</showonepage>
+						<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+					</control>
+					
+				</control>
+				
+			</control>
+		
+		</control>
+
+	</include>
+	
+	<include name="View_51_Poster_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="list" id="51">
+				<left>75</left>
+				<top>325</top>
+				<width>1920</width>
+				<height>700</height>
+				<onleft>51</onleft>
+				<onright>51</onright>
+				<onup>9000</onup>
+				<ondown>60</ondown>
+				<onback>300</onback>
+				<viewtype label="Poster">list</viewtype>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Files) | Container.Content(Actors)</visible>
+
+				<itemlayout height="700" width="345" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image (actors)-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+					
+					<control type="image"> <!--label bg-->
+						<left>0</left>
+						<top>495</top>
+						<width>330</width>
+						<height>55</height>
+						<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+					</control>
+
+					<control type="label"> <!--label-->
+						<left>15</left>
+						<top>490</top>
+						<width>300</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>list</font>
+						<textcolor>PrimaryT</textcolor>
+						<scroll>false</scroll>
+					</control>
+
+				</itemlayout>
+
+				<itemlayout height="700" width="445" condition="Container.Content(Episodes) | Container.Content(Files)">
+				
+					<control type="group">
+						<top>225</top>
+
+						<control type="image"> <!--thumb bg-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
+						</control>
+
+						<control type="image"> <!--fallback image-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
+						</control>
+
+						<control type="image"> <!--thumb-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+						</control>
+
+						<control type="image"> <!--watched/resumable background-->
+							<left>0</left>
+							<top>0</top>
+							<width>50</width>
+							<height>50</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+						</control>
+					
+						<control type="image"> <!--watched icon-->
+							<left>-8</left>
+							<top>-8</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>$VAR[Overlay]</texture>
+							<visible>!ListItem.IsResumable</visible>
+						</control>
+					
+						<control type="image"> <!--resumable icon-->
+							<left>-8</left>
+							<top>-8</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlay/true.png</texture>
+							<visible>ListItem.IsResumable</visible>
+						</control>
+						
+						<control type="image"> <!--label bg-->
+							<left>0</left>
+							<top>268</top>
+							<width>430</width>
+							<height>55</height>
+							<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+						</control>
+
+						<control type="label"> <!--label-->
+							<left>15</left>
+							<top>263</top>
+							<width>400</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>list</font>
+							<textcolor>PrimaryT</textcolor>
+							<scroll>false</scroll>
+						</control>
+						
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="700" width="345" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors)">
+					
+					<control type="image"> <!--thumb bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image (actors)-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>330</width>
+						<height>495</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+					
+					<control type="image"> <!--label bg-->
+						<left>0</left>
+						<top>495</top>
+						<width>330</width>
+						<height>120</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="textbox"> <!--label-->
+						<left>15</left>
+						<top>499</top>
+						<width>300</width>
+						<height>70</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>list</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<autoscroll delay="2000" time="1750" repeat="3000"/>
+					</control>
+					
+					<control type="group"> <!--movie/tv show base info-->
+						<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+							
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>578</top>
+							<width>25</width>
+							<height>25</height>
+							<texture>symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>565</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>565</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--movies base info-->
+							<left>72</left>
+							<top>565</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+							<visible>Container.Content(Movies)</visible>
+						</control>
+						
+						<control type="label"> <!--tv shows base info-->
+							<left>72</left>
+							<top>565</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]</label>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+							<visible>Container.Content(TVShows)</visible>
+						</control>
+						
+					</control>
+					
+					<control type="group"> <!--season show base info-->
+						<visible>Container.Content(Seasons)</visible>
+						
+						<control type="label"> <!--base info-->
+							<left>15</left>
+							<top>565</top>
+							<width>300</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Property(TotalEpisodes),, episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+						</control>
+						
+					</control>
+
+				</focusedlayout>
+
+				<focusedlayout height="700" width="445" condition="Container.Content(Episodes) | Container.Content(Files)">
+				
+					<control type="group">
+						<top>225</top>
+
+						<control type="image"> <!--thumb bg-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
+						</control>
+
+						<control type="image"> <!--fallback image-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
+						</control>
+
+						<control type="image"> <!--thumb-->
+							<left>0</left>
+							<top>0</top>
+							<width>430</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+						</control>
+
+						<control type="image"> <!--watched/resumable background-->
+							<left>0</left>
+							<top>0</top>
+							<width>50</width>
+							<height>50</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+						</control>
+					
+						<control type="image"> <!--watched icon-->
+							<left>-8</left>
+							<top>-8</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>$VAR[Overlay]</texture>
+							<visible>!ListItem.IsResumable</visible>
+						</control>
+					
+						<control type="image"> <!--resumable icon-->
+							<left>-8</left>
+							<top>-8</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlay/true.png</texture>
+							<visible>ListItem.IsResumable</visible>
+						</control>
+						
+						<control type="image"> <!--label bg-->
+							<left>0</left>
+							<top>268</top>
+							<width>430</width>
+							<height>120</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						</control>
+
+						<control type="textbox"> <!--label-->
+							<left>15</left>
+							<top>272</top>
+							<width>400</width>
+							<height>70</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>list</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<autoscroll delay="2000" time="1750" repeat="3000"/>
+						</control>
+						
+						<control type="group">
+							<visible>Container.Content(Episodes)</visible>
+								
+							<control type="image"> <!--star-->
+								<left>13</left>
+								<top>351</top>
+								<width>25</width>
+								<height>25</height>
+								<texture>symbols/infostar.png</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							
+							<control type="label"> <!--base info-->
+								<left>40</left>
+								<top>338</top>
+								<width>235</width>
+								<height>50</height>
+								<font>ButtonBoldSmall</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<label fallback="NR">$INFO[ListItem.Rating]</label>
+								<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+							</control>
+							
+							<control type="label"> <!--base info-->
+								<left>40</left>
+								<top>338</top>
+								<width>235</width>
+								<height>50</height>
+								<font>ButtonBoldSmall</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<label>31079</label>
+								<visible>StringCompare(ListItem.Rating,10.0)</visible>
+							</control>
+							
+							<control type="label"> <!--base info-->
+								<left>72</left>
+								<top>338</top>
+								<width>500</width>
+								<height>50</height>
+								<font>ButtonBoldSmall</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+								<visible>!IsEmpty(ListItem.Premiered)</visible>
+								<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+							</control>
+							
+							<control type="label"> <!--base info-->
+								<left>72</left>
+								<top>338</top>
+								<width>500</width>
+								<height>50</height>
+								<font>ButtonBoldSmall</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+								<visible>IsEmpty(ListItem.Premiered)</visible>
+								<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+							</control>
+							
+						</control>
+						
+						<control type="group">
+							<visible>Container.Content(Episodes)</visible>
+							
+							<control type="label"> <!--base info-->
+								<left>15</left>
+								<top>338</top>
+								<width>500</width>
+								<height>50</height>
+								<font>ButtonBoldSmall</font>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<label>$INFO[ListItem.Duration,, [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							</control>
+							
+						</control>
+						
+					</control>
+
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group">
+				<visible>Control.IsVisible(51)</visible>
+
+				<control type="scrollbar" id="60">
+					<left>0</left>
+					<top>1073</top>
+					<width>1920</width>
+					<height>7</height>
+					<onup>51</onup>
+					<ondown>9000</ondown>
+					<orientation>horizontal</orientation>
+					<showonepage>true</showonepage>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+				</control>
+				
+			</control>
+		
+		</control>
+	
+	</include>
+	
+	<include name="View_52_Landscape_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="list" id="52">
+				<left>75</left>
+				<top>235</top>
+				<width>1920</width>
+				<height>800</height>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<onup>9000</onup>
+				<ondown>60</ondown>
+				<onback>300</onback>
+				<viewtype label="Landscape">list</viewtype>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Files)</visible>
+				
+				<itemlayout height="800" width="515">
+
+					<control type="image"> <!--background-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>700</height>
+						<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>320</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[LandscapeThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image"> <!--label bg-->
+						<left>0</left>
+						<top>320</top>
+						<width>500</width>
+						<height>105</height>
+						<texture colordiffuse="SecondaryMT">backgrounds/white.png</texture>
+					</control>
+
+					<control type="textbox"> <!--label-->
+						<left>15</left>
+						<top>324</top>
+						<width>470</width>
+						<height>90</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ListLarge</font>
+						<textcolor>PrimaryT</textcolor>
+						<autoscroll>false</autoscroll>
+					</control>
+					
+					<control type="textbox"> <!--plot-->
+						<left>15</left>
+						<top>428</top>
+						<width>470</width>
+						<height>220</height>
+						<align>left</align>
+						<font>Plot</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll>false</autoscroll>
+					</control> 
+					
+					<control type="group">
+						<visible>!ListItem.IsFolder</visible>
+							
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>661</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!-- movies base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>!Container.Content(Episodes) + !Container.Content(TVShows) + !Container.Content(Files)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!-- tv shows base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+							<visible>!Container.Content(Episodes) + !Container.Content(Movies) + !Container.Content(Files)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes) | Container.Content(Files)</visible>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes) | Container.Content(Files)</visible>
+							<visible>IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+					</control>
+					
+				</itemlayout>
+
+				<focusedlayout height="800" width="515">
+
+					<control type="image"> <!--background-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>700</height>
+						<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>320</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[LandscapeThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image"> <!--label bg-->
+						<left>0</left>
+						<top>320</top>
+						<width>500</width>
+						<height>105</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="textbox"> <!--label-->
+						<left>15</left>
+						<top>324</top>
+						<width>470</width>
+						<height>90</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ListLarge</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<autoscroll delay="3000" time="2500" repeat="3000"/>
+					</control>
+					
+					<control type="textbox"> <!--plot-->
+						<left>15</left>
+						<top>428</top>
+						<width>470</width>
+						<height>220</height>
+						<align>left</align>
+						<font>Plot</font>
+						<textcolor>PrimaryT</textcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="10000" time="2500" repeat="10000"/>
+					</control> 
+					
+					<control type="group">
+						<visible>!ListItem.IsFolder</visible>
+							
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>661</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!-- movies base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>!Container.Content(Episodes) + !Container.Content(TVShows) + !Container.Content(Files)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!-- tv shows base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+							<visible>!Container.Content(Episodes) + !Container.Content(Movies) + !Container.Content(Files)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>413</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes) | Container.Content(Files)</visible>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes) | Container.Content(Files)</visible>
+							<visible>IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group">
+				<visible>Control.IsVisible(52)</visible>
+
+				<control type="scrollbar" id="60">
+					<posx>0</posx>
+					<posy>1073</posy>
+					<width>1920</width>
+					<height>7</height>
+					<onup>52</onup>
+					<ondown>9000</ondown>
+					<orientation>horizontal</orientation>
+					<showonepage>true</showonepage>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+	
+	</include>
+	
+	<include name="View_53_Panel_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="panel" id="53">
+				<left>68</left>
+				<top>228</top>
+				<width>1852</width>
+				<height>710</height>
+				<onleft>53</onleft>
+				<onright>53</onright>
+				<onup>9000</onup>
+				<ondown>60</ondown>
+				<onback>300</onback>
+				<viewtype label="Panel">list</viewtype>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Files) | Container.Content(Actors)</visible>
+
+				<itemlayout height="353" width="245" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image (actors)-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</itemlayout>
+
+				<itemlayout height="232" width="405" condition="Container.Content(Episodes) | Container.Content(Files)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>390</width>
+						<height>217</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>390</width>
+						<height>217</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>390</width>
+						<height>217</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="353" width="245" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors)">
+					
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image (actors)-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultactor.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>7</top>
+						<width>7</width>
+						<height>338</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<right>1</right>
+						<top>7</top>
+						<width>7</width>
+						<height>338</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>244</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<bottom>1</bottom>
+						<width>244</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+				</focusedlayout>
+
+				<focusedlayout height="232" width="405" condition="Container.Content(Episodes) | Container.Content(Files)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>390</width>
+						<height>217</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>390</width>
+						<height>217</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>7</top>
+						<width>7</width>
+						<height>217</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<right>1</right>
+						<top>7</top>
+						<width>7</width>
+						<height>217</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>404</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<bottom>1</bottom>
+						<width>404</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group"> <!--movies/tv show info-->
+				<left>312</left>
+				<top>228</top>
+				<visible>Control.IsVisible(53) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons)]</visible>
+				<animation effect="slide" start="0,0" end="0,353" time="0" condition="Container(53).Row(1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="245,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="490,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="735,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="980,0" time="0" condition="Container(53).Column(4)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="601,0" time="0" condition="Container(53).Column(5)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="846,0" time="0" condition="Container(53).Column(6)">Conditional</animation>
+				
+				<animation effect="slide" start="0,0" end="50,0" time="450" condition="Container(53).OnScrollNext">Conditional</animation>
+					
+				<control type="image"> <!--bg-->
+					<left>0</left>
+					<top>0</top>
+					<width>380</width>
+					<height>352</height>
+					<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+				</control>	
+
+				<control type="image"> <!--label bg-->
+					<left>0</left>
+					<top>0</top>
+					<width>380</width>
+					<height>85</height>
+					<texture colordiffuse="SecondaryMT">backgrounds/white.png</texture>
+				</control>
+
+				<control type="textbox"> <!--label-->
+					<left>15</left>
+					<top>5</top>
+					<width>350</width>
+					<height>70</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>list</font>
+					<textcolor>white</textcolor>
+					<selectedcolor>white</selectedcolor>
+					<autoscroll delay="2000" time="1750" repeat="3000"/>
+				</control>	
+				
+				<control type="group"> <!--movie/tv show base info-->
+					<top>-480</top>
+					<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+						
+					<control type="image"> <!--star-->
+						<left>13</left>
+						<top>578</top>
+						<width>25</width>
+						<height>25</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>565</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label fallback="NR">$INFO[ListItem.Rating]</label>
+						<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>565</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>31079</label>
+						<visible>StringCompare(ListItem.Rating,10.0)</visible>
+					</control>
+					
+					<control type="label"> <!--movies base info-->
+						<left>72</left>
+						<top>565</top>
+						<width>500</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						<visible>Container.Content(Movies)</visible>
+					</control>
+					
+					<control type="label"> <!--tv shows base info-->
+						<left>72</left>
+						<top>565</top>
+						<width>500</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]</label>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						<visible>Container.Content(TVShows)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="group"> <!--season show base info-->
+					<top>-480</top>
+					<visible>Container.Content(Seasons)</visible>
+					
+					<control type="label"> <!--base info-->
+						<left>15</left>
+						<top>565</top>
+						<width>300</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Property(TotalEpisodes),, episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+					</control>
+					
+				</control>	
+					
+				<control type="textbox"> <!--plot-->
+					<left>15</left>
+					<top>130</top>
+					<width>350</width>
+					<height>215</height>
+					<align>left</align>
+					<font>Plot</font>
+					<textcolor>PrimaryT</textcolor>
+					<label>$INFO[ListItem.Plot]</label>
+					<autoscroll delay="5000" time="2000" repeat="10000"/>
+					<visible>!Container.Content(seasons)</visible>
+				</control> 	
+				
+			</control>
+			
+			<control type="group"> <!--episodes info-->
+				<left>472</left>
+				<top>228</top>
+				<visible>Control.IsVisible(53) + [Container.Content(Episodes) | Container.Content(Files)]</visible>
+				<animation effect="slide" start="0,0" end="0,232" time="0" condition="Container(53).Row(1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,464" time="0" condition="Container(53).Row(2)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="405,0" time="0" condition="Container(53).Column(1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="810,0" time="0" condition="Container(53).Column(2)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="231,0" time="0" condition="Container(53).Column(3)">Conditional</animation>
+				
+				<animation effect="slide" start="0,0" end="50,0" time="450" condition="Container(53).OnScrollNext">Conditional</animation>
+					
+				<control type="image"> <!--bg-->
+					<left>0</left>
+					<top>0</top>
+					<width>580</width>
+					<height>231</height>
+					<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+				</control>	
+
+				<control type="image"> <!--label bg-->
+					<left>0</left>
+					<top>0</top>
+					<width>580</width>
+					<height>60</height>
+					<texture colordiffuse="SecondaryMT">backgrounds/white.png</texture>
+				</control>
+
+				<control type="label"> <!--label-->
+					<left>15</left>
+					<top>-5</top>
+					<width>550</width>
+					<height>70</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>list</font>
+					<textcolor>white</textcolor>
+					<selectedcolor>white</selectedcolor>
+					<autoscroll delay="2000" time="1750" repeat="3000"/>
+				</control>
+						
+				<control type="group">
+					<top>-279</top>
+					<visible>Container.Content(Episodes)</visible>
+						
+					<control type="image"> <!--star-->
+						<left>13</left>
+						<top>351</top>
+						<width>25</width>
+						<height>25</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>338</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label fallback="NR">$INFO[ListItem.Rating]</label>
+						<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>338</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>31079</label>
+						<visible>StringCompare(ListItem.Rating,10.0)</visible>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>72</left>
+						<top>338</top>
+						<width>500</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+						<visible>!IsEmpty(ListItem.Premiered)</visible>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>72</left>
+						<top>338</top>
+						<width>500</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+						<visible>IsEmpty(ListItem.Premiered)</visible>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+					</control>
+					
+				</control>
+				
+				<control type="group">
+					<top>-279</top>
+					<visible>!Container.Content(Episodes)</visible>
+					
+					<control type="label"> <!--base info-->
+						<left>15</left>
+						<top>338</top>
+						<width>500</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Duration,, [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+					</control>
+					
+				</control>
+					
+				<control type="textbox"> <!--plot-->
+					<left>15</left>
+					<top>105</top>
+					<width>550</width>
+					<height>110</height>
+					<align>left</align>
+					<font>plot</font>
+					<textcolor>PrimaryT</textcolor>
+					<label>$INFO[ListItem.Plot]</label>
+					<autoscroll delay="5000" time="2000" repeat="10000"/>
+				</control> 	
+				
+			</control>
+			
+			<control type="group">
+				<visible>Control.IsVisible(53)</visible>
+
+				<control type="scrollbar" id="60">
+					<left>0</left>
+					<top>1073</top>
+					<width>1920</width>
+					<height>7</height>
+					<onup>53</onup>
+					<ondown>9000</ondown>
+					<orientation>horizontal</orientation>
+					<showonepage>true</showonepage>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+				</control>
+				
+			</control>
+		
+		</control>
+	
+	</include>
+	
+	<include name="View_54_Info_Panel_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="panel" id="54">
+				<left>108</left>
+				<top>228</top>
+				<width>1225</width>
+				<height>710</height>
+				<onleft>54</onleft>
+				<onright>54</onright>
+				<onup>9000</onup>
+				<ondown>60</ondown>
+				<viewtype label="Info Panel">list</viewtype>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+
+				<itemlayout height="353" width="245" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</itemlayout>
+
+				<itemlayout height="234.4" width="408.2" condition="Container.Content(Episodes)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="353" width="245" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors)">
+					
+					<control type="image"> <!--thumb bg-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>[IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Thumb)] + !Container.Content(Actors)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>7</left>
+						<top>7</top>
+						<width>230</width>
+						<height>338</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>7</left>
+						<top>7</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-1</left>
+						<top>-1</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>7</top>
+						<width>7</width>
+						<height>338</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<right>1</right>
+						<top>7</top>
+						<width>7</width>
+						<height>338</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>244</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<bottom>1</bottom>
+						<width>244</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+				</focusedlayout>
+
+				<focusedlayout height="234.4" width="408.2" condition="Container.Content(Episodes)">
+
+					<control type="image"> <!--thumb bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--fallback image-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">defaultvideo.png</texture>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
+					</control>
+
+					<control type="image"> <!--thumb-->
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>222</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+					</control>
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>7</width>
+						<height>221</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<right>14</right>
+						<top>0</top>
+						<width>7</width>
+						<height>221</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>395</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+					<control type="image">
+						<left>0</left>
+						<bottom>12.5</bottom>
+						<width>395</width>
+						<height>7</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					</control>
+
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group"> <!--poster/info-->
+				<visible>Control.IsVisible(54)</visible>
+				
+				<control type="image"> <!--poster-->
+					<right>115</right>
+					<top>235</top>
+					<width>460</width>
+					<height>691</height>
+					<texture>$VAR[ListPoster]</texture>
+					<aspectratio>scale</aspectratio>
+					<include>PosterMenuFade</include>
+				</control>
+				
+				<control type="group"> <!--plot items-->
+					<right>115</right>
+					<top>226</top>
+					<width>460</width>
+					<height>680</height>
+					
+					<control type="image"> <!--label bg-->
+						<left>0</left>
+						<top>630</top>
+						<width>460</width>
+						<height>70</height>
+						<texture colordiffuse="Black95">backgrounds/white.png</texture>
+						
+						<animation type="Conditional" condition="System.IdleTime(2)" reversible="true" loop="false">
+							<effect type="zoom" end="0,362,460,338" time="250" />
+						</animation>
+						
+					</control>
+
+					<control type="label"> <!--label-->
+						<left>15</left>
+						<top>630</top>
+						<width>430</width>
+						<height>70</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>HomeTitle</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<scroll>false</scroll>
+		
+						<animation type="Conditional" condition="System.IdleTime(2)" reversible="true" loop="false">
+							<effect type="slide" start="0,0" end="0,-268" time="250" />
+						</animation>
+			
+					</control>	
+
+					<control type="group"> <!--movies info-->
+						<visible>Container.Content(Movies)</visible>
+						<top>-88</top>
+								
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>513</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+								
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>500</top>
+							<width>373</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<scroll>false</scroll>
+							<visible>System.IdleTime(2)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+					
+					</control>
+
+					<control type="group"> <!--tv shows info-->
+						<visible>Container.Content(TVShows)</visible>
+						<top>-88</top>
+								
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>513</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+								
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>500</top>
+							<width>373</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+							<scroll>false</scroll>
+							<visible>System.IdleTime(2)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+					
+					</control>
+
+					<control type="group"> <!--seasons info-->
+						<visible>Container.Content(Seasons)</visible>
+						<top>-88</top>
+								
+						<control type="label"> <!--base info-->
+							<left>15</left>
+							<top>500</top>
+							<width>373</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Property(TotalEpisodes),, episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+							<scroll>false</scroll>
+							<visible>System.IdleTime(2)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+					
+					</control>
+
+					<control type="group"> <!--episodes info-->
+						<visible>Container.Content(Episodes)</visible>
+						<top>-88</top>
+								
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>513</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>500</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+							<visible>System.IdleTime(2)</visible>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+								
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>500</top>
+							<width>373</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<scroll>false</scroll>
+							<visible>System.IdleTime(2)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+			
+							<animation type="Visible">
+								<effect type="fade" start="0" end="100" time="250" delay="250" />
+							</animation>
+							
+						</control>
+					
+					</control>
+						
+					<control type="textbox"> <!--plot-->
+						<left>15</left>
+						<top>465</top>
+						<width>430</width>
+						<height>220</height>
+						<align>left</align>
+						<font>plot</font>
+						<textcolor>White</textcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="7000" time="2000" repeat="10000"/>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control> 
+					
+				</control>
+				
+				<control type="group">
+					<visible>Control.IsVisible(50)</visible>
+
+					<control type="scrollbar" id="60"> <!--scrollbar-->
+						<right>0</right>
+						<posy>0</posy>
+						<height>1080</height>
+						<onleft>50</onleft>
+						<onright>9000</onright>
+						<showonepage>false</showonepage>
+						<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+					</control>
+					
+				</control>
+				
+			</control>			
+			
+			<control type="group">
+				<visible>Control.IsVisible(54)</visible>
+
+				<control type="scrollbar" id="60">
+					<left>0</left>
+					<top>1073</top>
+					<width>1920</width>
+					<height>7</height>
+					<onup>54</onup>
+					<ondown>9000</ondown>
+					<orientation>horizontal</orientation>
+					<showonepage>true</showonepage>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+				</control>
+				
+			</control>
+		
+		</control>
+	
+	</include>
+	
+	<include name="View_58_Slideshow_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="wraplist" id="58">
+				<left>210</left>
+				<top>220</top>
+				<width>1500</width>
+				<height>730</height>
+				<onleft>58</onleft>
+				<onright>58</onright>
+                <onup>9000</onup>
+				<ondown>9000</ondown>
+				<viewtype label="Slideshow">list</viewtype>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="in">450</scrolltime>
+				<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+
+				<itemlayout height="730" width="1500">
+
+					<control type="image"> <!--fanart-->
+						<left>0</left>
+						<top>0</top>
+						<width>1500</width>
+						<height>730</height>
+						<aspectratio>scale</aspectratio>
+						<texture>special://skin/backgrounds/games.jpg</texture>
+						<visible>IsEmpty(ListItem.Property(Fanart_Image))</visible>
+					</control>	
+
+					<control type="image"> <!--fanart-->
+						<left>0</left>
+						<top>0</top>
+						<width>1500</width>
+						<height>730</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					</control>	
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</itemlayout>
+
+				<focusedlayout height="730" width="1500">
+
+					<control type="image"> <!--fanart-->
+						<left>0</left>
+						<top>0</top>
+						<width>1500</width>
+						<height>730</height>
+						<aspectratio>scale</aspectratio>
+						<texture>special://skin/backgrounds/games.jpg</texture>
+						<visible>IsEmpty(ListItem.Property(Fanart_Image))</visible>
+					</control>	
+
+					<control type="image"> <!--fanart-->
+						<left>0</left>
+						<top>0</top>
+						<width>1500</width>
+						<height>730</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+					</control>	
+
+					<control type="image"> <!--watched/resumable background-->
+						<left>0</left>
+						<top>0</top>
+						<width>50</width>
+						<height>50</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--watched icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>$VAR[Overlay]</texture>
+						<visible>!ListItem.IsResumable</visible>
+					</control>
+				
+					<control type="image"> <!--resumable icon-->
+						<left>-8</left>
+						<top>-8</top>
+						<width>65</width>
+						<height>65</height>
+						<texture>overlay/true.png</texture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group"> <!--info-->
+				<left>210</left>
+				<top>250</top>
+				<visible>Control.IsVisible(58)</visible>
+
+				<control type="image">
+					<left>-10</left>
+					<top>-30</top>
+					<width>10</width>
+					<height>730</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				</control>
+
+				<control type="image">
+					<left>1500</left>
+					<top>-30</top>
+					<width>10</width>
+					<height>730</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				</control>
+
+				<control type="image">
+					<left>-10</left>
+					<top>-40</top>
+					<width>1520</width>
+					<height>10</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				</control>
+
+				<control type="image">
+					<left>-10</left>
+					<top>700</top>
+					<width>1520</width>
+					<height>10</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				</control>
+					
+				<control type="image"> <!--label bg-->
+					<left>0</left>
+					<top>630</top>
+					<width>1500</width>
+					<height>70</height>
+					<texture colordiffuse="Black95">backgrounds/white.png</texture>
+					
+					<animation type="Conditional" condition="System.IdleTime(2)" reversible="true" loop="false">
+						<effect type="zoom" end="0,450,1500,250" time="250" />
+					</animation>
+					
+				</control>
+
+				<control type="label"> <!--label-->
+					<left>15</left>
+					<top>630</top>
+					<width>1470</width>
+					<height>70</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>HomeTitle</font>
+					<textcolor>white</textcolor>
+					<selectedcolor>white</selectedcolor>
+					<scroll>false</scroll>
+	
+					<animation type="Conditional" condition="System.IdleTime(2)" reversible="true" loop="false">
+						<effect type="slide" start="0,0" end="0,-180" time="250" />
+					</animation>
+		
+				</control>	
+
+				<control type="group"> <!--movies info-->
+					<visible>Container.Content(Movies)</visible>
+							
+					<control type="image"> <!--star-->
+						<left>13</left>
+						<top>513</top>
+						<width>25</width>
+						<height>25</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>500</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<selectedcolor>PrimaryT</selectedcolor>
+						<label fallback="NR">$INFO[ListItem.Rating]</label>
+						<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>500</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<selectedcolor>PrimaryT</selectedcolor>
+						<label>31079</label>
+						<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+							
+					<control type="label"> <!--base info-->
+						<left>72</left>
+						<top>500</top>
+						<width>1470</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+						<scroll>false</scroll>
+						<visible>System.IdleTime(2)</visible>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+				
+				</control>
+
+				<control type="group"> <!--tv shows info-->
+					<visible>Container.Content(TVShows)</visible>
+							
+					<control type="image"> <!--star-->
+						<left>13</left>
+						<top>513</top>
+						<width>25</width>
+						<height>25</height>
+						<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>500</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<selectedcolor>PrimaryT</selectedcolor>
+						<label fallback="NR">$INFO[ListItem.Rating]</label>
+						<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+					
+					<control type="label"> <!--base info-->
+						<left>40</left>
+						<top>500</top>
+						<width>235</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<selectedcolor>PrimaryT</selectedcolor>
+						<label>31079</label>
+						<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						<visible>System.IdleTime(2)</visible>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+							
+					<control type="label"> <!--base info-->
+						<left>72</left>
+						<top>500</top>
+						<width>1470</width>
+						<height>50</height>
+						<font>ButtonBoldSmall</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Property(TotalEpisodes), • , episodes ]$INFO[ListItem.Property(UnWatchedEpisodes),(, unwatched)]</label>
+						<scroll>false</scroll>
+						<visible>System.IdleTime(2)</visible>
+						<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+		
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="250" delay="250" />
+						</animation>
+						
+					</control>
+				
+				</control>
+					
+				<control type="textbox"> <!--plot-->
+					<left>15</left>
+					<top>545</top>
+					<width>1470</width>
+					<height>150</height>
+					<align>left</align>
+					<font>plot</font>
+					<textcolor>White</textcolor>
+					<label>$INFO[ListItem.Plot]</label>
+					<autoscroll delay="10000" time="4000" repeat="18000"/>
+					<visible>System.IdleTime(2)</visible>
+	
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="250" delay="250" />
+					</animation>
+					
+				</control> 
+					
+			</control>
+			
+			<control type="group">
+				<visible>Control.IsVisible(58)</visible>
+
+				<control type="scrollbar" id="60">
+					<left>200</left>
+					<top>960</top>
+					<width>1520</width>
+					<height>7</height>
+					<onup>58</onup>
+					<ondown>9000</ondown>
+					<texturesliderbar colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texturesliderbar>
+					<texturesliderbackground>-</texturesliderbackground>
+					<orientation>horizontal</orientation>
+					<showonepage>false</showonepage>
+				</control>
+				
+			</control>
+		
+		</control>
+	
+	</include>
+	
+	<include name="View_59_Episode_Videos">
+	
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+		
+			<control type="fixedlist" id="59">
+				<left>410</left>
+				<top>250</top>
+				<width>1870</width>
+				<height>680</height>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>55</onup>
+				<ondown>55</ondown>
+				<viewtype label="Episode">wrap</viewtype>
+				<movement>0</movement>
+				<focusposition>1</focusposition>
+				<orientation>vertical</orientation>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">0</scrolltime>
+				<visible>Container.Content(Episodes) | Container.Content(Files)</visible>
+							
+				<itemlayout width="1870" height="90">
+			
+					<control type="label">
+						<posx>487</posx>
+						<posy>0</posy>
+						<width>830</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>false</scroll>
+						<selectedcolor>PrimaryT</selectedcolor>
+					</control>
+			
+					<control type="label">
+						<posx>487</posx>
+						<posy>35</posy>
+						<width>630</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Premiered]</label>
+						<scroll>false</scroll>
+						<font>ButtonBoldSmall</font>
+						<selectedcolor>PrimaryT</selectedcolor>
+					</control>
+
+				</itemlayout>
+							
+				<focusedlayout width="1870" height="320">
+				
+					<control type="image">
+						<posx>10</posx>
+						<posy>21</posy>
+						<width>1100</width>
+						<height>273</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="QuaternaryM">backgrounds/white.png</texture>
+					</control>
+				
+					<control type="image">
+						<posx>10</posx>
+						<posy>21</posy>
+						<width>450</width>
+						<height>273</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+					</control>
+			
+					<control type="label"> <!--title-->
+						<posx>475</posx>
+						<posy>38</posy>
+						<width>620</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ListLarge</font>
+						<textcolor>PrimaryT</textcolor>
+						<scroll>true</scroll>
+					</control>   
+					
+					<control type="group"> <!--info-->
+						<top>-570</top>
+						<left>460</left>
+							
+						<control type="image"> <!--star-->
+							<left>13</left>
+							<top>661</top>
+							<width>25</width>
+							<height>25</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/infostar.png</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!Container.Content(Files)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label fallback="NR">$INFO[ListItem.Rating]</label>
+							<visible>!Container.Content(Files)</visible>
+							<visible>!StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>40</left>
+							<top>648</top>
+							<width>235</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>31079</label>
+							<visible>!Container.Content(Files)</visible>
+							<visible>StringCompare(ListItem.Rating,10.0)</visible>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Premiered, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes)</visible>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--base info-->
+							<left>72</left>
+							<top>648</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Year, • ,]$INFO[ListItem.Duration, • , [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
+							<visible>Container.Content(Episodes)</visible>
+							<visible>IsEmpty(ListItem.Premiered)</visible>
+							<animation effect="slide" start="0,0" end="-5,0" time="0" condition="StringCompare(ListItem.Rating,10.0)">Conditional</animation>
+						</control>
+								
+						<control type="label"> <!--base info-->
+							<left>15</left>
+							<top>648</top>
+							<width>500</width>
+							<height>50</height>
+							<font>ButtonBoldSmall</font>
+							<selectedcolor>PrimaryT</selectedcolor>
+							<label>$INFO[ListItem.Duration,, [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]$INFO[ListItem.Size, • ]</label>
+							<visible>Container.Content(Files)</visible>
+						</control>
+						
+					</control>
+
+					<control type="textbox">
+						<description>Plot</description>
+						<posx>475</posx>
+						<posy>133</posy>
+						<width>620</width>
+						<height>150</height>
+						<align>left</align>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll delay="5000" time="2500" repeat="10000"/>
+					</control>  
+
+				</focusedlayout>
+				
+			</control>
+				
+			<control type="group">
+				<visible>Control.IsVisible(59)</visible>
+
+				<control type="scrollbar" id="60"> <!--scrollbar-->
+					<right>0</right>
+					<posy>0</posy>
+					<height>1080</height>
+					<onleft>59</onleft>
+					<onright>9000</onright>
+					<showonepage>true</showonepage>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+	
+	</include>
+
+</includes>

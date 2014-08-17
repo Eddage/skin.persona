@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<defaultcontrol>1001</defaultcontrol>
+	
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu)</visible>
+		
+			<control type="label"> <!--header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>500</width>
+				<label>31045</label>
+				<font>MenuTitle</font>
+			</control>
+	
+			<control type="image" id="999">
+				<visible>false</visible>
+			</control>
+			
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<animation effect="slide" start="0,0" end="0,30" time="0" condition="Control.IsVisible(1001) + Control.IsVisible(1002)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,30" time="0" condition="Control.IsVisible(1001) + Control.IsVisible(1002) + Control.IsVisible(1003)">Conditional</animation>
+
+				<control type="button" id="1001">
+					<onleft>1001</onleft>
+					<onright>1001</onright>
+					<onup>1003</onup>
+					<ondown>1002</ondown>
+				</control>
+		
+				<control type="button" id="1002">
+					<onleft>1002</onleft>
+					<onright>1002</onright>
+					<onup>1001</onup>
+					<ondown>1003</ondown>
+				</control>
+		
+				<control type="button" id="1003">
+					<onleft>1003</onleft>
+					<onright>1003</onright>
+					<onup>1002</onup>
+					<ondown>1001</ondown>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

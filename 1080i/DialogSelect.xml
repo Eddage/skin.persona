@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2000">
+
+	<defaultcontrol always="true">3</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu)</visible>
+
+			<control type="label" id="1"> <!--Header-->
+				<left>710</left>
+				<top>240</top>
+				<width>500</width>
+				<font>MenuTitle</font>
+			</control>
+
+			<control type="list" id="3">
+				<left>710</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>455</height>
+				<onleft>5</onleft>
+				<onright>5</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>60</pagecontrol>
+				
+				<itemlayout width="500" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>460</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+						<scroll>false</scroll>
+					</control>
+		
+				</itemlayout>
+	
+				<focusedlayout width="500" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>500</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>460</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</focusedlayout>
+
+			</control>
+			
+			<control type="group"> <!--thumb list-->
+
+				<control type="list" id="6">
+					<left>710</left>
+					<top>315</top>
+					<width>1000</width>
+					<height>455</height>
+					<onleft>5</onleft>
+					<onright>5</onright>
+					<onup>6</onup>
+					<ondown>6</ondown>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>60</pagecontrol>
+					
+					<itemlayout width="500" height="65">
+		
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>460</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>ButtonUpper</font>
+							<scroll>false</scroll>
+						</control>
+			
+					</itemlayout>
+		
+					<focusedlayout width="500" height="65">
+		
+						<control type="image"> <!--focus bg-->
+							<left>0</left>
+							<top>0</top>
+							<width>500</width>
+							<height>60</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>
+		
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>460</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>ButtonUpper</font>
+						</control>
+			
+					</focusedlayout>
+
+				</control>
+
+				<control type="label" id="2"> <!--file count-->
+					<label>-</label>
+				</control>
+
+				<control type="button" id="5"> <!--get more button-->
+					<description>Manual</description>
+					<left>200</left>
+					<top>770</top>
+					<width>455</width>
+					<label>368</label>
+					<onleft>3</onleft>
+					<onright>3</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+					<font>ButtonBold</font>
+					<focusedcolor>white</focusedcolor>
+					<texturefocus colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texturefocus>
+					<texturenofocus colordiffuse="TertiaryM">backgrounds/white.png</texturenofocus>
+					<animation effect="slide" start="0,0" end="32,0" time="0" condition="!Control.IsVisible(60)">Conditional</animation>
+				</control>
+				
+				<control type="image"> <!--thumb bg-->
+					<top>315</top>
+					<left>200</left>
+					<width>455</width>
+					<height>455</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+					<visible>[Control.IsVisible(5) | Control.IsVisible(6)]</visible>
+					<animation effect="slide" start="0,0" end="32,0" time="0" condition="!Control.IsVisible(60)">Conditional</animation>
+				</control>
+
+				<control type="image"> <!--thumb-->
+					<top>315</top>
+					<left>200</left>
+					<width>455</width>
+					<height>455</height>
+					<texture background="true">$INFO[Container(6).ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>[Control.IsVisible(5) | Control.IsVisible(6)]</visible>
+					<animation effect="slide" start="0,0" end="32,0" time="0" condition="!Control.IsVisible(60)">Conditional</animation>
+				</control>
+			
+			</control>
+			
+			<control type="group"> <!--scrollbar stuff-->
+		
+				<control type="image"> <!--scrollbar arrow up-->
+					<left>680</left>
+					<top>315</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+
+				<control type="scrollbar" id="60"> <!--scrollbar-->
+					<left>680</left>
+					<top>330</top>
+					<height>420</height>
+					<showonepage>false</showonepage>
+				</control>
+			
+				<control type="image"> <!--scrollbar arrow down-->
+					<left>680</left>
+					<top>758</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

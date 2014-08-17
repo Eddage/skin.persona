@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="130">
+
+	<defaultcontrol always="true">5</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<top>50</top>
+			<left>150</left>
+			<width>1000</width>
+			<include>ViewAnimation</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(filebrowser) + !Window.IsActive(okdialog) + !Window.IsActive(yesnodialog) + !Window.IsActive(locksettings) + !Window.IsActive(contextmenu) + !Window.IsActive(numericinput)</visible>
+
+			<control type="label" id="1000"> <!--profile name-->
+				<left>460</left>
+				<top>210</top>
+				<width>1000</width>
+				<font>MenuTitle</font>
+			</control>
+
+			<control type="label" id="1001"> <!--profile directory-->
+				<left>460</left>
+				<top>245</top>
+				<width>1000</width>
+				<font>ButtonUpper</font>
+			</control>
+
+			<control type="image"> <!--profile image bg-->
+				<top>315</top>
+				<right>580</right>
+				<width>385</width>
+				<height>385</height>
+				<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+			</control>
+
+			<control type="image" id="2"> <!--profile image-->
+				<top>315</top>
+				<right>580</right>
+				<width>385</width>
+				<height>385</height>
+				<aspectratio align="right" aligny="top" fallback="symbols/unknownuser.png">keep</aspectratio>
+			</control>
+
+			<control type="grouplist" id="5">
+				<left>460</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<orientation>vertical</orientation>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+			</control>
+
+			<control type="button" id="7">
+			</control>
+
+			<control type="radiobutton" id="8">
+				<width>1000</width>
+				<radioposx>940</radioposx>
+				<textwidth>895</textwidth>
+			</control>
+
+			<control type="spincontrolex" id="9">
+				<width>1000</width>
+				<textwidth>895</textwidth>
+			</control>
+				
+			<control type="grouplist" id="9000">
+				<left>460</left>
+				<top>730</top>
+				<width>600</width>
+				<itemgap>5</itemgap>
+				<orientation>horizontal</orientation>
+				<onright>9000</onright>
+				<onleft>9000</onleft>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<scrolltime>0</scrolltime>
+
+				<control type="button" id="28"> <!--ok-->
+					<include>OptionButton</include>
+					<label>186</label>
+				</control>
+
+				<control type="button" id="29"> <!--cancel-->
+					<include>OptionButton</include>
+					<label>222</label>
+				</control>
+			
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

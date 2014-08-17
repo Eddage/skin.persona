@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="146">
+
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(filebrowser) + !Window.IsActive(textviewer)  + !Window.IsActive(addonsettings) + !Window.IsActuve(progressdialog) + !Window.IsActive(yesnodialog) + !Window.IsActive(okdialog)</visible>
+		
+			<control type="label"> <!--title-->
+				<left>75</left>
+				<top>50</top>
+				<width>1700</width>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Breadcrumb</font>
+				<aligny>bottom</aligny>
+			</control>
+			
+			<control type="group"> <!--main content-->
+				<left>25</left>
+				<top>60</top>
+
+				<control type="image"> <!--cover-->
+					<left>50</left>
+					<top>140</top>
+					<width>525</width>
+					<height>525</height>
+					<texture colordiffuse="SecondaryM">backgrounds/white.png</texture>
+				</control>
+
+				<control type="image"> <!--cover-->
+					<left>50</left>
+					<top>140</top>
+					<width>525</width>
+					<height>788</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+					<aspectratio aligny="top">keep</aspectratio>
+				</control>
+				
+				<control type="group"> <!--information-->
+					<left>170</left>
+					<top>75</top>
+					
+					<control type="grouplist" id="9000">
+						<left>435</left>
+						<top>65</top>
+						<width>1225</width>
+						<height>255</height>
+						<itemgap>5</itemgap>
+						<onup>50</onup>
+						<ondown>50</ondown>
+						<onright>9000</onright>
+						<onleft>9000</onleft>
+						<orientation>horizontal</orientation>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime>0</scrolltime>		
+
+						<control type="button" id ="6"> <!--uninstall-->
+							<include>OptionButton</include>
+							<label>24022</label>
+						</control>			
+
+						<control type="button" id ="7"> <!--disable/enable-->
+							<include>OptionButton</include>
+							<label>24021</label>
+						</control>
+
+						<control type="button" id ="9"> <!--settings-->
+							<include>OptionButton</include>
+							<label>24020</label>
+						</control>
+
+						<control type="button" id="8"> <!--update-->
+							<include>OptionButton</include>
+							<label>24069</label>
+						</control>
+
+						<control type="button" id ="10"> <!--change log-->
+							<include>OptionButton</include>
+							<label>24036</label>
+						</control>
+
+					</control>
+					
+					<control type="grouplist"> <!--info-->		
+						<left>435</left>
+						<top>135</top>
+						<width>1500</width>
+						<height>auto</height>
+						<itemgap>0</itemgap>
+						<orientation>vertical</orientation>
+
+						<control type="label"> <!--addon type-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[564][/COLOR] $INFO[ListItem.Property(Addon.Type)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.Type)]</visible>
+						</control>
+
+						<control type="label"> <!--creator-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31137][/COLOR] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.Creator)]</visible>
+						</control>
+
+						<control type="label"> <!--version-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[19114][/COLOR] $INFO[ListItem.Property(Addon.Version)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.Version)]</visible>
+						</control>
+
+						<control type="label"> <!--Summary-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[31138][/COLOR] $INFO[ListItem.Property(Addon.Summary)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.Summary)]</visible>
+						</control>
+
+						<control type="label"> <!--disclaimer-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[24052][/COLOR] $INFO[ListItem.Property(Addon.Disclaimer)]</label>
+							<include>InfoLabel</include>
+							<visible>!IsEmpty(ListItem.Property(Addon.Disclaimer)]</visible>
+						</control>
+
+						<control type="label"> <!--broken-->
+							<label>$INFO[ListItem.Property(Addon.broken)]</label>
+							<include>InfoLabel</include>
+							<textcolor>red</textcolor>
+							<visible>!IsEmpty(ListItem.Property(Addon.broken)]</visible>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>15</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+							
+						<control type="textbox" id="400"> <!--plot-->
+							<width>1210</width>
+							<height>440</height>
+							<align>left</align>
+							<label>$INFO[ListItem.Property(Addon.Description)]</label>
+							<autoscroll delay="20000" time="5000" repeat="30000"/>
+						</control>
+						
+					</control>
+					
+				</control>
+				
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

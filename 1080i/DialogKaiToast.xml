@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="107">
+
+	<defaultcontrol always="true">402</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<controls>
+	
+		<control type="group">
+			<left>75r</left>
+			<top>987</top>
+			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<visible>!Window.IsVisible(volumebar)</visible>
+			<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+				
+			<control type="label" id="401"> <!--Header-->
+				<width>750</width>
+				<height>25</height>
+				<font>ButtonBlackUpper</font>
+				<align>right</align>
+			</control>
+			
+			<control type="label" id="402"> <!--Line 1-->
+				<top>28</top>
+				<width>750</width>
+				<height>25</height>
+				<font>Button</font>
+				<align>right</align>
+			</control>
+			
+		</control>
+	
+		<control type="group">
+			<visible>Window.IsVisible(fullscreenvideo)</visible>
+			<visible>!Window.IsVisible(volumebar)</visible>
+			<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+
+			<control type="image"> <!--bg-->
+				<left>0</left>
+				<top>57</top>
+				<width>1920</width>
+				<height>68</height>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+				<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(fullscreeninfo) | Window.IsVisible(videoosd) | Window.IsVisible(seekbar) | Window.IsVisible(volumebar)]</visible>
+			</control>
+			
+			<control type="group">
+				<left>75r</left>
+				<top>63</top>
+				
+				<control type="label" id="401"> <!--Header-->
+					<width>600</width>
+					<height>30</height>
+					<font>NotificationTitle</font>
+					<textcolor>PrimaryOSD</textcolor>
+					<align>right</align>
+				</control>
+				
+				<control type="label" id="402"> <!--Line 1-->
+					<top>10</top>
+					<width>600</width>
+					<font>Button</font>
+					<textcolor>PrimaryOSD</textcolor>
+					<align>right</align>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+
+</window>

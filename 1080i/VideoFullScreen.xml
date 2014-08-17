@@ -1,0 +1,46 @@
+<window>
+
+	<zorder>9</zorder>
+	<animation effect="fade" time="200">WindowClose</animation>
+
+	<onunload>Dialog.close(all,true)</onunload>
+
+	<controls>
+
+		<control type="group" id="0">
+		
+			<control type="image"> <!--top-->
+				<include>FullScreenDimensions</include>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar) + !Window.IsVisible(videoosd)</visible>
+			</control>
+
+			<control type="label" id="10">
+				<left>75</left>
+				<top>50</top>
+				<width>1770</width>
+				<font>ButtonBold</font>
+				<label>-</label>
+			</control>
+
+			<control type="label" id="11">
+				<left>75</left>
+				<top>120</top>
+				<width>1770</width>
+				<font>ButtonBold</font>
+				<label>-</label>
+			</control>
+
+			<control type="label" id="12">
+				<left>75</left>
+				<top>190</top>
+				<width>1770</width>
+				<font>ButtonBold</font>
+				<label>-</label>
+			</control>
+  
+		</control>
+  
+	</controls>
+  
+</window>

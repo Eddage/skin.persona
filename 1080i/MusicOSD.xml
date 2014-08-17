@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="120">
+
+	<defaultcontrol always="true">203</defaultcontrol>
+
+	<controls>
+			
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<width>1385</width>
+  
+			<control type="grouplist" id="100"> <!--buttons-->
+				<left>0</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>505</width>
+				<defaultcontrol always="true">602</defaultcontrol>
+				<onright>201</onright>
+				<onleft>304</onleft>
+
+				<control type="togglebutton" id="101"> <!--random-->
+					<include>OSDButton</include>
+					<usealttexture>Playlist.IsRandom</usealttexture>
+					<onclick>playercontrol(random)</onclick>
+					<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+				</control>
+
+				<control type="button" id="102"> <!--repeat-->
+					<include>OSDButton</include>
+					<onclick>playercontrol(repeat)</onclick>
+				</control>
+
+				<control type="togglebutton" id="103"> <!--lyrics-->
+					<include>OSDButton</include>
+					<onclick>close</onclick>
+					<onclick>XBMC.RunScript($INFO[Skin.String(addon.lyrics.path)])</onclick>
+					<altclick>close</altclick>
+					<altclick>Skin.SetAddon(addon.lyrics.path,xbmc.python.lyrics)</altclick>
+					<usealttexture>IsEmpty(Skin.String(addon.lyrics.path))</usealttexture>
+				</control>
+
+				<control type="button" id="105"> <!--playlist-->
+					<include>OSDButton</include>
+					<onclick>ActivateWindow(MusicPlaylist)</onclick>
+				</control>
+  
+			</control>
+
+			<control type="grouplist"> <!--button bg-->
+				<left>0</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>505</width>
+				<defaultcontrol always="true">602</defaultcontrol>
+				
+				<control type="image"> <!--random-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/shuffle.png</texture>
+					<visible>!Playlist.IsRandom</visible>
+				</control>
+				
+				<control type="image"> <!--random-->
+					<width>80</width>
+					<height>70</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/shuffle.png</texture>
+					<visible>Playlist.IsRandom</visible>
+				</control>
+				
+				<control type="image"> <!--repeat-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/repeat.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+				</control>
+				
+				<control type="image"> <!--repeat-->
+					<width>80</width>
+					<height>70</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/repeat.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+				</control>
+				
+				<control type="image"> <!--repeat-->
+					<width>80</width>
+					<height>70</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">osd/repeatone.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+				</control>
+				
+				<control type="image"> <!--lyrics-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/lyrics.png</texture>
+				</control>
+				
+				<control type="image"> <!--lyrics-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/playlist.png</texture>
+				</control>
+				
+			</control>
+  
+			<control type="grouplist" id="200"> <!--buttons-->
+				<left>440</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>505</width>
+				<defaultcontrol always="true">602</defaultcontrol>
+				<onright>500</onright>
+				<onleft>105</onleft>
+
+				<control type="button" id="201"> <!--previous-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[210]</label>
+					<onclick>PlayerControl(Previous)</onclick>
+				</control>
+
+				<control type="button" id="202"> <!--rewind-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[31354]</label>
+					<onclick>PlayerControl(Rewind)</onclick>
+				</control>
+
+				<control type="togglebutton" id="203"> <!--play/pause-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[31351]</label>
+					<altlabel>$LOCALIZE[208]</altlabel>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<onclick>PlayerControl(Play)</onclick>
+					<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+				</control>
+
+				<control type="button" id="204"> <!--stop-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[31352]</label>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control>
+
+				<control type="button" id="205"> <!--forward-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[31353]</label>
+					<onclick>PlayerControl(Forward)</onclick>
+				</control>
+
+				<control type="button" id="206"> <!--next-->
+					<include>OSDButton</include>
+					<label>$LOCALIZE[209]</label>
+					<onclick>PlayerControl(Next)</onclick>
+				</control>
+  
+			</control>
+
+			<control type="grouplist"> <!--button bg-->
+				<left>440</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>505</width>
+				<defaultcontrol always="true">602</defaultcontrol>
+				
+				<control type="image"> <!--previous-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/previous.png</texture>
+				</control>
+				
+				<control type="image"> <!--rewind-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/rewind.png</texture>
+				</control>
+				
+				<control type="image"> <!--pause-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/pause.png</texture>
+					<visible>!Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+				</control>
+				
+				<control type="image"> <!--play-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/play.png</texture>
+					<visible>Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+				</control>
+				
+				<control type="image"> <!--stop-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/stop.png</texture>
+				</control>
+				
+				<control type="image"> <!--forward-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/ff.png</texture>
+				</control>
+				
+				<control type="image"> <!--next-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/next.png</texture>
+				</control>
+				
+			</control>
+  
+			<control type="grouplist" id="300">
+				<left>1050</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>420</width>
+				<onright>101</onright>
+				<onleft>206</onleft>
+
+				<control type="button" id="500">
+					<include>OSDButton</include>
+				</control>
+
+				<control type="button" id="302"> <!--visualisation settings-->
+					<include>OSDButton</include>
+					<onclick>Close</onclick>
+					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+				</control>
+
+				<control type="button" id="303"> <!--visualisation presets-->
+					<include>OSDButton</include>
+					<onclick>ActivateWindow(122)</onclick>
+				</control>
+
+				<control type="button" id="304"> <!--skin settings-->
+					<include>OSDButton</include>
+					<onclick>ActivateWindow(702)</onclick>
+				</control>
+  
+			</control>
+  
+			<control type="grouplist">
+				<left>1050</left>
+				<top>50</top>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<width>420</width>
+				
+				<control type="image"> <!--visualisation-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/visualisation.png</texture>
+				</control>
+				
+				<control type="image"> <!--visualisation settings-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/visualisationsettings.png</texture>
+				</control>
+				
+				<control type="image"> <!--visualisation presets-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/visualisationpresets.png</texture>
+				</control>
+				
+				<control type="image"> <!--skin settings-->
+					<width>80</width>
+					<height>70</height>
+					<texture>osd/skinsettings.png</texture>
+				</control>
+				
+			</control>
+		
+		</control>
+
+	</controls>
+
+</window>

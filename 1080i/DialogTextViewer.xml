@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="147">
+
+	<defaultcontrol always="true">61</defaultcontrol>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu)</visible>
+
+			<control type="label" id="1"> <!--Header-->
+				<left>35</left>
+				<top>35</top>
+				<width>1700</width>
+				<font>Breadcrumb</font>
+				<aligny>bottom</aligny>
+			</control>
+
+			<control type="textbox" id="5">
+				<description>textarea</description>
+				<centerleft>50%</centerleft>
+				<top>180</top>
+				<width>1100</width>
+				<height>800</height>
+				<align>justify</align>
+				<autoscroll>false</autoscroll>
+				<pagecontrol>61</pagecontrol>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>370</left>
+				<top>190</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>370</left>
+				<top>205</top>
+				<height>747</height>
+				<onleft>5</onleft>
+				<onright>9000</onright>
+				<showonepage>false</showonepage>
+			</control>
+			
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>370</left>
+				<top>960</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="122">
+
+	<defaultcontrol always="true">2</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="image"> <!--top-->
+			<include>FullScreenDimensions</include>
+			<texture colordiffuse="Black95">backgrounds/white.png</texture>
+			<include>BGFade</include>
+		</control>
+
+		<control type="group">
+
+			<control type="label"> <!--Header-->
+				<left>660</left>
+				<top>240</top>
+				<width>1085</width>
+				<font>MenuTitle</font>
+				<label>31032</label>
+			</control>
+
+			<control type="list" id="2">
+				<left>660</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>455</height>
+				<onup>2</onup>
+				<ondown>2</ondown>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>60</pagecontrol>
+				
+				<itemlayout width="600" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>560</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+						<scroll>false</scroll>
+					</control>
+		
+				</itemlayout>
+	
+				<focusedlayout width="600" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>600</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>20</left>
+						<width>560</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</focusedlayout>
+
+			</control>
+			
+			<control type="group"> <!--scrollbar stuff-->
+		
+				<control type="image"> <!--scrollbar arrow up-->
+					<left>630</left>
+					<top>315</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+
+				<control type="scrollbar" id="60"> <!--scrollbar-->
+					<left>630</left>
+					<top>330</top>
+					<height>420</height>
+					<showonepage>false</showonepage>
+				</control>
+			
+				<control type="image"> <!--scrollbar arrow down-->
+					<left>630</left>
+					<top>758</top>
+					<width>7</width>
+					<height>7</height>
+					<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+					<visible>Control.IsVisible(60)</visible>
+				</control>
+				
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

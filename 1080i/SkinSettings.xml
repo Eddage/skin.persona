@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="56">
+
+	<defaultcontrol always="true">100</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<onload condition="![Skin.HasSetting(global.background)| Skin.HasSetting(global.slideshow)]">Skin.ToggleSetting(global.background)</onload>
+	<onload condition="IsEmpty(Skin.String(global.slideshow)">Skin.SetString(global.slideshow,special://skin/backgrounds/slideshow/)</onload>
+	<onload condition="IsEmpty(Skin.String(background)">Skin.SetString(background,special://skin/backgrounds/default/Simple.png)</onload>
+	<onload condition="IsEmpty(Skin.String(MainColour))">Skin.SetString(MainColour,FF4bb4f6)</onload>
+	<onload condition="IsEmpty(Skin.String(video.custom.bg))">Skin.SetString(video.custom.bg,special://skin/backgrounds/video.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(movie.custom.bg))">Skin.SetString(movie.custom.bg,special://skin/backgrounds/movie.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(tv.custom.bg))">Skin.SetString(tv.custom.bg,special://skin/backgrounds/tv.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(music.custom.bg))">Skin.SetString(music.custom.bg,special://skin/backgrounds/music.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(picture.custom.bg))">Skin.SetString(picture.custom.bg,special://skin/backgrounds/picture.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(weather.custom.bg))">Skin.SetString(weather.custom.bg,special://skin/backgrounds/weather 1.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(addon.custom.bg))">Skin.SetString(addon.custom.bg,special://skin/backgrounds/addon.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(settings.custom.bg))">Skin.SetString(settings.custom.bg,special://skin/backgrounds/system.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(games.custom.bg))">Skin.SetString(games.custom.bg,special://skin/backgrounds/games.jpg)</onload>
+	<onload condition="![Skin.HasSetting(recent.movies.widget.1) | Skin.HasSetting(random.movies.widget.1) | Skin.HasSetting(recommended.movies.widget.1) | Skin.HasSetting(empty.movies.widget.1)]">Skin.ToggleSetting(recent.movies.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(youtube.trailers.widget.2) | Skin.HasSetting(recent.movies.widget.2) | Skin.HasSetting(random.movies.widget.2) | Skin.HasSetting(recommended.movies.widget.2) | Skin.HasSetting(empty.movies.widget.2)]">Skin.ToggleSetting(random.movies.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(recent.episodes.widget.1) | Skin.HasSetting(random.episodes.widget.1) | Skin.HasSetting(recommended.episodes.widget.1) | Skin.HasSetting(empty.episodes.widget.1)]">Skin.ToggleSetting(recent.episodes.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(recent.episodes.widget.2) | Skin.HasSetting(random.episodes.widget.2) | Skin.HasSetting(recommended.episodes.widget.2) | Skin.HasSetting(empty.episodes.widget.2)]">Skin.ToggleSetting(recommended.episodes.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(recent.played.albums.widget.1) | Skin.HasSetting(recent.added.albums.widget.1) | Skin.HasSetting(random.albums.widget.1) | Skin.HasSetting(empty.albums.widget.1)]">Skin.ToggleSetting(recent.added.albums.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(recent.played.albums.widget.2) | Skin.HasSetting(recent.added.albums.widget.2) | Skin.HasSetting(random.albums.widget.2) | Skin.HasSetting(empty.albums.widget.2)]">Skin.ToggleSetting(random.albums.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.1) | Skin.HasSetting(performance.widget.1) | Skin.HasSetting(network.widget.1) | Skin.HasSetting(user.widget.1) | Skin.HasSetting(empty.settings.widget.1)]">Skin.ToggleSetting(system.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.2) | Skin.HasSetting(performance.widget.2) | Skin.HasSetting(network.widget.2) | Skin.HasSetting(user.widget.2) | Skin.HasSetting(empty.settings.widget.2)]">Skin.ToggleSetting(performance.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.3) | Skin.HasSetting(performance.widget.3) | Skin.HasSetting(network.widget.3) | Skin.HasSetting(user.widget.3) | Skin.HasSetting(empty.settings.widget.3)]">Skin.ToggleSetting(network.widget.3)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.4) | Skin.HasSetting(performance.widget.4) | Skin.HasSetting(network.widget.4) | Skin.HasSetting(user.widget.4) | Skin.HasSetting(empty.settings.widget.4)]">Skin.ToggleSetting(user.widget.4)</onload>
+	<onload condition="![Skin.HasSetting(games.widget.shape.dvd) | Skin.HasSetting(games.widget.shape.square) | Skin.HasSetting(games.widget.shape.rectangle)]">Skin.ToggleSetting(games.widget.shape.dvd)</onload>
+	
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=50&amp;levels=0)</onunload>
+	<onunload condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onunload>
+	<onunload condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onunload>
+	<onunload condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onunload>
+	<onunload condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onunload>
+	<onunload condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onunload>
+	<onunload condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onunload>
+	<onunload condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onunload>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+		
+		<control type="group"> <!--content-->
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+
+			<control type="list" id="100"> <!--categories-->
+				<left>658</left>
+				<top>240</top>
+				<width>900</width>
+				<height>720</height>
+				<onup>99</onup>
+				<ondown>99</ondown>
+				<onleft>100</onleft>
+				<onright>100</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>0</scrolltime>
+
+				<itemlayout height="60" width="600">
+
+				</itemlayout>
+
+				<focusedlayout height="60" width="900">
+
+					<control type="label">
+						<left>300</left>
+						<width>900</width>
+						<align>center</align>
+						<font>MenuTitle</font>
+						<height>55</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+				</focusedlayout>
+
+				<content>
+
+					<item id="1"> <!--backgrounds & colours-->
+						<label>31076</label>
+						<onclick>-</onclick>
+					</item>
+
+					<item id="2"> <!--home-->
+						<label>home</label>
+						<onclick>-</onclick>
+					</item>
+
+					<item id="3"> <!--debug-->
+						<label>31033</label>
+						<onclick>-</onclick>
+					</item>
+
+				</content>
+
+			</control>
+		
+			<control type="group"> <!--left/right arrows focused-->
+				<visible>!ControlGroup(99).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="200" condition="ControlGroup(99).HasFocus">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>700</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(99).HasFocus">Conditional</animation>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>700</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]" flipx="true">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(99).HasFocus">Conditional</animation>
+				</control>
+				
+			</control>
+		
+			<control type="group"> <!--left/right arrows unfocused-->
+				<visible>ControlGroup(99).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>700</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT">symbols/previous-32.png</texture>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>700</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT" flipx="true">symbols/previous-32.png</texture>
+				</control>
+				
+			</control>
+			
+			<control type="group" id="99">
+			
+				<control type="grouplist" id="200"> <!--background & colours options-->
+					<left>460</left>
+					<top>315</top>
+					<width>1000</width>
+					<height>450</height>
+					<itemgap>5</itemgap>
+					<onleft>100</onleft>
+					<onright>200</onright>
+					<onup>100</onup>
+					<ondown>-</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>61</pagecontrol>
+					<visible>Container(100).Hasfocus(1)</visible>				
+
+					<control type="label" id="201"> <!--global label-->
+						<width>colours</width>
+						<label>31111</label>
+						<font>ButtonBoldUpper</font>
+					</control>			
+
+					<control type="radiobutton" id="202"> <!--single background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>Single image</label>
+						<onclick>Skin.ToggleSetting(global.background)</onclick>
+						<onclick condition="Skin.HasSetting(global.slideshow)">Skin.ToggleSetting(global.slideshow)</onclick>
+						<selected>Skin.HasSetting(global.background)</selected>
+					</control>	
+
+					<control type="button" id="203"> <!--choose static background-->
+						<width>1000</width>
+						<label>Choose image</label>
+						<textoffsetx>40</textoffsetx>
+						<label2>$INFO[Skin.String(background)]</label2>
+						<onclick>Skin.SetImage(background)</onclick>
+						<visible>Skin.HasSetting(global.background)</visible>
+					</control>					
+
+					<control type="radiobutton" id="204"> <!--multi background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>Multiple images</label>
+						<onclick>Skin.ToggleSetting(global.slideshow)</onclick>
+						<onclick condition="Skin.HasSetting(global.background)">Skin.ToggleSetting(global.background)</onclick>
+						<selected>Skin.HasSetting(global.slideshow)</selected>
+					</control>	
+
+					<control type="button" id="205"> <!--choose slideshow folder-->
+						<width>1000</width>
+						<label>Choose path</label>
+						<textoffsetx>40</textoffsetx>
+						<label2>$INFO[Skin.String(global.slideshow)]</label2>
+						<onclick>Skin.SetPath(global.slideshow)</onclick>
+						<visible>Skin.HasSetting(global.slideshow)</visible>
+					</control>			
+
+					<control type="label" id="206"> <!--global label-->
+						<width>colours</width>
+						<label>Sectional background</label>
+						<font>ButtonBoldUpper</font>
+					</control>	
+
+					<control type="radiobutton" id="207"> <!--sectional background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>Location dependant background</label>
+						<onclick>Skin.ToggleSetting(sectional.background)</onclick>
+						<selected>Skin.HasSetting(sectional.background)</selected>
+					</control>		
+	
+					<!------------------------->
+					<!------Video options------>
+					<!------------------------->				
+
+					<control type="radiobutton" id="210"> <!--video label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>3</label>
+						<onclick>Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(video.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="211"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(video.custom.bg)</onclick>
+						<selected>Skin.HasSetting(video.custom.bg)</selected>
+						<visible>Skin.HasSetting(video.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="212"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(video.custom.bg)]</label2>
+						<onclick>Skin.SetImage(video.custom.bg)</onclick>
+						<visible>Skin.HasSetting(video.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(video.custom.bg)</enable>
+					</control>
+	
+					<!------------------------->
+					<!------Movie options------>
+					<!------------------------->				
+
+					<control type="radiobutton" id="220"> <!--movies label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>342</label>
+						<onclick>Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(movie.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="221"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(movie.custom.bg)</onclick>
+						<selected>Skin.HasSetting(movie.custom.bg)</selected>
+						<visible>Skin.HasSetting(movie.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="222"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(movie.custom.bg)]</label2>
+						<onclick>Skin.SetImage(movie.custom.bg)</onclick>
+						<visible>Skin.HasSetting(movie.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(movie.custom.bg)</enable>
+					</control>
+
+					<control type="radiobutton" id="223"> <!--fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31044</label>
+						<onclick>Skin.ToggleSetting(movie.fanart)</onclick>
+						<onclick condition="Skin.HasSetting(movie.extra.fanart)">Skin.ToggleSetting(movie.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(movie.fanart)</selected>
+						<visible>Skin.HasSetting(movie.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="224"> <!--extra fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31042</label>
+						<onclick>Skin.ToggleSetting(movie.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(movie.extra.fanart)</selected>
+						<visible>Skin.HasSetting(movie.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(movie.fanart)</enable>
+					</control>
+	
+					<!------------------------->
+					<!-------TV options-------->
+					<!------------------------->					
+
+					<control type="radiobutton" id="230"> <!--tv label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>31007</label>
+						<onclick>Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(tv.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="231"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(tv.custom.bg)</onclick>
+						<selected>Skin.HasSetting(tv.custom.bg)</selected>
+						<visible>Skin.HasSetting(tv.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="232"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(tv.custom.bg)]</label2>
+						<onclick>Skin.SetImage(tv.custom.bg)</onclick>
+						<visible>Skin.HasSetting(tv.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(tv.custom.bg)</enable>
+					</control>
+
+					<control type="radiobutton" id="233"> <!--fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31044</label>
+						<onclick>Skin.ToggleSetting(tv.fanart)</onclick>
+						<selected>Skin.HasSetting(tv.fanart)</selected>
+						<visible>Skin.HasSetting(tv.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+	
+					<!------------------------->
+					<!------Music options------>
+					<!------------------------->				
+
+					<control type="radiobutton" id="240"> <!--movies label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>2</label>
+						<onclick>Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(music.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="241"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(music.custom.bg)</onclick>
+						<selected>Skin.HasSetting(music.custom.bg)</selected>
+						<visible>Skin.HasSetting(music.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="242"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(music.custom.bg)]</label2>
+						<onclick>Skin.SetImage(music.custom.bg)</onclick>
+						<visible>Skin.HasSetting(music.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(music.custom.bg)</enable>
+					</control>
+
+					<control type="radiobutton" id="243"> <!--fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31044</label>
+						<onclick>Skin.ToggleSetting(music.fanart)</onclick>
+						<onclick condition="Skin.HasSetting(music.extra.fanart)">Skin.ToggleSetting(music.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(music.fanart)</selected>
+						<visible>Skin.HasSetting(music.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="244"> <!--extra fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31042</label>
+						<onclick>Skin.ToggleSetting(music.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(music.extra.fanart)</selected>
+						<visible>Skin.HasSetting(music.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(music.fanart)</enable>
+					</control>
+
+					<control type="button" id="245"> <!--choose extra fanart path-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31048</label>
+						<label2>$INFO[Skin.String(artists.path)]</label2>
+						<onclick>Skin.SetPath(artists.path)</onclick>
+						<visible>Skin.HasSetting(music.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(music.extra.fanart)</enable>
+					</control>
+	
+					<!------------------------->
+					<!-----Picture options----->
+					<!------------------------->				
+
+					<control type="radiobutton" id="250"> <!--picture label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>1</label>
+						<onclick>Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(picture.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="251"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(picture.custom.bg)</onclick>
+						<selected>Skin.HasSetting(picture.custom.bg)</selected>
+						<visible>Skin.HasSetting(picture.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="252"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(picture.custom.bg)]</label2>
+						<onclick>Skin.SetImage(picture.custom.bg)</onclick>
+						<visible>Skin.HasSetting(picture.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(picture.custom.bg)</enable>
+					</control>
+	
+					<!------------------------->
+					<!-----Weather options----->
+					<!------------------------->				
+
+					<control type="radiobutton" id="260"> <!--weather label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>31010</label>
+						<onclick>Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(weather.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="261"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(weather.custom.bg)</onclick>
+						<selected>Skin.HasSetting(weather.custom.bg)</selected>
+						<visible>Skin.HasSetting(weather.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="262"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(weather.custom.bg)]</label2>
+						<onclick>Skin.SetImage(weather.custom.bg)</onclick>
+						<visible>Skin.HasSetting(weather.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(weather.custom.bg)</enable>
+					</control>
+	
+					<!------------------------->
+					<!-----Add-on options------>
+					<!------------------------->				
+
+					<control type="radiobutton" id="270"> <!--addon label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>24001</label>
+						<onclick>Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(addon.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="271"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(addon.custom.bg)</onclick>
+						<selected>Skin.HasSetting(addon.custom.bg)</selected>
+						<visible>Skin.HasSetting(addon.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="272"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(addon.custom.bg)]</label2>
+						<onclick>Skin.SetImage(addon.custom.bg)</onclick>
+						<visible>Skin.HasSetting(addon.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(addon.custom.bg)</enable>
+					</control>
+	
+					<!------------------------->
+					<!----Settings options----->
+					<!------------------------->				
+
+					<control type="radiobutton" id="280"> <!--settings label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>31012</label>
+						<onclick>Skin.ToggleSetting(settings.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.bg.options)">Skin.ToggleSetting(movie.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.bg.options)">Skin.ToggleSetting(games.bg.options)</onclick>
+						<selected>Skin.HasSetting(settings.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="281"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(settings.custom.bg)</onclick>
+						<selected>Skin.HasSetting(settings.custom.bg)</selected>
+						<visible>Skin.HasSetting(settings.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="282"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(settings.custom.bg)]</label2>
+						<onclick>Skin.SetImage(settings.custom.bg)</onclick>
+						<visible>Skin.HasSetting(settings.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(settings.custom.bg)</enable>
+					</control>	
+	
+					<!------------------------->
+					<!------Game options------->
+					<!------------------------->				
+
+					<control type="radiobutton" id="290"> <!--movies label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<textoffsetx>40</textoffsetx>
+						<label>342</label>
+						<onclick>Skin.ToggleSetting(games.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>						
+						<onclick condition="Skin.HasSetting(video.bg.options)">Skin.ToggleSetting(video.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.bg.options)">Skin.ToggleSetting(tv.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.bg.options)">Skin.ToggleSetting(music.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(picture.bg.options)">Skin.ToggleSetting(picture.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.bg.options)">Skin.ToggleSetting(weather.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(addon.bg.options)">Skin.ToggleSetting(addon.bg.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.bg.options)">Skin.ToggleSetting(settings.bg.options)</onclick>
+						<selected>Skin.HasSetting(games.bg.options)</selected>
+						<visible>Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="291"> <!--use custom background-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31108</label>
+						<onclick>Skin.ToggleSetting(games.custom.bg)</onclick>
+						<selected>Skin.HasSetting(games.custom.bg)</selected>
+						<visible>Skin.HasSetting(games.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="button" id="292"> <!--choose bg-->
+						<width>1000</width>
+						<textoffsetx>80</textoffsetx>
+						<label>31109</label>
+						<label2>$INFO[Skin.String(games.custom.bg)]</label2>
+						<onclick>Skin.SetImage(games.custom.bg)</onclick>
+						<visible>Skin.HasSetting(games.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(games.custom.bg)</enable>
+					</control>
+
+					<control type="radiobutton" id="293"> <!--fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31044</label>
+						<onclick>Skin.ToggleSetting(games.fanart)</onclick>
+						<onclick condition="Skin.HasSetting(games.extra.fanart)">Skin.ToggleSetting(games.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(games.fanart)</selected>
+						<visible>Skin.HasSetting(games.bg.options) + Skin.HasSetting(sectional.background)</visible>
+					</control>
+
+					<control type="radiobutton" id="294"> <!--extra fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<textoffsetx>60</textoffsetx>
+						<label>31042</label>
+						<onclick>Skin.ToggleSetting(games.extra.fanart)</onclick>
+						<selected>Skin.HasSetting(games.extra.fanart)</selected>
+						<visible>Skin.HasSetting(games.bg.options) + Skin.HasSetting(sectional.background)</visible>
+						<enable>Skin.HasSetting(games.fanart)</enable>
+					</control>
+	
+					<!------------------------->
+					<!--------colours---------->
+					<!------------------------->				
+
+					<control type="label" id="298"> <!--colours label-->
+						<width>colours</width>
+						<label>colours</label>
+						<font>ButtonBoldUpper</font>
+					</control>
+					
+					<control type="button" id="299"> <!--choose highlight colour-->
+						<width>1000</width>
+						<label>31074</label>
+						<label2>$INFO[Skin.String(MainColour)]</label2>
+						<onclick>ActivateWindow(700)</onclick>
+					</control>
+
+				</control>
+			
+				<control type="grouplist" id="300"> <!--home options-->
+					<left>460</left>
+					<top>315</top>
+					<width>1000</width>
+					<height>450</height>
+					<itemgap>5</itemgap>
+					<onleft>100</onleft>
+					<onright>300</onright>
+					<onup>100</onup>
+					<ondown>-</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>61</pagecontrol>
+					<visible>Container(100).Hasfocus(2)</visible>
+
+					<control type="label" id="301"> <!--main menu label-->
+						<width>colours</width>
+						<label>31128</label>
+						<font>ButtonBoldUpper</font>
+					</control>	
+
+					<control type="button" id="302"> <!--manage menu-->
+						<width>1000</width>
+						<label>31122</label>
+						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+					</control>	
+
+					<control type="label" id="303"> <!--widgets label-->
+						<width>colours</width>
+						<label>31123</label>
+						<font>ButtonBoldUpper</font>
+					</control>		
+	
+					<!------------------------->
+					<!------Movie widgets------>
+					<!------------------------->			
+
+					<control type="radiobutton" id="310"> <!--movie label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>342</label>
+						<onclick>Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onclick>
+						<selected>Skin.HasSetting(movie.widget.options)</selected>
+					</control>	
+
+					<control type="button" id="311"> <!--movies main widget-->
+						<width>1000</width>
+						<label>31124</label>
+						<label2>$VAR[MovieWidget1Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(recent.movies.widget.1)">Skin.ToggleSetting(recent.movies.widget.1)</onclick> <!--turn recent off-->
+						<onclick condition="Skin.HasSetting(recent.movies.widget.1)">Skin.ToggleSetting(random.movies.widget.1)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.movies.widget.1)">Skin.ToggleSetting(random.movies.widget.1)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.movies.widget.1)">Skin.ToggleSetting(recommended.movies.widget.1)</onclick> <!--turn recommended on-->
+						
+						<onclick condition="Skin.HasSetting(recommended.movies.widget.1)">Skin.ToggleSetting(recommended.movies.widget.1)</onclick> <!--turn recommended off-->
+						<onclick condition="Skin.HasSetting(recommended.movies.widget.1)">Skin.ToggleSetting(empty.movies.widget.1)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.movies.widget.1)">Skin.ToggleSetting(empty.movies.widget.1)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.movies.widget.1)">Skin.ToggleSetting(recent.movies.widget.1)</onclick> <!--turn recent on-->
+						<visible>Skin.HasSetting(movie.widget.options)</visible>
+					</control>
+
+					<control type="button" id="312"> <!--movies sub widget-->
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[MovieWidget2Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(youtube.trailers.widget.2)">Skin.ToggleSetting(youtube.trailers.widget.2)</onclick> <!--turn youtube trailers off-->
+						<onclick condition="Skin.HasSetting(youtube.trailers.widget.2)">Skin.ToggleSetting(recent.movies.widget.2)</onclick> <!--turn recent on-->
+						
+						<onclick condition="Skin.HasSetting(recent.movies.widget.2)">Skin.ToggleSetting(recent.movies.widget.2)</onclick> <!--turn recent off-->
+						<onclick condition="Skin.HasSetting(recent.movies.widget.2)">Skin.ToggleSetting(random.movies.widget.2)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.movies.widget.2)">Skin.ToggleSetting(random.movies.widget.2)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.movies.widget.2)">Skin.ToggleSetting(recommended.movies.widget.2)</onclick> <!--turn recommended on-->
+						
+						<onclick condition="Skin.HasSetting(recommended.movies.widget.2)">Skin.ToggleSetting(recommended.movies.widget.2)</onclick> <!--turn recommended off-->
+						<onclick condition="Skin.HasSetting(recommended.movies.widget.2)">Skin.ToggleSetting(empty.movies.widget.2)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.movies.widget.2)">Skin.ToggleSetting(empty.movies.widget.2)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.movies.widget.2)">Skin.ToggleSetting(youtube.trailers.widget.2)</onclick> <!--turn youtube trailers on-->
+						<visible>Skin.HasSetting(movie.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!-------TV widgets-------->
+					<!------------------------->			
+
+					<control type="radiobutton" id="320"> <!--tv label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>31007</label>
+						<onclick>Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onclick>
+						<selected>Skin.HasSetting(tv.widget.options)</selected>
+					</control>	
+					
+					<control type="button" id="321"> <!--tv shows main widget-->
+						<width>1000</width>
+						<label>31124</label>
+						<label2>$VAR[TVWidget1Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(recent.episodes.widget.1)">Skin.ToggleSetting(recent.episodes.widget.1)</onclick> <!--turn recent off-->
+						<onclick condition="Skin.HasSetting(recent.episodes.widget.1)">Skin.ToggleSetting(random.episodes.widget.1)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.episodes.widget.1)">Skin.ToggleSetting(random.episodes.widget.1)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.episodes.widget.1)">Skin.ToggleSetting(recommended.episodes.widget.1)</onclick> <!--turn recommended on-->
+						
+						<onclick condition="Skin.HasSetting(recommended.episodes.widget.1)">Skin.ToggleSetting(recommended.episodes.widget.1)</onclick> <!--turn recommended off-->
+						<onclick condition="Skin.HasSetting(recommended.episodes.widget.1)">Skin.ToggleSetting(empty.episodes.widget.1)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.episodes.widget.1)">Skin.ToggleSetting(empty.episodes.widget.1)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.episodes.widget.1)">Skin.ToggleSetting(recent.episodes.widget.1)</onclick> <!--turn recent on-->
+						<visible>Skin.HasSetting(tv.widget.options)</visible>
+					</control>
+
+					<control type="button" id="322"> <!--tv shows sub widget-->
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[TVWidget2Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(recent.episodes.widget.2)">Skin.ToggleSetting(recent.episodes.widget.2)</onclick> <!--turn recent off-->
+						<onclick condition="Skin.HasSetting(recent.episodes.widget.2)">Skin.ToggleSetting(random.episodes.widget.2)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.episodes.widget.2)">Skin.ToggleSetting(random.episodes.widget.2)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.episodes.widget.2)">Skin.ToggleSetting(recommended.episodes.widget.2)</onclick> <!--turn recommended on-->
+						
+						<onclick condition="Skin.HasSetting(recommended.episodes.widget.2)">Skin.ToggleSetting(recommended.episodes.widget.2)</onclick> <!--turn recommended off-->
+						<onclick condition="Skin.HasSetting(recommended.episodes.widget.2)">Skin.ToggleSetting(empty.episodes.widget.2)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.episodes.widget.2)">Skin.ToggleSetting(empty.episodes.widget.2)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.episodes.widget.2)">Skin.ToggleSetting(recent.episodes.widget.2)</onclick> <!--turn recent on-->
+						<visible>Skin.HasSetting(tv.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!-----Music widgets------->
+					<!------------------------->			
+
+					<control type="radiobutton" id="330"> <!--music label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>2</label>
+						<onclick>Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onclick>
+						<selected>Skin.HasSetting(music.widget.options)</selected>
+					</control>	
+
+					<control type="button" id="331"> <!--music main widget-->
+						<width>1000</width>
+						<label>31124</label>
+						<label2>$VAR[MusicWidget1Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(recent.played.albums.widget.1)">Skin.ToggleSetting(recent.played.albums.widget.1)</onclick> <!--turn recent played off-->
+						<onclick condition="Skin.HasSetting(recent.played.albums.widget.1)">Skin.ToggleSetting(recent.added.albums.widget.1)</onclick> <!--turn recent added on-->
+						
+						<onclick condition="Skin.HasSetting(recent.added.albums.widget.1)">Skin.ToggleSetting(recent.added.albums.widget.1)</onclick> <!--turn recent added off-->
+						<onclick condition="Skin.HasSetting(recent.added.albums.widget.1)">Skin.ToggleSetting(random.albums.widget.1)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.albums.widget.1)">Skin.ToggleSetting(random.albums.widget.1)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.albums.widget.1)">Skin.ToggleSetting(empty.albums.widget.1)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.albums.widget.1)">Skin.ToggleSetting(empty.albums.widget.1)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.albums.widget.1)">Skin.ToggleSetting(recent.played.albums.widget.1)</onclick> <!--turn recent played on-->
+						<visible>Skin.HasSetting(music.widget.options)</visible>
+					</control>
+
+					<control type="button" id="332"> <!--music sub widget-->
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[MusicWidget2Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(recent.played.albums.widget.2)">Skin.ToggleSetting(recent.played.albums.widget.2)</onclick> <!--turn recent played off-->
+						<onclick condition="Skin.HasSetting(recent.played.albums.widget.2)">Skin.ToggleSetting(recent.added.albums.widget.2)</onclick> <!--turn recent added on-->
+						
+						<onclick condition="Skin.HasSetting(recent.added.albums.widget.2)">Skin.ToggleSetting(recent.added.albums.widget.2)</onclick> <!--turn recent added off-->
+						<onclick condition="Skin.HasSetting(recent.added.albums.widget.2)">Skin.ToggleSetting(random.albums.widget.2)</onclick> <!--turn random on-->
+						
+						<onclick condition="Skin.HasSetting(random.albums.widget.2)">Skin.ToggleSetting(random.albums.widget.2)</onclick> <!--turn random off-->
+						<onclick condition="Skin.HasSetting(random.albums.widget.2)">Skin.ToggleSetting(empty.albums.widget.2)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.albums.widget.2)">Skin.ToggleSetting(empty.albums.widget.2)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.albums.widget.2)">Skin.ToggleSetting(recent.played.albums.widget.2)</onclick> <!--turn recent played on-->
+						<visible>Skin.HasSetting(music.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!------Games widget------->
+					<!------------------------->			
+
+					<control type="radiobutton" id="340"> <!--games label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>15016</label>
+						<onclick>Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onclick>
+						<selected>Skin.HasSetting(games.widget.options)</selected>
+					</control>	
+
+					<control type="radiobutton" id="341">
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>31139</label>
+						<textoffsetx>40</textoffsetx>
+						<onclick>Skin.ToggleSetting(games.widget)</onclick>
+						<selected>Skin.HasSetting(games.widget)</selected>
+						<visible>Skin.HasSetting(games.widget.options)</visible>
+					</control>
+					
+					<control type="label" id="342"> <!--hint label-->
+						<width>1000</width>
+						<height>40</height>
+						<label>$LOCALIZE[31145]</label>
+						<font>ButtonUpperItalic</font>
+						<textoffsetx>60</textoffsetx>
+						<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+						<visible>Skin.HasSetting(games.widget.options) + Skin.HasSetting(games.widget)</visible>
+					</control>
+				
+					<control type="button" id="343"> <!--set widget 1 path-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>$LOCALIZE[31144]</label>
+						<textoffsetx>60</textoffsetx>
+						<label>$LOCALIZE[31144]</label>
+						<label2>$INFO[Skin.String(Games.Widget.1.Path)]</label2>
+						<onclick>Skin.SetString(Games.Widget.1.Path)</onclick>
+						<visible>Skin.HasSetting(games.widget.options) + Skin.HasSetting(games.widget)</visible>
+					</control>
+					
+					<control type="button" id="344"> <!--set widget 1 label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>$LOCALIZE[31142]</label>
+						<textoffsetx>60</textoffsetx>
+						<label>Widget label</label>
+						<label2>$INFO[Skin.String(Games.Widget.1.Label)]</label2>
+						<onclick>Skin.SetString(Games.Widget.1.Label)</onclick>
+						<visible>Skin.HasSetting(games.widget.options) + Skin.HasSetting(games.widget)</visible>
+					</control>
+					
+					<control type="button" id="345"> <!--set widget 1 shape-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>$LOCALIZE[31143]</label>
+						<textoffsetx>60</textoffsetx>
+						<label>Widget shape</label>
+						<label2>$VAR[GamesWidgetShape]</label2>
+						<visible>Skin.HasSetting(games.widget.options) + Skin.HasSetting(games.widget)</visible>
+						<onclick condition="Skin.HasSetting(games.widget.shape.dvd)">Skin.ToggleSetting(games.widget.shape.dvd)</onclick> <!--turn dvd off-->
+						<onclick condition="Skin.HasSetting(games.widget.shape.dvd)">Skin.ToggleSetting(games.widget.shape.square)</onclick> <!--turn square on-->
+						
+						<onclick condition="Skin.HasSetting(games.widget.shape.square)">Skin.ToggleSetting(games.widget.shape.square)</onclick> <!--turn square off-->
+						<onclick condition="Skin.HasSetting(games.widget.shape.square)">Skin.ToggleSetting(games.widget.shape.rectangle)</onclick> <!--turn rectangle on-->
+						
+						<onclick condition="Skin.HasSetting(games.widget.shape.rectangle)">Skin.ToggleSetting(games.widget.shape.rectangle)</onclick> <!--turn rectangle off-->
+						<onclick condition="Skin.HasSetting(games.widget.shape.rectangle)">Skin.ToggleSetting(games.widget.shape.dvd)</onclick> <!--turn dvd on-->
+					</control>
+
+					<control type="radiobutton" id="346">
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>31140</label>
+						<textoffsetx>40</textoffsetx>
+						<onclick>Skin.ToggleSetting(games.apps.shortcut)</onclick>
+						<selected>Skin.HasSetting(games.apps.shortcut)</selected>
+						<visible>Skin.HasSetting(games.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!----Weather widgets------>
+					<!------------------------->			
+
+					<control type="radiobutton" id="350"> <!--weather label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>31010</label>
+						<onclick>Skin.ToggleSetting(weather.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(settings.widget.options)">Skin.ToggleSetting(settings.widget.options)</onclick>
+						<selected>Skin.HasSetting(weather.widget.options)</selected>
+					</control>	
+
+					<control type="radiobutton" id="351">
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>31130</label>
+						<textoffsetx>40</textoffsetx>
+						<onclick>Skin.ToggleSetting(weather.widget)</onclick>
+						<selected>Skin.HasSetting(weather.widget)</selected>
+						<visible>Skin.HasSetting(weather.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!----Settings widgets----->
+					<!------------------------->			
+
+					<control type="radiobutton" id="360"> <!--settings label-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>31012</label>
+						<onclick>Skin.ToggleSetting(settings.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(movie.widget.options)">Skin.ToggleSetting(movie.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(tv.widget.options)">Skin.ToggleSetting(tv.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(music.widget.options)">Skin.ToggleSetting(music.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(games.widget.options)">Skin.ToggleSetting(games.widget.options)</onclick>
+						<onclick condition="Skin.HasSetting(weather.widget.options)">Skin.ToggleSetting(weather.widget.options)</onclick>
+						<selected>Skin.HasSetting(settings.widget.options)</selected>
+					</control>	
+
+					<control type="button" id="361">
+						<width>1000</width>
+						<label>31124</label>
+						<label2>$VAR[SettingsWidget1Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(system.widget.1)">Skin.ToggleSetting(system.widget.1)</onclick> <!--turn system off-->
+						<onclick condition="Skin.HasSetting(system.widget.1)">Skin.ToggleSetting(performance.widget.1)</onclick> <!--turn performance on-->
+						
+						<onclick condition="Skin.HasSetting(performance.widget.1)">Skin.ToggleSetting(performance.widget.1)</onclick> <!--turn performance off-->
+						<onclick condition="Skin.HasSetting(performance.widget.1)">Skin.ToggleSetting(network.widget.1)</onclick> <!--turn network on-->
+						
+						<onclick condition="Skin.HasSetting(network.widget.1)">Skin.ToggleSetting(network.widget.1)</onclick> <!--turn network off-->
+						<onclick condition="Skin.HasSetting(network.widget.1)">Skin.ToggleSetting(user.widget.1)</onclick> <!--turn user on-->
+						
+						<onclick condition="Skin.HasSetting(user.widget.1)">Skin.ToggleSetting(user.widget.1)</onclick> <!--turn user off-->
+						<onclick condition="Skin.HasSetting(user.widget.1)">Skin.ToggleSetting(empty.settings.widget.1)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.settings.widget.1)">Skin.ToggleSetting(empty.settings.widget.1)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.settings.widget.1)">Skin.ToggleSetting(system.widget.1)</onclick> <!--turn network on-->
+						<visible>Skin.HasSetting(settings.widget.options)</visible>
+					</control>
+
+					<control type="button" id="362">
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[SettingsWidget2Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(system.widget.2)">Skin.ToggleSetting(system.widget.2)</onclick> <!--turn system off-->
+						<onclick condition="Skin.HasSetting(system.widget.2)">Skin.ToggleSetting(performance.widget.2)</onclick> <!--turn performance on-->
+						
+						<onclick condition="Skin.HasSetting(performance.widget.2)">Skin.ToggleSetting(performance.widget.2)</onclick> <!--turn performance off-->
+						<onclick condition="Skin.HasSetting(performance.widget.2)">Skin.ToggleSetting(network.widget.2)</onclick> <!--turn network on-->
+						
+						<onclick condition="Skin.HasSetting(network.widget.2)">Skin.ToggleSetting(network.widget.2)</onclick> <!--turn network off-->
+						<onclick condition="Skin.HasSetting(network.widget.2)">Skin.ToggleSetting(user.widget.2)</onclick> <!--turn user on-->
+						
+						<onclick condition="Skin.HasSetting(user.widget.2)">Skin.ToggleSetting(user.widget.2)</onclick> <!--turn user off-->
+						<onclick condition="Skin.HasSetting(user.widget.2)">Skin.ToggleSetting(empty.settings.widget.2)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.settings.widget.2)">Skin.ToggleSetting(empty.settings.widget.2)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.settings.widget.2)">Skin.ToggleSetting(system.widget.2)</onclick> <!--turn network on-->
+						<visible>Skin.HasSetting(settings.widget.options)</visible>
+					</control>
+
+					<control type="button" id="363">
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[SettingsWidget3Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(system.widget.3)">Skin.ToggleSetting(system.widget.3)</onclick> <!--turn system off-->
+						<onclick condition="Skin.HasSetting(system.widget.3)">Skin.ToggleSetting(performance.widget.3)</onclick> <!--turn performance on-->
+						
+						<onclick condition="Skin.HasSetting(performance.widget.3)">Skin.ToggleSetting(performance.widget.3)</onclick> <!--turn performance off-->
+						<onclick condition="Skin.HasSetting(performance.widget.3)">Skin.ToggleSetting(network.widget.3)</onclick> <!--turn network on-->
+						
+						<onclick condition="Skin.HasSetting(network.widget.3)">Skin.ToggleSetting(network.widget.3)</onclick> <!--turn network off-->
+						<onclick condition="Skin.HasSetting(network.widget.3)">Skin.ToggleSetting(user.widget.3)</onclick> <!--turn user on-->
+						
+						<onclick condition="Skin.HasSetting(user.widget.3)">Skin.ToggleSetting(user.widget.3)</onclick> <!--turn user off-->
+						<onclick condition="Skin.HasSetting(user.widget.3)">Skin.ToggleSetting(empty.settings.widget.3)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.settings.widget.3)">Skin.ToggleSetting(empty.settings.widget.3)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.settings.widget.3)">Skin.ToggleSetting(system.widget.3)</onclick> <!--turn network on-->
+						<visible>Skin.HasSetting(settings.widget.options)</visible>
+					</control>
+
+					<control type="button" id="364">
+						<width>1000</width>
+						<label>31125</label>
+						<label2>$VAR[SettingsWidget4Title]</label2>
+						<textoffsetx>40</textoffsetx>
+						<onclick condition="Skin.HasSetting(system.widget.4)">Skin.ToggleSetting(system.widget.4)</onclick> <!--turn system off-->
+						<onclick condition="Skin.HasSetting(system.widget.4)">Skin.ToggleSetting(performance.widget.4)</onclick> <!--turn performance on-->
+						
+						<onclick condition="Skin.HasSetting(performance.widget.4)">Skin.ToggleSetting(performance.widget.4)</onclick> <!--turn performance off-->
+						<onclick condition="Skin.HasSetting(performance.widget.4)">Skin.ToggleSetting(network.widget.4)</onclick> <!--turn network on-->
+						
+						<onclick condition="Skin.HasSetting(network.widget.4)">Skin.ToggleSetting(network.widget.4)</onclick> <!--turn network off-->
+						<onclick condition="Skin.HasSetting(network.widget.4)">Skin.ToggleSetting(user.widget.4)</onclick> <!--turn user on-->
+						
+						<onclick condition="Skin.HasSetting(user.widget.4)">Skin.ToggleSetting(user.widget.4)</onclick> <!--turn user off-->
+						<onclick condition="Skin.HasSetting(user.widget.4)">Skin.ToggleSetting(empty.settings.widget.4)</onclick> <!--turn none on-->
+						
+						<onclick condition="Skin.HasSetting(empty.settings.widget.4)">Skin.ToggleSetting(empty.settings.widget.4)</onclick> <!--turn none off-->
+						<onclick condition="Skin.HasSetting(empty.settings.widget.4)">Skin.ToggleSetting(system.widget.4)</onclick> <!--turn network on-->
+						<visible>Skin.HasSetting(settings.widget.options)</visible>
+					</control>
+	
+					<!------------------------->
+					<!-----Fanart options------>
+					<!------------------------->	
+
+					<control type="label" id="390"> <!--fanart label-->
+						<width>colours</width>
+						<label>20445</label>
+						<font>ButtonBoldUpper</font>
+					</control>	
+
+					<control type="radiobutton" id="391"> <!--widget fanart-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>875</textwidth>
+						<label>Show widget fanart</label>
+						<onclick>Skin.ToggleSetting(home.widget.fanart)</onclick>
+						<selected>Skin.HasSetting(home.widget.fanart)</selected>
+					</control>
+
+				</control>
+
+				<control type="grouplist" id="500"> <!--debug options-->
+					<left>460</left>
+					<top>315</top>
+					<width>1000</width>
+					<height>450</height>
+					<itemgap>5</itemgap>
+					<onleft>100</onleft>
+					<onright>500</onright>
+					<onup>100</onup>
+					<ondown>-</ondown>
+					<visible>Container(100).Hasfocus(3)</visible>
+
+					<control type="radiobutton" id="501"> <!--enable debug grid-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>31034</label>
+						<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+						<selected>Skin.HasSetting(DebugGrid)</selected>
+					</control>
+
+					<control type="radiobutton" id="502"> <!--enable debug info-->
+						<width>1000</width>
+						<radioposx>940</radioposx>
+						<textwidth>895</textwidth>
+						<label>31035</label>
+						<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+						<selected>Skin.HasSetting(DebugInfo)</selected>
+					</control>
+
+					<control type="button" id="503"> <!--reset skin settings-->
+						<width>1000</width>
+						<label>Reset skin settings</label>
+						<onclick>Skin.ResetSettings</onclick>
+						<onclick>ReloadSkin()</onclick>
+					</control>
+
+				</control>
+				
+				<control type="group"> <!--scrollbar-->
+					<visible>!Control.IsVisible(500)</visible>
+		
+					<control type="image"> <!--scrollbar arrow up-->
+						<left>430</left>
+						<top>315</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(61)</visible>
+					</control>
+
+					<control type="scrollbar" id="61"> <!--scrollbar-->
+						<left>430</left>
+						<top>330</top>
+						<height>420</height>
+						<showonepage>false</showonepage>
+					</control>
+				
+					<control type="image"> <!--scrollbar arrow down-->
+						<left>430</left>
+						<top>758</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(61)</visible>
+					</control>
+					
+				</control>
+				
+			</control>
+		
+		</control>
+
+	</controls>
+
+</window>

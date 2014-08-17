@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</action>
+		<label>Recently added</label>
+		<label2>32014</label2>
+		<defaultID>recently-added</defaultID>
+		<icon>DefaultRecentlyAddedEpisodes.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TvShowTitles,return)</action>
+		<label>369</label>
+		<label2>20343</label2>
+		<defaultID>369</defaultID>
+		<icon>DefaultTVShowTitle.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TvShowGenres,return)</action>
+		<label>135</label>
+		<label2>20343</label2>
+		<defaultID>135</defaultID>
+		<icon>DefaultGenre.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TvShowYears,return)</action>
+		<label>562</label>
+		<label2>20343</label2>
+		<defaultID>562</defaultID>
+		<icon>DefaultYear.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TvShowActors,return)</action>
+		<label>344</label>
+		<label2>20343</label2>
+		<defaultID>344</defaultID>
+		<icon>DefaultActor.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,TvShowStudios,return)</action>
+		<label>20388</label>
+		<label2>20343</label2>
+		<defaultID>20388</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,Addons,return)</action>
+		<label>1037</label>
+		<label2>32014</label2>
+		<defaultID>1037</defaultID>
+		<icon>DefaultAddonVideo.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Videos,Files,return)</action>
+		<label>744</label>
+		<label2>32014</label2>
+		<defaultID>744</defaultID>
+		<icon>DefaultFolder.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>UpdateLibrary(video)</action>
+		<label>Update library</label>
+		<label2>32054</label2>
+		<defaultID>update-library</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+</shortcuts>

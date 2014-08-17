@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window>
+
+	<defaultcontrol always="false">602</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<visible>![Window.IsActive(DialogSelect.xml) | Window.IsActive(SliderDialog) | Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(VideoBookmarks) | Window.IsActive(script-XBMC-Subtitles-main.xml)]</visible>
+			<left>0</left>
+			<top>0</top>
+					
+			<control type="image"> <!--bg-->
+				<include>FullScreenDimensions</include>
+				<texture colordiffuse="Black95">backgrounds/white.png</texture>
+				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)</visible>
+			</control>
+				
+			<control type="group">
+				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)</visible>
+
+				<control type="label"> <!--time-->
+					<right>75</right>
+					<top>50</top>
+					<width>200</width>
+					<label>$INFO[System.Time]</label>
+					<font>Breadcrumb</font>
+					<textcolor>PrimaryOSD</textcolor>
+					<align>right</align>
+					<aligny>bottom</aligny>
+					<visible>!Window.IsVisible(infodialog) + !Window.IsVisible(volumebar)</visible>
+					<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+				</control>
+
+				<control type="label"> <!--end time-->
+					<right>75</right>
+					<top>105</top>
+					<width>500</width>
+					<label>$INFO[Player.FinishTime,Finishes at ]</label>
+					<font>ButtonSmallUpper</font>
+					<textcolor>PrimaryT</textcolor>
+					<align>right</align>
+				</control>
+				
+			</control>
+				
+			<control type="group">
+				<top>885</top>
+				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)</visible>
+
+				<control type="label"> <!--title-->
+					<left>395</left>
+					<top>-85</top>
+					<width>1125</width>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<align>left</align>
+					<font>NowPlayingTitle</font>
+					<textcolor>PrimaryOSD</textcolor>
+					<scroll>false</scroll>
+				</control>
+
+				<control type="label"> <!--tagline-->
+					<left>395</left>
+					<top>-40</top>
+					<width>1125</width>
+					<label>$VAR[NowPlayingLine2]</label>
+					<align>left</align>
+					<font>PlotBold</font>
+					<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+				</control>
+
+				<control type="label"> <!--video time/duration-->
+					<left>395</left>
+					<width>1125</width>
+					<label>$VAR[NowPlayingLine3]</label>
+					<align>left</align>
+					<font>PlotBold</font>
+					<textcolor>PrimaryOSD</textcolor>
+				</control>
+			
+			</control>
+		
+			<control type="group"> <!--progress-->
+				<top>950</top>
+				<visible>!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)</visible>
+		
+				<control type="progress" description="Buffer Bar">
+					<centerleft>50%</centerleft>
+					<width>1125</width>
+					<texturebg colordiffuse="TertiaryOSD">backgrounds/white.png</texturebg>
+					<midtexture colordiffuse="SecondaryOSD">backgrounds/white.png</midtexture>
+					<info>Player.CacheLevel</info>
+					<visible>Player.IsInternetStream</visible>
+				</control>
+  
+				<control type="progress" description="Progress Bar">
+					<centerleft>50%</centerleft>
+					<width>1125</width>
+					<texturebg colordiffuse="TertiaryOSD">backgrounds/white.png</texturebg>
+					<midtexture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</midtexture>
+					<info>Player.Progress</info>
+					<visible>true</visible>
+				</control>
+			
+			</control>
+			
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<width>1125</width>
+	  
+				<control type="grouplist" id="100"> <!--buttons-->
+					<left>0</left>
+					<top>110r</top>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
+					<width>505</width>
+					<defaultcontrol always="true">602</defaultcontrol>
+					<onright>700</onright>
+					<onleft>704</onleft>
+
+					<control type="button" id="600">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[210]</label>
+						<onclick>PlayerControl(Previous)</onclick>
+					</control>
+
+					<control type="button" id="601">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31354]</label>
+						<onclick>PlayerControl(Rewind)</onclick>
+					</control>
+
+					<control type="togglebutton" id="602">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31351]</label>
+						<altlabel>$LOCALIZE[208]</altlabel>
+						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+						<onclick>PlayerControl(Play)</onclick>
+						<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+						<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+					</control>
+
+					<control type="button" id="603">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31352]</label>
+						<onclick>PlayerControl(Stop)</onclick>
+					</control>
+
+					<control type="button" id="604">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31353]</label>
+						<onclick>PlayerControl(Forward)</onclick>
+					</control>
+
+					<control type="button" id="605">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[209]</label>
+						<onclick>PlayerControl(Next)</onclick>
+					</control>
+	  
+				</control>
+  
+				<control type="grouplist"> <!--button bg-->
+					<left>0</left>
+					<top>110r</top>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
+					<width>505</width>
+					<defaultcontrol always="true">602</defaultcontrol>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/previous.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/rewind.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/pause.png</texture>
+						<visible>!Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/play.png</texture>
+						<visible>Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/stop.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/ff.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/next.png</texture>
+					</control>
+					
+				</control>
+	  
+				<control type="grouplist">
+					<left>705</left>
+					<top>110r</top>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
+					<width>420</width>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/dvd.png</texture>
+						<animation effect="fade" start="100" end="30" time="0" condition="!VideoPlayer.HasMenu">Conditional</animation>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/subtitles.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/videosettings.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/audiosettings.png</texture>
+					</control>
+					
+					<control type="image">
+						<width>80</width>
+						<height>70</height>
+						<texture>osd/bookmark.png</texture>
+					</control>
+					
+				</control>
+	  
+				<control type="grouplist" id="101">
+					<left>705</left>
+					<top>110r</top>
+					<orientation>horizontal</orientation>
+					<itemgap>5</itemgap>
+					<width>420</width>
+					<onright>600</onright>
+					<onleft>605</onleft>
+
+					<control type="togglebutton" id="700">
+						<enable>VideoPlayer.HasMenu</enable>
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31355]</label>
+						<usealttexture>!VideoPlayer.HasMenu</usealttexture>
+						<onclick>PlayerControl(ShowVideoMenu)</onclick>
+						<alttexturefocus colordiffuse="SecondaryOSD">backgrounds/white.png</alttexturefocus>
+						<alttexturenofocus colordiffuse="TertiaryOSD">backgrounds/white.png</alttexturenofocus>
+					</control>
+
+					<control type="button" id="702">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[31356]</label>
+						<onclick>Close</onclick>
+						<onclick>ActivateWindow(SubtitleSearch)</onclick>
+					</control>
+
+					<control type="button" id="701">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[13395]</label>
+						<onclick>ActivateWindow(OSDVideoSettings)</onclick>
+					</control>
+
+					<control type="button" id="703">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[292] &amp; $LOCALIZE[287]</label>
+						<onclick>ActivateWindow(OSDAudioSettings)</onclick>
+					</control>
+
+					<control type="button" id="704">
+						<include>OSDButton</include>
+						<label>$LOCALIZE[298]</label>
+						<onclick>ActivateWindow(VideoBookmarks)</onclick>
+					</control>
+	  
+				</control>
+			
+			</control>
+  
+		</control>
+
+	</controls>
+  
+</window>

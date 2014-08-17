@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="29">
+
+	<defaultcontrol always="true">52</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+		
+		<control type="image"> <!--view options bg-->
+			<include>FullscreenDimensions</include>
+			<texture>backgrounds/white.png</texture>
+		</control>
+
+		<control type="label">
+			<centerleft>50%</centerleft>
+			<top>180</top>
+			<width>650</width>
+			<label>31097</label>
+			<font>LoginTitle</font>
+			<textcolor>LoginT</textcolor>
+			<align>center</align>
+			<animation effect="slide" start="0,0" end="0,400" time="300">WindowClose</animation>
+		</control>
+
+		<control type="label">
+			<centerleft>50%</centerleft>
+			<top>255</top>
+			<width>650</width>
+			<label>31098</label>
+			<font>MenuTitle</font>
+			<textcolor>$INFO[Skin.String(MainColour)]</textcolor>
+			<align>center</align>
+		</control>
+
+		<control type="list" id="52">
+			<centerleft>50%</centerleft>
+			<top>380</top>
+			<width>650</width>
+			<height>520</height>
+			<onup>52</onup>
+			<ondown>52</ondown>
+			<onleft>52</onleft>
+			<onright>52</onright>
+			<scrolltime>0</scrolltime>
+
+			<itemlayout width="650" height="160">
+			
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>150</width>
+					<height>150</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+				</control>
+
+				<control type="label">
+					<left>170</left>
+					<top>25</top>
+					<width>410</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>MenuTitleLower</font>
+					<textcolor>LoginT2</textcolor>
+				</control>
+
+				<control type="label">
+					<left>170</left>
+					<top>65</top>
+					<width>410</width>
+					<label>$INFO[ListItem.Label2]</label>
+					<font>List</font>
+					<textcolor>LoginT2</textcolor>
+				</control>
+
+			</itemlayout>
+
+			<focusedlayout width="650" height="160">
+			
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>650</width>
+					<height>150</height>
+					<texture colordiffuse="Login">backgrounds/white.png</texture>
+				</control>
+			
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>150</width>
+					<height>150</height>
+					<texture>$INFO[ListItem.Thumb]</texture>
+				</control>
+
+				<control type="label">
+					<left>170</left>
+					<top>25</top>
+					<width>410</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>MenuTitleLower</font>
+					<textcolor>LoginT2</textcolor>
+				</control>
+
+				<control type="label">
+					<left>170</left>
+					<top>65</top>
+					<width>410</width>
+					<label>$INFO[ListItem.Label2]</label>
+					<font>List</font>
+					<textcolor>LoginT2</textcolor>
+				</control>
+
+			</focusedlayout>
+
+		</control>
+
+	</controls>
+
+</window>

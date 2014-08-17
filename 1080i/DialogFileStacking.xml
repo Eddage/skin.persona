@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2008">
+
+	<defaultcontrol always="true">450</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+
+			<control type="label"> <!--header-->
+				<left>760</left>
+				<top>240</top>
+				<font>MenuTitle</font>
+				<info>ListItem.Label</info>
+			</control>
+
+			<control type="list" id="450"> <!--main list-->
+				<left>760</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>455</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<viewtype label="List">list</viewtype>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<itemlayout width="400" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>30</left>
+						<width>360</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</itemlayout>
+	
+				<focusedlayout width="400" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>400</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>30</left>
+						<width>360</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</focusedlayout>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

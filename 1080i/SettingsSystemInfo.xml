@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="7">
+
+	<defaultcontrol always="true">9001</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+
+			<control type="grouplist" id="9001">
+				<left>658</left>
+				<top>240</top>
+				<width>600</width>
+				<height>720</height>
+				<onleft>9001</onleft>
+				<onright>9001</onright>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>	
+				<scrolltime>0</scrolltime>	
+
+				<control type="button" id="95"> <!--general-->
+					<label>20037</label>
+					<width>600</width>
+					<align>center</align>
+					<font>MenuTitle</font>
+					<height>55</height>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus>-</texturefocus>
+				</control>
+
+				<control type="button" id="94"> <!--storage-->
+					<label>13277</label>
+					<width>600</width>
+					<align>center</align>
+					<font>MenuTitle</font>
+					<height>55</height>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus>-</texturefocus>
+				</control>
+
+				<control type="button" id="96"> <!--network-->
+					<label>13279</label>
+					<width>600</width>
+					<align>center</align>
+					<font>MenuTitle</font>
+					<height>55</height>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus>-</texturefocus>
+				</control>
+
+				<control type="button" id="97"> <!--video-->
+					<label>13280</label>
+					<width>600</width>
+					<align>center</align>
+					<font>MenuTitle</font>
+					<height>55</height>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus>-</texturefocus>
+				</control>
+
+				<control type="button" id="98"> <!--hardware-->
+					<label>13281</label>
+					<width>600</width>
+					<align>center</align>
+					<font>MenuTitle</font>
+					<height>55</height>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus>-</texturefocus>
+				</control>
+			</control>
+		
+			<control type="group"> <!--left/right arrows focused-->
+				<visible>!ControlGroup(5).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="200" condition="ControlGroup(5).HasFocus">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>700</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(5).HasFocus">Conditional</animation>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>700</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]" flipx="true">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(5).HasFocus">Conditional</animation>
+				</control>
+				
+			</control>
+
+			<control type="grouplist" id="5">
+				<left>460</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>900</height>
+				<itemgap>-10</itemgap>
+
+				<control type="label" id="52">
+					<description>XBMC XBE BUILD Version</description>
+					<width>1200</width>
+				</control>
+
+				<control type="label" id="21">
+					<description>CPU Text</description>
+					<width>1000</width>
+					<label>$LOCALIZE[13271] $INFO[System.CPUUsage]</label>
+				</control>
+
+				<control type="label">
+					<description>Spacer</description>
+					<height>20</height>
+					<font>-</font>
+					<width>1000</width>
+				</control>
+
+				<control type="progress" id="22">
+					<description>CPU BAR</description>
+					<width>1000</width>
+					<info>System.CPUUsage</info>
+				</control>
+
+				<control type="label">
+					<description>Spacer</description>
+					<height>20</height>
+					<font>-</font>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="23">
+					<description>Memory Text</description>
+					<width>1000</width>
+					<label>$LOCALIZE[31030] $INFO[system.memory(used.percent)]</label>
+				</control>
+
+				<control type="label">
+					<description>Spacer</description>
+					<height>20</height>
+					<font>-</font>
+					<width>1000</width>
+				</control>
+
+				<control type="progress" id="24">
+					<description>Memory BAR</description>
+					<width>1000</width>
+					<info>system.memory(used)</info>
+				</control>
+
+				<control type="label" id="25">
+					<description>Spacer</description>
+					<font>-</font>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="2">
+					<description>Label 2</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="3">
+					<description>Label 3</description>
+					<width>1200</width>
+				</control>
+
+				<control type="label" id="4">
+					<description>Label 4</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="5">
+					<description>Label 5</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="6">
+					<description>Label 6</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="7">
+					<description>Label 7</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="8">
+					<description>Label 8</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="9">
+					<description>Label 9</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="10">
+					<description>Label 10</description>
+					<width>1000</width>
+				</control>
+
+				<control type="label" id="11">
+					<description>Label 11</description>
+					<width>1000</width>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

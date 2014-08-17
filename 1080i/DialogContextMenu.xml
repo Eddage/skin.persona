@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="106">
+
+	<defaultcontrol always="true">1000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu)</visible>
+		
+			<control type="label"> <!--header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>500</width>
+				<label>31045</label>
+				<font>MenuTitle</font>
+			</control>
+
+			<control type="grouplist" id="996">
+				<description>grouplist for context buttons</description>
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onup>996</onup>
+				<ondown>996</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<control type="button" id="10001">
+					<label>Game Info</label>
+					<onclick>ActivateWindow(703)</onclick>
+					<visible>SubString(Container.FolderPath,plugin.program.advanced.launcher) + !IsEmpty(ListItem.Genre)</visible>
+				</control>
+			
+				<control type="button" id="1000">
+					<description>Buttons</description>
+				</control>
+		
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>680</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>680</left>
+				<top>330</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>680</left>
+				<top>758</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+		
+		</control>
+
+	</controls>
+
+</window>

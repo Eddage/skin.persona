@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="132">
+
+	<defaultcontrol always="true">3</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(okdialog) + !Window.IsActive(addonsettings)</visible>
+			
+			<control type="group">
+				<top>-80</top>
+
+				<control type="label" id="20"> <!--Header-->
+					<centerleft>50%</centerleft>
+					<top>240</top>
+					<width>1000</width>
+					<font>MenuTitle</font>
+					<label>20333</label>
+				</control>
+
+				<control type="spincontrolex" id="3"> <!--content type-->
+					<centerleft>50%</centerleft>
+					<top>315</top>
+					<width>1000</width>
+					<onup>29</onup>
+					<ondown>4</ondown>
+					<onleft>28</onleft>
+					<onright>28</onright>
+				</control>
+
+				<control type="label"> <!--content: label-->
+					<left>480</left>
+					<top>315</top>
+					<width>600</width>
+					<height>60</height>
+					<label>20344</label>
+					<font>ButtonUpper</font>
+				</control>
+
+				<control type="label"> <!--Header 2-->
+					<centerleft>50%</centerleft>
+					<top>400</top>
+					<width>1000</width>
+					<font>MenuTitle</font>
+					<label>31051</label>
+				</control>
+
+				<control type="list" id="4">
+					<centerleft>50%</centerleft>
+					<top>475</top>
+					<width>1000</width>
+					<height>195</height>
+					<onup>3</onup>
+					<onleft>3</onleft>
+					<onright>5</onright>
+					<ondown>5</ondown>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>60</pagecontrol>
+					
+					<itemlayout width="1000" height="65">
+		
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>960</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Button</font>
+						</control>
+			
+					</itemlayout>
+		
+					<focusedlayout width="1000" height="65">
+		
+						<control type="image"> <!--focus bg-->
+							<left>0</left>
+							<top>0</top>
+							<width>1000</width>
+							<height>60</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+							<visible>Control.HasFocus(4)</visible>
+						</control>
+		
+						<control type="label"> <!--label-->
+							<left>20</left>
+							<width>960</width>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Button</font>
+						</control>
+			
+					</focusedlayout>
+
+				</control>
+				
+				<control type="group"> <!--scrollbar stuff-->
+					<left>430</left>
+			
+					<control type="image"> <!--scrollbar arrow up-->
+						<top>475</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(60)</visible>
+					</control>
+
+					<control type="scrollbar" id="60"> <!--scrollbar-->
+						<top>490</top>
+						<height>160</height>
+						<showonepage>false</showonepage>
+					</control>
+				
+					<control type="image"> <!--scrollbar arrow down-->
+						<top>658</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(60)</visible>
+					</control>
+					
+				</control>
+
+				<control type="label"> <!--Header 3-->
+					<centerleft>50%</centerleft>
+					<top>680</top>
+					<width>1000</width>
+					<font>MenuTitle</font>
+					<label>33063</label>
+				</control>
+
+				<control type="grouplist" id="5">
+					<description>Control Area</description>
+					<centerleft>50%</centerleft>
+					<top>755</top>
+					<width>1000</width>
+					<height>190</height>
+					<itemgap>5</itemgap>
+					<onup>4</onup>
+					<ondown>9000</ondown>
+					<onleft>4</onleft>
+					<onright>9000</onright>
+					<orientation>vertical</orientation>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>61</pagecontrol>
+				</control>
+
+				<control type="button" id="7"> <!--button-->
+				</control>
+
+				<control type="radiobutton" id="8"> <!--radiobutton-->
+					<width>1000</width>
+					<radioposx>940</radioposx>
+					<textwidth>895</textwidth>
+				</control>
+				
+				<control type="group"> <!--scrollbar stuff-->
+					<left>430</left>
+			
+					<control type="image"> <!--scrollbar arrow up-->
+						<top>755</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(61)</visible>
+					</control>
+
+					<control type="scrollbar" id="61"> <!--scrollbar-->
+						<top>770</top>
+						<height>160</height>
+						<showonepage>false</showonepage>
+					</control>
+				
+					<control type="image"> <!--scrollbar arrow down-->
+						<top>938</top>
+						<width>7</width>
+						<height>7</height>
+						<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+						<visible>Control.IsVisible(61)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="group"> <!--bottom buttons-->
+					<top>180</top>
+				
+					<control type="grouplist" id="9000">
+						<left>460</left>
+						<top>800</top>
+						<width>600</width>
+						<itemgap>5</itemgap>
+						<orientation>horizontal</orientation>
+						<onright>9000</onright>
+						<onleft>9000</onleft>
+						<onup>5</onup>
+						<ondown>3</ondown>
+						<scrolltime>0</scrolltime>
+
+						<control type="button" id="6"> <!--settings-->
+							<include>OptionButton</include>
+							<label>5</label>
+						</control>
+
+						<control type="button" id="28"> <!--ok-->
+							<include>OptionButton</include>
+							<label>186</label>
+						</control>
+
+						<control type="button" id="29"> <!--cancel-->
+							<include>OptionButton</include>
+							<label>222</label>
+						</control>
+					
+					</control>
+					
+				</control>
+				
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

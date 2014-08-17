@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<action>ActivateWindow(AppearanceSettings)</action>
+		<label>Appearance</label>
+		<label2>32024</label2>
+		<defaultID>appearance</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(VideosSettings)</action>
+		<label>Videos</label>
+		<label2>32024</label2>
+		<defaultID>videos</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(MusicSettings)</action>
+		<label>Music</label>
+		<label2>32024</label2>
+		<defaultID>music</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(AddonBrowser)</action>
+		<label>Add-Ons</label>
+		<label2>32024</label2>
+		<defaultID>add-ons</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(PicturesSettings)</action>
+		<label>Pictures</label>
+		<label2>32024</label2>
+		<defaultID>pictures</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(WeatherSettings)</action>
+		<label>Weather</label>
+		<label2>32024</label2>
+		<defaultID>weather</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(NetworkSettings)</action>
+		<label>Network</label>
+		<label2>32024</label2>
+		<defaultID>network</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(SystemSettings)</action>
+		<label>System</label>
+		<label2>32024</label2>
+		<defaultID>system</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(Profiles)</action>
+		<label>13200</label>
+		<label2>32034</label2>
+		<defaultID>13200</defaultID>
+		<icon>UnknownUser.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(SystemInfo)</action>
+		<label>10007</label>
+		<label2>32034</label2>
+		<defaultID>10007</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ActivateWindow(SkinSettings)</action>
+		<label>Skin</label>
+		<label2>32024</label2>
+		<defaultID>skin</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+	<shortcut>
+		<action>ReloadSkin()</action>
+		<label>Refresh skin</label>
+		<label2>32024</label2>
+		<defaultID>skin</defaultID>
+		<icon />
+		<thumb />
+	</shortcut>
+</shortcuts>

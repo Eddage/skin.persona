@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="135">
+
+	<defaultcontrol always="true">10</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(filebrowser) + !Window.IsActive(DialogAlbumInfo.xml)</visible>
+		
+
+			
+			<control type="group"> <!--main content-->
+				<left>-60</left>
+				<top>200</top>
+
+				<control type="image"> <!--cover-->
+					<left>232</left>
+					<top>140</top>
+					<width>403</width>
+					<height>403</height>
+					<texture>$VAR[VidInfoImage]</texture>
+					<aspectratio aligny="top">keep</aspectratio>
+				</control>
+				
+				<control type="group"> <!--information-->
+					<left>225</left>
+					<top>75</top>
+					
+					<control type="grouplist" id="9000">
+						<left>435</left>
+						<top>65</top>
+						<width>1225</width>
+						<height>255</height>
+						<itemgap>5</itemgap>
+						<onup>50</onup>
+						<ondown>50</ondown>
+						<onright>9000</onright>
+						<onleft>9000</onleft>
+						<orientation>horizontal</orientation>
+						<scrolltime>0</scrolltime>		
+
+						<control type="button" id ="10"> <!--tracks-->
+							<include>OptionButton</include>
+							<label>186</label>
+						</control>		
+
+						<control type="button" id ="11"> <!--refresh-->
+							<include>OptionButton</include>
+							<label>222</label>
+						</control>	
+
+						<control type="button" id ="12"> <!--get thumb-->
+							<include>OptionButton</include>
+							<label>10523</label>
+						</control>
+
+						<control type="button" id ="13"> <!--get fanart-->
+							<include>OptionButton</include>
+							<label>13405</label>
+						</control>
+
+						<control type="button" id ="15"> <!--get fanart-->
+							<include>OptionButton</include>
+							<label>Increase</label>
+							<onclick>IncreaseRating</onclick>
+						</control>
+
+						<control type="button" id ="14"> <!--get fanart-->
+							<include>OptionButton</include>
+							<label>Decrease</label>
+							<onclick>DecreaseRating</onclick>
+						</control>
+
+					</control>
+					
+					<control type="grouplist"> <!--info-->		
+						<left>435</left>
+						<top>135</top>
+						<width>1500</width>
+						<height>auto</height>
+						<itemgap>-10</itemgap>
+						<orientation>vertical</orientation>
+
+						<control type="label"> <!--track-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[554][/COLOR] $INFO[ListItem.TrackNumber]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--title-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[556][/COLOR] $INFO[ListItem.Title]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--artist-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[557][/COLOR] $INFO[ListItem.Artist]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--album-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[558][/COLOR] $INFO[ListItem.Album]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--duration-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[180][/COLOR] $INFO[ListItem.Duration]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--year-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[345][/COLOR] $INFO[ListItem.Year]</label>
+							<include>InfoLabel</include>
+						</control>
+
+						<control type="label"> <!--genre-->
+							<label>[COLOR=$INFO[Skin.String(MainColour)]]$LOCALIZE[515][/COLOR] $INFO[ListItem.Genre]</label>
+							<include>InfoLabel</include>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>30</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+
+						<control type="image"> <!--stars-->
+							<left>435</left>
+							<top>152</top>
+							<width>180</width>
+							<height>32</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">dialogs/$INFO[ListItem.StarRating]</texture>
+						</control>
+					
+						<control type="image"> <!--gap extender-->
+							<width>2</width>
+							<height>30</height>
+							<texture>backgrounds/trans.png</texture>
+						</control>
+
+						<control type="label"> <!--path-->
+							<width>1225</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Path,$LOCALIZE[15311] ]</label>
+							<scroll>true</scroll>
+							<font>Button</font>
+						</control>
+						
+					</control>
+							
+				</control>
+				
+			</control>	
+			
+		</control>
+
+	</controls>
+
+</window>

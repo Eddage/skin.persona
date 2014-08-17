@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>Home</label>
+		<label2>Custom shortcut</label2>
+		<defaultID>videos</defaultID>
+		<icon>DefaultVideo.png</icon>
+		<thumb />
+		<action>-</action>
+	</shortcut>
+	<shortcut>
+		<label>342</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>movies</defaultID>
+		<icon>DefaultMovies.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,MovieTitles,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>20343</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>tvshows</defaultID>
+		<icon>DefaultTVShows.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,TVShowTitles,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>Music</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>music</defaultID>
+		<icon>DefaultMusicAlbums.png</icon>
+		<thumb />
+		<action>ActivateWindow(Music)</action>
+	</shortcut>
+	<shortcut>
+		<label>Games</label>
+		<label2>Favourite</label2>
+		<defaultID>plugin.program.advanced.launcher/</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(10001,"plugin://plugin.program.advanced.launcher/",return)</action>
+	</shortcut>
+	<shortcut>
+		<label>32022</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>livetv</defaultID>
+		<icon>DefaultTVShows.png</icon>
+		<thumb />
+		<action>ActivateWindowAndFocus(MyPVR,34,0 ,13,0)</action>
+	</shortcut>
+	<shortcut>
+		<label>12600</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>weather</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Weather)</action>
+	</shortcut>
+	<shortcut>
+		<label>32032</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>dvd</defaultID>
+		<icon>DefaultDVDFull.png</icon>
+		<thumb />
+		<action>XBMC.PlayDVD()</action>
+	</shortcut>
+	<shortcut>
+		<label>10004</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>settings</defaultID>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+	</shortcut>
+</shortcuts>

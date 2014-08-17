@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="4">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+		
+		<control type="group">
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+
+			<control type="list" id="9000"> <!--main list-->
+				<left>760</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>455</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<viewtype label="List">list</viewtype>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+				
+				<itemlayout width="400" height="65">
+	
+					<control type="label"> <!--label-->
+						<left>30</left>
+						<width>360</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</itemlayout>
+	
+				<focusedlayout width="400" height="65">
+	
+					<control type="image"> <!--focus bg-->
+						<left>0</left>
+						<top>0</top>
+						<width>400</width>
+						<height>60</height>
+						<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+					</control>
+	
+					<control type="label"> <!--label-->
+						<left>30</left>
+						<width>360</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>ButtonUpper</font>
+					</control>
+		
+				</focusedlayout>
+
+				<content>
+			
+					<item id="1">
+						<description>Appearance</description>
+						<label>480</label>
+						<onclick>activatewindow(AppearanceSettings)</onclick>
+					</item>
+				
+					<item id="2">
+						<description>Videos</description>
+						<label>3</label>
+						<onclick>activatewindow(VideosSettings)</onclick>
+					</item>
+				
+					<item id="3">
+						<description>Music</description>
+						<label>2</label>
+						<onclick>activatewindow(MusicSettings)</onclick>
+					</item>
+				
+					<item id="4">
+						<description>Addons</description>
+						<label>24001</label>
+						<onclick>activatewindow(AddonBrowser)</onclick>
+					</item>
+				
+					<item id="5">
+						<description>Pictures</description>
+						<label>1</label>
+						<onclick>activatewindow(PicturesSettings)</onclick>
+					</item>
+				
+					<item id="6">
+						<description>Weather</description>
+						<label>8</label>
+						<onclick>activatewindow(WeatherSettings)</onclick>
+					</item>
+				
+					<item id="7">
+						<description>Network</description>
+						<label>705</label>
+						<onclick>activatewindow(NetworkSettings)</onclick>
+					</item>
+				
+					<item id="8">
+						<description>System</description>
+						<label>13000</label>
+						<onclick>activatewindow(SystemSettings)</onclick>
+					</item>
+				
+					<item id="9">
+						<description>Profiles</description>
+						<label>13200</label>
+						<onclick>activatewindow(Profiles)</onclick>
+					</item>
+				
+					<item id="10">
+						<description>System Info</description>
+						<label>130</label>
+						<onclick>activatewindow(7)</onclick>
+					</item>
+				
+					<item id="11">
+						<description>Custom Settings</description>
+						<label>Skin</label>
+						<onclick>activatewindow(skinsettings)</onclick>
+					</item>
+				
+				</content>
+			
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>730</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>730</left>
+				<top>330</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>730</left>
+				<top>758</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+		
+		</control>
+
+	</controls>
+
+</window>

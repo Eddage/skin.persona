@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="12">
+
+	<defaultcontrol always="true">3</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<onload condition="![Skin.HasSetting(global.background)| Skin.HasSetting(global.slideshow)]">Skin.ToggleSetting(global.background)</onload>
+	<onload condition="IsEmpty(Skin.String(global.slideshow)">Skin.SetString(global.slideshow,special://skin/backgrounds/slideshow/)</onload>
+	<onload condition="IsEmpty(Skin.String(background)">Skin.SetString(background,special://skin/backgrounds/default/Simple.png)</onload>
+	<onload condition="IsEmpty(Skin.String(MainColour))">Skin.SetString(MainColour,FF4bb4f6)</onload>
+	<onload condition="IsEmpty(Skin.String(video.custom.bg))">Skin.SetString(video.custom.bg,special://skin/backgrounds/video.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(movie.custom.bg))">Skin.SetString(movie.custom.bg,special://skin/backgrounds/movie.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(tv.custom.bg))">Skin.SetString(tv.custom.bg,special://skin/backgrounds/tv.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(music.custom.bg))">Skin.SetString(music.custom.bg,special://skin/backgrounds/music.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(picture.custom.bg))">Skin.SetString(picture.custom.bg,special://skin/backgrounds/picture.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(weather.custom.bg))">Skin.SetString(weather.custom.bg,special://skin/backgrounds/weather 1.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(addon.custom.bg))">Skin.SetString(addon.custom.bg,special://skin/backgrounds/addon.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(settings.custom.bg))">Skin.SetString(settings.custom.bg,special://skin/backgrounds/system.jpg)</onload>
+	<onload condition="IsEmpty(Skin.String(games.custom.bg))">Skin.SetString(games.custom.bg,special://skin/backgrounds/games.jpg)</onload>
+	<onload condition="![Skin.HasSetting(recent.movies.widget.1) | Skin.HasSetting(random.movies.widget.1) | Skin.HasSetting(recommended.movies.widget.1) | Skin.HasSetting(empty.movies.widget.1)]">Skin.ToggleSetting(recent.movies.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(youtube.trailers.widget.2) | Skin.HasSetting(recent.movies.widget.2) | Skin.HasSetting(random.movies.widget.2) | Skin.HasSetting(recommended.movies.widget.2) | Skin.HasSetting(empty.movies.widget.2)]">Skin.ToggleSetting(random.movies.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(recent.episodes.widget.1) | Skin.HasSetting(random.episodes.widget.1) | Skin.HasSetting(recommended.episodes.widget.1) | Skin.HasSetting(empty.episodes.widget.1)]">Skin.ToggleSetting(recent.episodes.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(recent.episodes.widget.2) | Skin.HasSetting(random.episodes.widget.2) | Skin.HasSetting(recommended.episodes.widget.2) | Skin.HasSetting(empty.episodes.widget.2)]">Skin.ToggleSetting(recommended.episodes.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(recent.played.albums.widget.1) | Skin.HasSetting(recent.added.albums.widget.1) | Skin.HasSetting(random.albums.widget.1) | Skin.HasSetting(empty.albums.widget.1)]">Skin.ToggleSetting(recent.added.albums.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(recent.played.albums.widget.2) | Skin.HasSetting(recent.added.albums.widget.2) | Skin.HasSetting(random.albums.widget.2) | Skin.HasSetting(empty.albums.widget.2)]">Skin.ToggleSetting(random.albums.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.1) | Skin.HasSetting(performance.widget.1) | Skin.HasSetting(network.widget.1) | Skin.HasSetting(user.widget.1) | Skin.HasSetting(empty.settings.widget.1)]">Skin.ToggleSetting(system.widget.1)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.2) | Skin.HasSetting(performance.widget.2) | Skin.HasSetting(network.widget.2) | Skin.HasSetting(user.widget.2) | Skin.HasSetting(empty.settings.widget.2)]">Skin.ToggleSetting(performance.widget.2)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.3) | Skin.HasSetting(performance.widget.3) | Skin.HasSetting(network.widget.3) | Skin.HasSetting(user.widget.3) | Skin.HasSetting(empty.settings.widget.3)]">Skin.ToggleSetting(network.widget.3)</onload>
+	<onload condition="![Skin.HasSetting(system.widget.4) | Skin.HasSetting(performance.widget.4) | Skin.HasSetting(network.widget.4) | Skin.HasSetting(user.widget.4) | Skin.HasSetting(empty.settings.widget.4)]">Skin.ToggleSetting(user.widget.4)</onload>
+	<onload condition="![Skin.HasSetting(games.widget.shape.dvd) | Skin.HasSetting(games.widget.shape.square) | Skin.HasSetting(games.widget.shape.rectangle)]">Skin.ToggleSetting(games.widget.shape.dvd)</onload>
+
+	<controls>
+	
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>Breadcrumb</include>
+		
+		<control type="group"> <!--content-->
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+
+			<control type="grouplist" id="3"> <!--categories-->
+				<left>658</left>
+				<top>240</top>
+				<width>600</width>
+				<height>720</height>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>5</onup>
+				<ondown>SetFocus(5,0)</ondown>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>	
+				<scrolltime>0</scrolltime>		
+			</control>
+
+			<control type="grouplist" id="5"> <!--options-->
+				<left>460</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>5</onleft>
+				<onright>5</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+			</control>
+		
+			<control type="group"> <!--left/right arrows focused-->
+				<visible>!ControlGroup(5).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="200" condition="ControlGroup(5).HasFocus">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>700</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(5).HasFocus">Conditional</animation>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>700</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]" flipx="true">symbols/previous-32.png</texture>
+					<animation effect="zoom" start="90" end="110" center="auto" time="400" pulse="true" condition="!ControlGroup(5).HasFocus">Conditional</animation>
+				</control>
+				
+			</control>
+		
+			<control type="group"> <!--left/right arrows unfocused-->
+				<visible>ControlGroup(5).HasFocus</visible>
+				<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+				
+				<control type="image" id="901"> <!--left arrow-->
+					<left>700</left>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT">symbols/previous-32.png</texture>
+				</control>
+					
+				<control type="image" id="901"> <!--left arrow-->
+					<right>700</right>
+					<top>254</top>
+					<width>28</width>
+					<height>28</height>
+					<texture colordiffuse="PrimaryT" flipx="true">symbols/previous-32.png</texture>
+				</control>
+				
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow up-->
+				<left>430</left>
+				<top>315</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61"> <!--scrollbar-->
+				<left>430</left>
+				<top>330</top>
+				<height>420</height>
+				<showonepage>false</showonepage>
+			</control>
+		
+			<control type="image"> <!--scrollbar arrow down-->
+				<left>430</left>
+				<top>758</top>
+				<width>7</width>
+				<height>7</height>
+				<texture colordiffuse="PrimaryM" flipy="true">controls/scrollarrow.png</texture>
+				<visible>Control.IsVisible(61)</visible>
+			</control>
+			
+		</control>
+
+		<control type="button" id="7"> <!--button-->
+		</control>
+
+		<control type="radiobutton" id="8"> <!--radio button-->
+			<width>1000</width>
+			<radioposx>940</radioposx>
+			<textwidth>895</textwidth>
+		</control>
+
+		<control type="spincontrolex" id="9"> <!--spin control ex-->
+			<width>1000</width>
+			<textwidth>895</textwidth>
+		</control>
+
+		<control type="button" id="10"> <!--category button-->
+			<width>600</width>
+			<align>center</align>
+			<font>MenuTitle</font>
+			<height>55</height>
+			<textoffsetx>0</textoffsetx>
+			<texturefocus>-</texturefocus>
+		</control>
+
+	</controls>
+
+</window>

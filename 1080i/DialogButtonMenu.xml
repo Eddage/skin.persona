@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window type="buttonMenu" id="111">
+
+	<defaultcontrol>9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<zorder>5</zorder>
+
+	<controls>
+		
+		<control type="group">
+			<include>DialogBG</include>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		</control>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+		
+			<control type="label"> <!--header-->
+				<centerleft>50%</centerleft>
+				<top>240</top>
+				<width>500</width>
+				<label>13005</label>
+				<font>MenuTitle</font>
+			</control>
+
+			<control type="grouplist" id="9000">
+				<centerleft>50%</centerleft>
+				<top>315</top>
+				<width>500</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+
+				<control type="button" id="1"> <!--close XBMC-->
+					<label>Close XBMC</label>
+					<onclick>XBMC.Quit()</onclick>
+					<visible>System.ShowExitButton</visible>
+				</control>
+
+				<control type="button" id="2"> <!--Master Mode-->
+					<label>20046</label>
+					<altlabel>20045</altlabel>
+					<onclick>xbmc.mastermode</onclick>
+					<visible>System.HasLocks</visible>
+				</control>
+
+				<control type="button" id="3"> <!--Log out-->
+					<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>System.LogOff</onclick>
+					<visible>System.Loggedon + System.HasLoginScreen</visible>
+				</control>
+
+				<control type="button" id="4"> <!--Shutdown-->
+					<label>13005</label>
+					<onclick>XBMC.Powerdown()</onclick>
+				</control>
+
+				<control type="button" id="5"> <!--Sleep-->
+					<label>13011</label>
+					<onclick>XBMC.Suspend()</onclick>
+				</control>
+
+				<control type="button" id="6"> <!--Hibernate-->
+					<label>13010</label>
+					<onclick>XBMC.Hibernate()</onclick>
+					<visible>System.CanHibernate</visible>
+				</control>
+
+				<control type="button" id="7"> <!--Restart-->
+					<label>13013</label>
+					<onclick>XBMC.Reset()</onclick>
+				</control>
+
+				<control type="button" id="11"> <!--Player Controls-->
+					<label>31015</label>
+					<onclick>Dialog.Close(shutdownmenu)</onclick>
+					<onclick>ActivateWindow(playercontrols)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+
+				<control type="button" id="8"> <!--Settings-->
+					<label>21417</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+				</control>
+      
+				<control type="button" id="13"> <!--Eject Disc-->
+					<label>13391</label>
+					<onclick>EjectTray()</onclick>
+				</control>
+      
+				<control type="button" id="14"> <!--Addons-->
+					<label>31046</label>
+					<onclick>ActivateWindow(AddonBrowser)</onclick>
+				</control>
+      
+				<control type="button" id="15"> <!--Global Search-->
+					<description>Global Search</description>
+					<label>31047</label>
+					<onclick>RunScript(script.globalsearch)</onclick>
+				</control>
+
+			</control>
+			
+			<include>MenuScrollbar</include>
+			
+		</control>
+
+	</controls>
+
+</window>

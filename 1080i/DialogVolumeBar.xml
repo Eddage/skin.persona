@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="104">
+
+	<defaultcontrol always="true">-</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<zorder>6</zorder>
+
+	<controls>
+
+		<control type="group">
+
+			<control type="group">
+				<visible>!player.passthrough</visible>
+				
+				<control type="group">
+					<right>-23</right>
+					<top>997</top>
+					<visible>!Window.IsVisible(fullscreenvideo)</visible>
+
+					<control type="image"> <!--volume icon-->
+						<right>100</right>
+						<width>38</width>
+						<height>38</height>
+						<texture colordiffuse="PrimaryT">symbols/volume_up-48.png</texture>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--volume-->
+						<right>160</right>
+						<top>3</top>
+						<width>600</width>
+						<height>30</height>
+						<font>NotificationTitle</font>
+						<align>right</align>
+						<label>$INFO[Player.Volume]</label>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+				</control>
+				
+				<control type="group">
+					<visible>Window.IsVisible(fullscreenvideo)</visible>
+
+					<control type="image"> <!--bg-->
+						<left>0</left>
+						<top>57</top>
+						<width>1920</width>
+						<height>68</height>
+						<texture colordiffuse="Black95">backgrounds/white.png</texture>
+						<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(fullscreeninfo) | Window.IsVisible(videoosd) | Window.IsVisible(seekbar)]</visible>
+					</control>
+			
+					<control type="image"> <!--volume icon-->
+						<right>75</right>
+						<top>74</top>
+						<width>38</width>
+						<height>38</height>
+						<texture colordiffuse="white">symbols/volume_up-48.png</texture>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--volume-->
+						<right>135</right>
+						<top>77</top>
+						<width>600</width>
+						<height>30</height>
+						<font>NotificationTitle</font>
+						<align>right</align>
+						<label>$INFO[Player.Volume]</label>
+						<textcolor>white</textcolor>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+				</control>
+
+				<control type="progress" id="1">
+					<visible>false</visible>
+				</control>
+
+			</control>
+
+			<control type="group">
+				<visible>player.passthrough</visible>
+				
+				<control type="group">
+					<right>-23</right>
+					<top>987</top>
+					<visible>!Window.IsVisible(fullscreenvideo)</visible>
+
+					<control type="image"> <!--volume icon-->
+						<right>100</right>
+						<width>38</width>
+						<height>38</height>
+						<texture colordiffuse="PrimaryT">symbols/volume_up-48.png</texture>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+
+					<control type="label"> <!--passthrough label-->
+						<right>160</right>
+						<top>3</top>
+						<width>495</width>
+						<height>30</height>
+						<font>NotificationTitle</font>
+						<align>right</align>
+						<label>29802</label>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+				</control>
+				
+				<control type="group">
+					<visible>Window.IsVisible(fullscreenvideo)</visible>
+
+					<control type="image"> <!--bg-->
+						<left>0</left>
+						<top>57</top>
+						<width>1920</width>
+						<height>68</height>
+						<texture colordiffuse="Black95">backgrounds/white.png</texture>
+						<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(fullscreeninfo) | Window.IsVisible(videoosd) | Window.IsVisible(seekbar)]</visible>
+					</control>
+			
+					<control type="image"> <!--volume icon-->
+						<right>75</right>
+						<top>74</top>
+						<width>38</width>
+						<height>38</height>
+						<texture colordiffuse="white">symbols/volume_up-48.png</texture>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--passthrough label-->
+						<right>135</right>
+						<top>77</top>
+						<width>495</width>
+						<height>30</height>
+						<font>NotificationTitle</font>
+						<align>right</align>
+						<label>29802</label>
+						<textcolor>white</textcolor>
+						<animation effect="slide" time="0" start="0,0" end="-60,0" condition="Window.IsVisible(mutebug)">Conditional</animation>
+					</control>
+					
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

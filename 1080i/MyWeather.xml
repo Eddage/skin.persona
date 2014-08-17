@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="2600">
+
+	<defaultcontrol always="true">9001</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>GlobalClock</include>
+		<include>GlobalItems</include>
+		<include>Breadcrumb</include>
+	  
+		<control type="label"> <!--updated time-->
+			<left>75</left>
+			<top>105</top>
+			<width>500</width>
+			<font>ButtonSmallUpper</font>
+			<textcolor>PrimaryT</textcolor>
+			<align>left</align>
+			<include>ViewAnimation</include>
+			<include>HiddenByMenu</include>
+			<label>$LOCALIZE[31103] $INFO[Window(Weather).Property(Updated)]</label>
+		</control>
+		
+		<control type="group">
+			<include>HiddenByMenu</include>
+			<include>ViewAnimation</include>
+		
+			<control type="button" id="9001">
+				<onleft>9000</onleft>
+				<onright>9002</onright>
+				<texturefocus>-</texturefocus>
+			</control>
+
+			<control type="label"> <!--current weather label-->
+				<posx>75</posx>
+				<posy>230</posy>
+				<width>1200</width>
+				<label>$LOCALIZE[31104]</label>
+				<font>MenuTitle</font>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+			</control>
+
+			<control type="group"> <!--current weather-->
+				<posx>20</posx>
+				<posy>210</posy>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+				
+				<control type="image"> <!--background-->
+					<posx>55</posx>
+					<posy>75</posy>
+					<width>550</width>
+					<height>632</height>
+					<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+				</control>
+					
+				<control type="image"> <!--strip no focus-->
+					<posx>55</posx>
+					<posy>365</posy>
+					<width>550</width>
+					<height>95</height>
+					<texture colordiffuse="SecondaryMT">backgrounds/white.png</texture>
+					<visible>!Control.HasFocus(9001)</visible>
+				</control>
+					
+				<control type="image"> <!--strip focus-->
+					<posx>55</posx>
+					<posy>365</posy>
+					<width>550</width>
+					<height>95</height>
+					<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+					<visible>Control.HasFocus(9001)</visible>
+				</control>
+						
+				<control type="image"> <!--icon-->
+					<posx>115</posx>
+					<posy>115</posy>
+					<width>200</width>
+					<height>200</height>
+					<texture background="true" colordiffuse="PrimaryT">$INFO[Window(Weather).Property(Current.FanartCode),weather/,.png]</texture>
+				</control>
+
+				<control type="label"> <!--temp-->
+					<posx>360</posx>
+					<posy>115</posy>
+					<width>520</width>
+					<height>200</height>
+					<label>$INFO[Window(Weather).Property(Current.Temperature),,°]</label>
+					<aligny>center</aligny>
+					<font>MusicTime</font>
+				</control>
+				
+				<control type="group"> <!--info-->
+					<posx>5</posx>
+					<posy>10</posy>
+
+					<control type="label"> <!--current condition-->
+						<posx>70</posx>
+						<posy>348</posy>
+						<width>520</width>
+						<height>65</height>
+						<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+					</control>
+
+					<control type="label"> <!--feels like-->
+						<posx>70</posx>
+						<posy>390</posy>
+						<width>520</width>
+						<height>65</height>
+						<label>$LOCALIZE[402] $INFO[Window(Weather).Property(Current.FeelsLike),,°]</label>
+					</control>
+					
+				</control>
+				
+				<control type="group">
+					<posx>75</posx>
+					<posy>410</posy>
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>50</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--sunrise label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[33027]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--sunrise-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Today.Sunrise)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>	
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>90</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--sunset label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[33028]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--sunset-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Today.Sunset)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>	
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>130</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--wind label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[404]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--wind-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Current.Wind)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>	
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>170</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--humidity label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[406]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--humidity-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Current.Humidity)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>210</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--UV Index label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[403]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--UV Index-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Current.UVIndex)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>
+
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>250</posy>
+						<width>600</width>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+					
+						<control type="label"> <!--dew point label-->
+							<height>40</height>
+							<width max="1800">auto</width>
+							<label>$LOCALIZE[405]:</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+					
+						<control type="label"> <!--UV Index-->
+							<width max="1800">auto</width>
+							<height>40</height>
+							<label>$INFO[Window(Weather).Property(Current.DewPoint)]</label>
+							<font>ButtonSmallUpper</font>
+						</control>
+
+					</control>
+					
+				</control>
+
+			</control>
+
+			<control type="label"> <!--hourly forecast label-->
+				<posx>645</posx>
+				<posy>230</posy>
+				<width>1200</width>
+				<label>$LOCALIZE[31105]</label>
+				<font>MenuTitle</font>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+			</control>
+
+			<control type="group"> <!--hourly forecast-->
+				<posx>645</posx>
+				<posy>210</posy>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+				
+				<control type="panel" id="9002">
+					<posx>0</posx>
+					<posy>75</posy>
+					<width>670</width>
+					<height>640</height>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					<onleft>9001</onleft>
+					<onright>9003</onright>
+					<orientation>vertical</orientation>
+					<viewtype label="535">icon</viewtype>
+					<scrolltime tween="quadratic" easing="out">450</scrolltime>
+					
+					<itemlayout width="650" height="128">
+					
+						<control type="image"> <!--tile bg-->
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>650</width>
+							<height>120</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>
+					
+						<control type="label"> <!--time-->
+							<posx>20</posx>
+							<posy>8</posy>
+							<width>200</width>
+							<label>$INFO[ListItem.Property(Time)]</label>
+						</control>
+					
+						<control type="label"> <!--date-->
+							<posx>20</posx>
+							<posy>45</posy>
+							<width>200</width>
+							<label>$INFO[ListItem.Property(Date)]</label>
+						</control>
+				
+						<control type="image"> <!--weather icon-->
+							<posx>150</posx>
+							<posy>20</posy>
+							<width>80</width>
+							<height>80</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>
+					
+						<control type="label"> <!--condition-->
+							<posx>260</posx>
+							<posy>0</posy>
+							<width>200</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Condition)]</label>
+							<wrapmultiline>true</wrapmultiline>
+							<scroll>false</scroll>
+						</control>
+					
+						<control type="label"> <!--temp-->
+							<posx>625</posx>
+							<posy>0</posy>
+							<width>500</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Temp)]</label>
+							<align>right</align>
+							<font>MusicNowPlaying</font>
+						</control>
+						
+					</itemlayout>
+					
+					<focusedlayout width="650" height="128">
+					
+						<control type="image"> <!--tile bg-->
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>650</width>
+							<height>120</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						</control>
+					
+						<control type="label"> <!--time-->
+							<posx>20</posx>
+							<posy>8</posy>
+							<width>200</width>
+							<label>$INFO[ListItem.Property(Time)]</label>
+						</control>
+					
+						<control type="label"> <!--date-->
+							<posx>20</posx>
+							<posy>45</posy>
+							<width>200</width>
+							<label>$INFO[ListItem.Property(Date)]</label>
+						</control>
+				
+						<control type="image"> <!--weather icon-->
+							<posx>150</posx>
+							<posy>20</posy>
+							<width>80</width>
+							<height>80</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>
+					
+						<control type="label"> <!--condition-->
+							<posx>260</posx>
+							<posy>0</posy>
+							<width>200</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Condition)]</label>
+							<wrapmultiline>true</wrapmultiline>
+						</control>
+					
+						<control type="label"> <!--temp-->
+							<posx>625</posx>
+							<posy>0</posy>
+							<width>500</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Temp)]</label>
+							<align>right</align>
+							<font>MusicNowPlaying</font>
+						</control>
+						
+					</focusedlayout>
+					
+					<content>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.1.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.1.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.1.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.1.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.1.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.2.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.2.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.2.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.2.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.2.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.3.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.3.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.3.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.3.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.3.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.4.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.4.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.4.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.4.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.4.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.5.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.5.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.5.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.5.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.5.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.6.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.6.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.6.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.6.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.6.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.7.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.7.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.7.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.7.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.7.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.8.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.8.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.8.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.8.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.8.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.9.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.9.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.9.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.9.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.9.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.10.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.10.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.10.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.10.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.10.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.11.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.11.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.11.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.11.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.11.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.12.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.12.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.12.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.12.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.12.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.13.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.13.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.13.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.13.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.13.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.14.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.14.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.14.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.14.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.14.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.15.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.15.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.15.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.15.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.15.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.16.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.16.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.16.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.16.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.16.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.17.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.17.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.17.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.17.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.17.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.18.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.18.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.18.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.18.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.18.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.19.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.19.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.19.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.19.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.19.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Time">$INFO[Window.Property(Hourly.20.Time)]</property>
+							<property name="Date">$INFO[Window.Property(Hourly.20.ShortDate)]</property>
+							<property name="Temp">$INFO[Window.Property(Hourly.20.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(Hourly.20.Outlook)]</property>
+							<thumb>$INFO[Window.Property(Hourly.20.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+						
+					</content>
+					
+				</control>				
+
+			</control>
+			
+			<control type="label"> <!--36 hour forecast label-->
+				<posx>1315</posx>
+				<posy>230</posy>
+				<width>1200</width>
+				<label>$LOCALIZE[31106]</label>
+				<font>MenuTitle</font>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+			</control>
+
+			<control type="group"> <!--36 hour forecast-->
+				<posx>1315</posx>
+				<posy>210</posy>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+				
+				<control type="panel" id="9003">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1300</width>
+					<height>750</height>
+					<onright>9004</onright>
+					<onleft>9002</onleft>
+					<onup>-</onup>
+					<ondown>-</ondown>
+					<viewtype label="535">icon</viewtype>
+					<orientation>horizontal</orientation>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<preloaditems>2</preloaditems>
+					<pagecontrol>60</pagecontrol>
+				
+					<itemlayout width="408" height="750">
+						
+						<control type="image"> <!--background-->
+							<posx>0</posx>
+							<posy>75</posy>
+							<width>400</width>
+							<height>632</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>
+						
+						<control type="image"> <!--weather icon-->
+							<posx>100</posx>
+							<posy>120</posy>
+							<width>200</width>
+							<height>200</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>	
+					
+						<control type="label"> <!--temp-->
+							<posx>200</posx>
+							<posy>310</posy>
+							<width>400</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Temp)]</label>
+							<align>center</align>
+							<font>MusicNowPlaying</font>
+						</control>						
+				
+						<control type="image"> <!--dark strip-->
+							<posx>0</posx>
+							<posy>440</posy>
+							<width>400</width>
+							<height>65</height>
+							<texture colordiffuse="SecondaryMT">backgrounds/white.png</texture>
+						</control>
+					
+						<control type="label"> <!--day-->
+							<posx>20</posx>
+							<posy>440</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Heading)]</label>
+						</control>
+				
+						<control type="textbox"> <!--forecast-->
+							<posx>20</posx>
+							<posy>515</posy>
+							<width>360</width>
+							<height>400</height>
+							<label>$INFO[ListItem.Property(Forecast)]</label>
+							<aligny>top</aligny>
+						</control>
+					
+					</itemlayout>
+
+					<focusedlayout width="408" height="750">
+						
+						<control type="image"> <!--background-->
+							<posx>0</posx>
+							<posy>75</posy>
+							<width>400</width>
+							<height>632</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>
+						
+						<control type="image"> <!--weather icon-->
+							<posx>100</posx>
+							<posy>120</posy>
+							<width>200</width>
+							<height>200</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>	
+					
+						<control type="label"> <!--temp-->
+							<posx>200</posx>
+							<posy>310</posy>
+							<width>400</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Temp)]</label>
+							<align>center</align>
+							<font>MusicNowPlaying</font>
+						</control>						
+				
+						<control type="image"> <!--dark strip-->
+							<posx>0</posx>
+							<posy>440</posy>
+							<width>400</width>
+							<height>65</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						</control>
+					
+						<control type="label"> <!--day-->
+							<posx>20</posx>
+							<posy>440</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Heading)]</label>
+						</control>
+				
+						<control type="textbox"> <!--forecast-->
+							<posx>20</posx>
+							<posy>515</posy>
+							<width>360</width>
+							<height>400</height>
+							<label>$INFO[ListItem.Property(Forecast)]</label>
+							<aligny>top</aligny>
+						</control>
+
+					</focusedlayout>
+							
+					<content>
+							
+						<item>
+							<property name="Forecast">$INFO[Window.Property(36Hour.1.Forecast)]</property>
+							<property name="Heading">$INFO[Window.Property(36Hour.1.Heading)]</property>
+							<property name="Temp">$INFO[Window.Property(36Hour.1.Temperature)]</property>
+							<property name="Condition">$INFO[Window.Property(36Hour.1.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(36Hour.1.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(36Hour.1.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+								
+						<item>
+							<property name="Forecast">$INFO[Window.Property(36Hour.2.Forecast)]</property>
+							<property name="Heading">$INFO[Window.Property(36Hour.2.Heading)]</property>
+							<property name="Temp">$INFO[Window.Property(36Hour.2.Temperature)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(36Hour.2.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(36Hour.2.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+								
+						<item>
+							<property name="Forecast">$INFO[Window.Property(36Hour.3.Forecast)]</property>
+							<property name="Heading">$INFO[Window.Property(36Hour.3.Heading)]</property>
+							<property name="Temp">$INFO[Window.Property(36Hour.3.Temperature)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(36Hour.3.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(36Hour.3.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+								
+					</content>
+				
+				</control>
+			
+			</control>
+			
+			<control type="label"> <!--10 day forecast label-->
+				<posx>2551</posx>
+				<posy>230</posy>
+				<width>1200</width>
+				<label>$LOCALIZE[31107]</label>
+				<font>MenuTitle</font>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+			</control>
+
+			<control type="group"> <!--10 day forecast-->
+				<posx>2551</posx>
+				<posy>210</posy>
+				<animation effect="slide" start="0,0" end="-1240,0" time="500" condition="Control.HasFocus(9003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-2475,0" time="500" condition="Control.HasFocus(9004)">Conditional</animation>
+
+				<control type="panel" id="9004">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1700</width>
+					<height>707</height>
+					<onright>9004</onright>
+					<onleft>9003</onleft>
+					<onup>-</onup>
+					<ondown>-</ondown>
+					<viewtype label="535">icon</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<preloaditems>2</preloaditems>
+					<pagecontrol>60</pagecontrol>
+				
+					<itemlayout width="320" height="320">
+							
+						<control type="image"> <!--background-->
+							<posx>0</posx>
+							<posy>75</posy>
+							<width>313</width>
+							<height>313</height>
+							<texture colordiffuse="TertiaryM">backgrounds/white.png</texture>
+						</control>	
+					
+						<control type="label"> <!--day-->
+							<posx>20</posx>
+							<posy>75</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Day)]</label>
+						</control>	
+					
+						<control type="label"> <!--date-->
+							<posx>20</posx>
+							<posy>105</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Date)]</label>
+						</control>
+						
+						<control type="image"> <!--weather icon-->
+							<posx>91.5</posx>
+							<posy>165</posy>
+							<width>130</width>
+							<height>130</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>	
+					
+						<control type="label"> <!--temp-->
+							<posx>158</posx>
+							<posy>265</posy>
+							<width>271</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(HighTemp)] / $INFO[ListItem.Property(LowTemp)]</label>
+							<align>center</align>
+						</control>	
+					
+						<control type="label"> <!--outlook-->
+							<posx>158</posx>
+							<posy>297</posy>
+							<width>271</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Outlook)]</label>
+							<align>center</align>
+							<scroll>false</scroll>
+						</control>
+					
+					</itemlayout>
+
+					<focusedlayout width="320" height="320">
+							
+						<control type="image"> <!--background-->
+							<posx>0</posx>
+							<posy>75</posy>
+							<width>313</width>
+							<height>313</height>
+							<texture colordiffuse="$INFO[Skin.String(MainColour)]">backgrounds/white.png</texture>
+						</control>	
+					
+						<control type="label"> <!--day-->
+							<posx>20</posx>
+							<posy>75</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Day)]</label>
+						</control>	
+					
+						<control type="label"> <!--date-->
+							<posx>20</posx>
+							<posy>105</posy>
+							<width>360</width>
+							<label>$INFO[ListItem.Property(Date)]</label>
+						</control>
+						
+						<control type="image"> <!--weather icon-->
+							<posx>91.5</posx>
+							<posy>165</posy>
+							<width>130</width>
+							<height>130</height>
+							<texture background="true" colordiffuse="PrimaryT">$INFO[ListItem.Thumb,weather/,.png]</texture>
+						</control>	
+					
+						<control type="label"> <!--temp-->
+							<posx>158</posx>
+							<posy>265</posy>
+							<width>271</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(HighTemp)] / $INFO[ListItem.Property(LowTemp)]</label>
+							<align>center</align>
+						</control>	
+					
+						<control type="label"> <!--outlook-->
+							<posx>158</posx>
+							<posy>297</posy>
+							<width>271</width>
+							<height>120</height>
+							<label>$INFO[ListItem.Property(Outlook)]</label>
+							<align>center</align>
+						</control>
+
+					</focusedlayout>
+							
+					<content>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.1.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.1.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.1.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.1.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.1.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.1.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.1.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.2.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.2.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.2.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.2.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.2.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.2.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.2.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.3.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.3.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.3.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.3.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.3.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.3.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.3.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.4.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.4.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.4.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.4.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.4.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.4.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.4.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.5.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.5.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.5.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.5.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.5.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.5.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.5.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.6.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.6.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.6.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.6.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.6.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.6.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.6.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.7.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.7.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.7.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.7.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.7.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.7.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.7.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.8.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.8.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.8.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.8.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.8.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.8.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.8.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.9.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.9.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.9.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.9.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.9.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.9.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.9.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+							
+						<item>
+							<property name="Day">$INFO[Window.Property(Daily.10.LongDay)]</property>
+							<property name="Date">$INFO[Window.Property(Daily.10.ShortDate)]</property>
+							<property name="HighTemp">$INFO[Window.Property(Daily.10.HighTemperature)]</property>
+							<property name="LowTemp">$INFO[Window.Property(Daily.10.LowTemperature)]</property>
+							<property name="Outlook">$INFO[Window.Property(Daily.10.Outlook)]</property>
+							<property name="ChancePrecipitation">$INFO[Window.Property(Daily.10.ChancePrecipitation)]</property>
+							<thumb>$INFO[Window.Property(Daily.10.FanartCode)]</thumb>
+							<onclick>-</onclick>
+						</item>
+								
+					</content>
+				
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--options-->
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus + !Window.IsActive(ShutdownMenu) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(mediafilter) + !Window.IsActive(filebrowser)</visible>
+			<include>FadeandZoom2</include>
+		
+			<control type="label">
+				<left>760</left>
+				<top>240</top>
+				<width>700</width>
+				<label>14018</label>
+				<font>MenuTitle</font>
+			</control>
+				
+			<control type="grouplist" id="9000"> <!--view options menu-->
+				<left>760</left>
+				<top>315</top>
+				<width>1000</width>
+				<height>450</height>
+				<itemgap>5</itemgap>
+				<onleft>9001</onleft>
+				<onright>9001</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onback>9000</onback>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<pagecontrol>61</pagecontrol>
+
+				<control type="button" id="2"> <!--refresh-->
+					<label>184</label>
+				</control>
+
+				<control type="button" id="4"> <!--settings-->
+					<label>5</label>
+					<onclick>ActivateWindow(weathersettings)</onclick>
+				</control>
+
+				<control type="spincontrolex" id="3"> <!--location select-->
+					<font>-</font>
+				</control>
+
+				<control type="radiobutton" id="300"> <!--settings-->
+					<label>31108</label>
+					<onclick>Skin.ToggleSetting(weather.custom.bg)</onclick>
+					<selected>Skin.HasSetting(weather.custom.bg)</selected>
+				</control>
+
+				<control type="button" id="301"> <!--choose bg-->
+					<label>31109</label>
+					<label2>$INFO[Skin.String(weather.custom.bg)]</label2>
+					<onclick>Skin.SetImage(weather.custom.bg)</onclick>
+					<enable>Skin.HasSetting(weather.custom.bg)</enable>
+				</control>
+
+			</control>
+
+			<control type="label"> <!--location label-->
+				<posx>773</posx>
+				<posy>443</posy>
+				<width>180</width>
+				<label>$INFO[Control.GetLabel(3)]</label>
+				<font>ButtonUpper</font>
+			</control>
+				
+		</control>
+
+	</controls>
+
+</window>

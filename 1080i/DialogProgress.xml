@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<window id="101">
+
+    <defaultcontrol always="true">10</defaultcontrol>
+	
+    <controls>
+		
+		<include>DialogBG</include>
+		
+		<control type="group">
+			<include>FadeandZoom</include>
+			<visible>!Window.IsActive(ShutdownMenu) + !Window.IsActive(selectdialog) + !Window.IsActive(virtualkeyboard) + !Window.IsActive(numericinput) + !Window.IsActive(okdialog)</visible>
+			
+			<control type="label" id="1"> <!--Header-->
+				<left>100</left>
+				<top>383</top>
+				<width>1720</width>
+				<font>MenuTitle</font>
+				<align>center</align>
+			</control>
+			
+			<control type="label" id="2"> <!--Line 1-->
+				<left>100</left>
+				<top>440</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+			
+			<control type="label" id="3"> <!--Line 2-->
+				<left>100</left>
+				<top>480</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+			
+			<control type="label" id="4"> <!--Line 3-->
+				<left>100</left>
+				<top>520</top>
+				<width>1720</width>
+				<align>center</align>
+				<label>-</label>
+			</control>
+
+			<control type="progress">
+				<description>Progressbar</description>
+				<left>675</left>
+				<top>590</top>
+				<width>570</width>
+				<info>System.Progressbar</info>
+			</control>
+		
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<top>620</top>
+				<width>190</width>
+				
+				<control type="button" id="10"> <!--cancel button-->
+					<include>OptionButton</include>
+					<label>222</label>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+    </controls>
+	
+</window>
