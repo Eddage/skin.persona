@@ -1,3 +1,11 @@
-﻿[B]17/08/2014 - 0.5.0[/B]
+﻿[b]23/08/2014 - 0.5.1[/b] 
+
+[FIX] Increased clock width to accommodate amp/pm
+[FIX] Removed duplicated button at bottom of home menu customisation window
+[FIX] Added a background to selectdialog when home menu customisation window is open
+[FIX] Removed PVR from default main menu (will add back when PVR section is coded)
+
+
+[B]17/08/2014 - 0.5.0[/B]
 
 First release.

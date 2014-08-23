@@ -347,7 +347,7 @@
 		<control type="label">
 			<right>75</right>
 			<top>50</top>
-			<width>200</width>
+			<width>400</width>
 			<label>$INFO[System.Time]</label>
 			<font>Breadcrumb</font>
 			<textcolor>PrimaryT</textcolor>

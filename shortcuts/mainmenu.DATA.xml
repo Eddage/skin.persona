@@ -41,14 +41,6 @@
 		<action>ActivateWindow(10001,"plugin://plugin.program.advanced.launcher/",return)</action>
 	</shortcut>
 	<shortcut>
-		<label>32022</label>
-		<label2>Common Shortcut</label2>
-		<defaultID>livetv</defaultID>
-		<icon>DefaultTVShows.png</icon>
-		<thumb />
-		<action>ActivateWindowAndFocus(MyPVR,34,0 ,13,0)</action>
-	</shortcut>
-	<shortcut>
 		<label>12600</label>
 		<label2>Common Shortcut</label2>
 		<defaultID>weather</defaultID>

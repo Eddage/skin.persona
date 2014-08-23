@@ -216,12 +216,6 @@
 					<onclick>noop</onclick>
 					<label>$ADDON[script.skinshortcuts 32072]</label>
 				</control>
-
-				<control type="button" id="401"> <!--sub menu-->
-					<include>OptionButtonBigger</include>
-					<onclick>noop</onclick>
-					<label>$ADDON[script.skinshortcuts 32072]</label>
-				</control>
 				
 			</control>
 
